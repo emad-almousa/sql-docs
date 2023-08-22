@@ -120,7 +120,7 @@ This demonstrates that Dynamic Data Masking shouldn't be used as an isolated mea
 
 It's important to properly manage the permissions on the database, and to always follow the minimal required permissions principle. Also, remember to have Auditing enabled to track all activities taking place on the database.
 
-## <a id="granular"></a> Granular permissions introduced in SQL Server 2022
+## <a id="granular"></a> Granular permissions introduced in SQL Server 
 
 Starting with [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)], you can prevent unauthorized access to sensitive data and gain control by masking it to an unauthorized user at different levels of the database. You can grant or revoke **UNMASK** permission at the database-level, schema-level, table-level or at the column-level to a user, database role, Azure AD identity or Azure AD group. This enhancement provides a more granular way to control and limit unauthorized access to data stored in the database and improve data security management.
 
