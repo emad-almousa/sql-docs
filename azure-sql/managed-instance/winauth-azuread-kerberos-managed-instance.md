@@ -2,12 +2,13 @@
 title: Configure Azure SQL Managed Instance for Windows Authentication for Azure Active Directory
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to configure Azure SQL Managed Instance for Windows Authentication for Azure Active Directory.
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: mathoma, bonova, urmilano, wiassaf, kendralittle
+author: sravanisaluru
+ms.author: srsaluru
+ms.reviewer: mathoma, bonova, urmilano, wiassaf
 ms.date: 03/01/2022
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ---
 
@@ -28,6 +29,7 @@ The following prerequisites are required to configure a managed instance for Win
 ## Configure Azure AD Authentication for Azure SQL Managed Instance
 
 To enable Windows Authentication for Azure AD Principals, you need to enable a system assigned service principal on each managed instance. The system assigned service principal allows managed instance users to authenticate using the Kerberos protocol. You also need to grant admin consent to each service principal.
+
 ### Enable a system assigned service principal
 
 To enable a system assigned service principal for a managed instance:

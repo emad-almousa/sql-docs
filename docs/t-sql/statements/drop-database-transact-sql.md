@@ -30,7 +30,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
 
 Removes one or more user databases or database snapshots from an instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
 
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -104,13 +104,13 @@ Dropping a database enable for Stretch Database does not remove the remote data.
 > [!IMPORTANT]  
 > Stretch Database is deprecated in [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)]. [!INCLUDE [ssNoteDepFutureAvoid-md](../../includes/ssnotedepfutureavoid-md.md)]
 
-### [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
+### [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)]
 
 You must be connected to the master database to drop a database.
 
  The DROP DATABASE statement must be the only statement in a SQL batch and you can drop only one database at a time.
 
-### [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)]
+### [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)]
 
 You must be connected to the master database to drop a database.
 
@@ -122,7 +122,7 @@ The DROP DATABASE statement must be the only statement in a SQL batch and you ca
 
 Requires the **CONTROL** permission on the database, or **ALTER ANY DATABASE** permission, or membership in the **db_owner** fixed database role.
 
-### [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
+### [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)]
 
 Only the server-level principal login (created by the provisioning process) or members of the **dbmanager** database role can drop a database.
 

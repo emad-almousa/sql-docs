@@ -25,7 +25,7 @@ dev_langs:
 
   Changes the name, password, or default schema of an application role.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax
   
@@ -77,7 +77,7 @@ If the new application role name already exists in the database, the statement w
  The following example changes the name of the application role `weekly_receipts` to `receipts_ledger`.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 CREATE APPLICATION ROLE weekly_receipts   
     WITH PASSWORD = '987Gbv8$76sPYY5m23' ,   
     DEFAULT_SCHEMA = Sales;  

@@ -1,12 +1,13 @@
 ---
+title: "SSIS How to Create an ETL Package"
 description: "SSIS How to Create an ETL Package"
-title: "SSIS How to Create an ETL Package | Microsoft Docs"
-ms.custom:
-  - intro-quickstart
+author: chugugrace
+ms.author: chugu
 ms.date: "03/24/2022"
 ms.service: sql
 ms.subservice: integration-services
 ms.topic: quickstart
+ms.custom: intro-quickstart
 helpviewer_keywords:
   - "SSIS, tutorials"
   - "packages [Integration Services], tutorials"
@@ -14,8 +15,6 @@ helpviewer_keywords:
   - "SQL Server Integration Services, tutorials"
   - "logs [Integration Services], tutorials"
   - "walkthroughs [Integration Services]"
-author: chugugrace
-ms.author: chugu
 ---
 # SSIS How to Create an ETL Package
 
@@ -41,7 +40,7 @@ To run this tutorial, you must have the following components installed:
   
 - [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] and [!INCLUDE[ssISnoversion](../includes/ssisnoversion-md.md)]. To install SQL Server and SSIS, see [Install Integration Services](install-windows/install-integration-services.md).
 
-- The **AdventureWorksDW2012** sample database. To download the **AdventureWorksDW2012** database, download `AdventureWorksDW2012.bak` from [AdventureWorks sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) and restore the backup.  
+- The [!INCLUDE [sssampledbdwobject-md](../includes/sssampledbdwobject-md.md)] sample database. You can download the [!INCLUDE [sssampledbdwobject-md](../includes/sssampledbdwobject-md.md)] database from [AdventureWorks sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) and restore the backup.  
 
 - The **sample data** files. The sample data is included with the [!INCLUDE[ssIS](../includes/ssis-md.md)] lesson packages. To download the sample data and the lesson packages as a Zip file, see [SQL Server Integration Services Tutorial Files](https://www.microsoft.com/download/details.aspx?id=56827).
 

@@ -1,17 +1,15 @@
 ---
-description: "MSSQLSERVER_17890"
 title: MSSQLSERVER_17890
-ms.custom: ""
+description: "MSSQLSERVER_17890"
+author: suresh-kandoth
+ms.author: sureshka
+ms.reviewer: vencher, tejasaks, docast
 ms.date: 12/25/2020
 ms.service: sql
-ms.reviewer: ramakoni1, pijocoder, suresh-kandoth, vencher, tejasaks, docast
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "17890 (Database Engine error)"
-ms.assetid: 
-author: suresh-kandoth
-ms.author: ramakoni
 ---
 # MSSQLSERVER_17890
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

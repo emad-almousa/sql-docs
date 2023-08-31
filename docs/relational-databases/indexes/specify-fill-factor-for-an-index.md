@@ -10,7 +10,6 @@ ms.topic: conceptual
 helpviewer_keywords:
   - "fill factor [SQL Server]"
   - "page splits [SQL Server]"
-ms.assetid: 237a577e-b42b-4adb-90cf-aa7fb174f3ab
 monikerRange: "=azuresqldb-current||>=sql-server-2016"
 ---
 # Specify Fill Factor for an Index
@@ -105,7 +104,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016"
 3.  Copy and paste the following example into the query window and click **Execute**. The example rebuilds an existing index and applies the specified fill factor during the rebuild operation.  
   
     ```sql
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     -- Rebuilds the IX_Employee_OrganizationLevel_OrganizationNode index   
     -- with a fill factor of 80 on the HumanResources.Employee table.  
@@ -124,7 +123,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016"
 3.  Copy and paste the following example into the query window and click **Execute**.  
   
     ```sql
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     -- Drops and re-creates the IX_Employee_OrganizationLevel_OrganizationNode index
     -- on the HumanResources.Employee table with a fill factor of 80.   

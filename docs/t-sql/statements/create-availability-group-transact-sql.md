@@ -7,7 +7,6 @@ ms.date: "10/16/2017"
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
-ms.custom: event-tier1-build-2022
 f1_keywords:
   - "AVAILABILITY GROUP"
   - "CREATE_AVAILABILITY_TSQL"
@@ -33,7 +32,7 @@ Creates a new availability group, if the instance of [!INCLUDE[ssNoVersion](../.
 > [!IMPORTANT]  
 >  Execute CREATE AVAILABILITY GROUP on the instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] that you intend to use as the initial primary replica of your new availability group. This server instance must reside on a Windows Server Failover Clustering (WSFC) node.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -117,7 +116,7 @@ Specifies the name of the new availability group. *group_name* must be a valid [
 
 #### AUTOMATED_BACKUP_PREFERENCE = { PRIMARY \| SECONDARY_ONLY \| SECONDARY \| NONE }  
 
-Specifies a preference about how a backup job should evaluate the primary replica when choosing where to perform backups. You can script a given backup job to take the automated backup preference into account. It is important to understand that the preference is not enforced by [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], so it has no impact on ad-hoc backups.  
+Specifies a preference about how a backup job should evaluate the primary replica when choosing where to perform backups. You can script a given backup job to take the automated backup preference into account. It is important to understand that the preference is not enforced by [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], so it has no impact on ad hoc backups.  
   
 The supported values are as follows:  
   
@@ -141,7 +140,7 @@ Specifies that backups should occur on a secondary replica except when the prima
 Specifies that you prefer that backup jobs ignore the role of the availability replicas when choosing the replica to perform backups. Note backup jobs might evaluate other factors such as backup priority of each availability replica in combination with its operational state and  connected state.  
   
 > [!IMPORTANT]  
->  There is no enforcement of the AUTOMATED_BACKUP_PREFERENCE setting. The interpretation of this preference depends on the logic, if any, that you script into back jobs for the databases in a given availability group. The automated backup preference setting has no impact on ad-hoc backups. For more information, see [Configure Backup on Availability Replicas &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server.md).  
+>  There is no enforcement of the AUTOMATED_BACKUP_PREFERENCE setting. The interpretation of this preference depends on the logic, if any, that you script into back jobs for the databases in a given availability group. The automated backup preference setting has no impact on ad hoc backups. For more information, see [Configure Backup on Availability Replicas &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server.md).  
   
 > [!NOTE]  
 >  To view the automated backup preference of an existing availability group, select the **automated_backup_preference** or **automated_backup_preference_desc** column of the [sys.availability_groups](../../relational-databases/system-catalog-views/sys-availability-groups-transact-sql.md) catalog view. Additionally, [sys.fn_hadr_backup_is_preferred_replica  &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-hadr-backup-is-preferred-replica-transact-sql.md) can be used to determine the preferred backup replica.  This function returns 1 for at least one of the replicas, even when `AUTOMATED_BACKUP_PREFERENCE = NONE`.  
@@ -219,7 +218,7 @@ Introduced in [!INCLUDE [sssql17-md](../../includes/sssql17-md.md)]. Sets a mini
 
 REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT relates to replicas in synchronous commit mode. When replicas are in synchronous commit mode, writes on the primary replica wait until writes on synchronous replicas commit to the replica database transaction log. If a SQL Server that hosts a secondary synchronous replica stops responding, the SQL Server that hosts the primary replica marks that secondary replica as NOT SYNCHRONIZED and proceeds. When the unresponsive database comes back online it will be in a "not synced" state and the replica is marked as unhealthy until the primary can synchronize it again. This setting guarantees that the primary replica does not proceed until the minimum number of replicas have committed each transaction. If the minimum number of replicas is not available, then commits on the primary fail. For cluster type `EXTERNAL` the setting is changed when the availability group is added to a cluster resource. See [High availability and data protection for availability group configurations](../../linux/sql-server-linux-availability-group-ha.md).
 
-Not supported for CREATE AVAILABILITY GROUP. However, beginning with [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)], you can use ALTER AVAILABILITY GROUP to set REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT. See [ALTER AVAILABILITY GROUP (Transact-SQL)](alter-availability-group-transact-sql.md).
+Not supported for CREATE AVAILABILITY GROUP. Beginning with [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)], you can use ALTER AVAILABILITY GROUP to set REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT on a distributed availability group. See [ALTER AVAILABILITY GROUP (Transact-SQL)](alter-availability-group-transact-sql.md).
 
 #### CLUSTER_TYPE
 
@@ -240,7 +239,7 @@ After you have created the availability group, connect to each server instance t
   
 #### REPLICA ON
 
-Specifies from one to five SQL server instances to host availability replicas in the new availability group.  Each replica is specified by its server instance address followed by a WITH (...) clause. Minimally, you must specify your local server instance, which becomes the initial primary replica. Optionally, you can also specify up to four secondary replicas.  
+Specifies from one to five SQL Server instances to host availability replicas in the new availability group.  Each replica is specified by its server instance address followed by a WITH (...) clause. Minimally, you must specify your local server instance, which becomes the initial primary replica. Optionally, you can also specify up to four secondary replicas.  
   
  You need to join every secondary replica to the availability group. For more information, see [ALTER AVAILABILITY GROUP &#40;Transact-SQL&#41;](../../t-sql/statements/alter-availability-group-transact-sql.md).  
   

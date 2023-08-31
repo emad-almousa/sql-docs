@@ -38,7 +38,7 @@ dev_langs:
 
 Reports and corrects pages and row count inaccuracies in the catalog views. These inaccuracies may cause incorrect space usage reports returned by the `sp_spaceused` system stored procedure.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -126,7 +126,7 @@ GO
 The following example reports updated page or row count information for the `Employee` table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
-DBCC UPDATEUSAGE (AdventureWorks2019, 'HumanResources.Employee');
+DBCC UPDATEUSAGE (AdventureWorks2022, 'HumanResources.Employee');
 GO
 ```
 

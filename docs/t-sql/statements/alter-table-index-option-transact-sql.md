@@ -4,11 +4,10 @@ description: ALTER TABLE index_option (Transact-SQL)
 author: markingmyname
 ms.author: maghan
 ms.reviewer: randolphwest
-ms.date: 05/24/2022
+ms.date: 06/06/2023
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
-ms.custom: event-tier1-build-2022
 helpviewer_keywords:
   - "index_option"
 dev_langs:
@@ -19,7 +18,7 @@ dev_langs:
 
   Specifies a set of options that can be applied to an index that is part of a constraint definition that is created by using [ALTER TABLE](../../t-sql/statements/alter-table-transact-sql.md).  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -222,7 +221,7 @@ Specifies whether or not to optimize for last-page insert contention. The defaul
  For more information about compression, see [Data Compression](../../relational-databases/data-compression/data-compression.md).  
   
 XML_COMPRESSION   
-**Applies to**: [!INCLUDE[sssql22-md](../../includes/sssql22-md.md)] and later, and [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] Preview.
+**Applies to**: [!INCLUDE[sssql22-md](../../includes/sssql22-md.md)] and later versions, [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)], and [!INCLUDE [ssazuremi](../../includes/ssazuremi_md.md)].
 
 Specifies the XML compression option for any **xml** data type columns in the table. The options are as follows:
 
@@ -236,9 +235,6 @@ ON PARTITIONS **(** { \<partition_number_expression> | \<range> } [ **,**...*n* 
  **Applies to**: [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] and later.  
   
  Specifies the partitions to which the DATA_COMPRESSION or XML_COMPRESSION settings apply. If the table isn't partitioned, the ON PARTITIONS argument generates an error. If the ON PARTITIONS clause isn't provided, the DATA_COMPRESSION or XML_COMPRESSION option applies to all partitions of a partitioned table.  
-
-> [!NOTE]  
-> XML_COMPRESSION is only available starting with [!INCLUDE[sssql22-md](../../includes/sssql22-md.md)], and [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] Preview.
   
 \<partition_number_expression> can be specified in the following ways:  
   

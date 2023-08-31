@@ -9,7 +9,6 @@ ms.date: 09/22/2020
 ms.service: sql
 ms.subservice: big-data-cluster
 ms.topic: conceptual
-ms.metadata: seo-lt-2019
 ---
 
 # Monitor Big Data Clusters status by using Azure Data Studio
@@ -26,7 +25,7 @@ After downloading the latest **insiders build** of [Azure Data Studio](../azure-
 
 1. Right-click on the big data cluster endpoint, and click **Manage**.
 
-   ![right click manage](media/view-cluster-status/right-click-manage.png)
+   ![right-click manage](media/view-cluster-status/right-click-manage.png)
 
 1. Select the **SQL Server Big Data Cluster** tab to access the big data cluster dashboard.
 

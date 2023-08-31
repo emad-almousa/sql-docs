@@ -1,15 +1,13 @@
 ---
+title: "Extended Protection for Authentication with Reporting Services"
 description: "Extended Protection for Authentication with Reporting Services"
-title: "Extended Protection for Authentication with Reporting Services | Microsoft Docs"
+author: maggiesMSFT
+ms.author: maggies
 ms.date: 06/22/2020
 ms.service: reporting-services
 ms.subservice: security
-
-
 ms.topic: conceptual
-ms.assetid: eb5c6f4a-3ed5-430b-a712-d5ed4b6b9b2b
-author: maggiesMSFT
-ms.author: maggies
+ms.custom: updatefrequency5
 ---
 
 # Extended Protection for Authentication with Reporting Services

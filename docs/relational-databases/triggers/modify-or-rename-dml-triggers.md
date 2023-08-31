@@ -1,19 +1,15 @@
 ---
+title: "Modify or Rename DML Triggers"
 description: "Modify or Rename DML Triggers"
-title: "Modify or Rename DML Triggers | Microsoft Docs"
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
 ms.date: "03/14/2017"
 ms.service: sql
-ms.reviewer: ""
-ms.subservice:
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "renaming triggers"
   - "modifying triggers"
   - "DML triggers, modifying"
-ms.assetid: c7317eec-c0e9-479e-a4a7-83b6b6c58d59
-author: MikeRayMSFT
-ms.author: mikeray
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Modify or Rename DML Triggers
@@ -92,7 +88,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 3.  Copy and paste the following examples into the query. Execute the first example to create a DML trigger that prints a user-defined message to the client when a user tries to add or change data in the `SalesPersonQuotaHistory` table. Execute the [ALTER TRIGGER](../../t-sql/statements/alter-trigger-transact-sql.md) statement to modify the trigger to fire only on `INSERT` activities. This trigger is helpful because it reminds the user that updates or inserts rows into this table to also notify the `Compensation` department.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 IF OBJECT_ID(N'Sales.bonus_reminder', N'TR') IS NOT NULL  
     DROP TRIGGER Sales.bonus_reminder;  
@@ -107,7 +103,7 @@ GO
 ```  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 ALTER TRIGGER Sales.bonus_reminder  
 ON Sales.SalesPersonQuotaHistory  
@@ -126,7 +122,7 @@ GO
 3.  Copy and paste the following example into the query window and click **Execute**. This example use the [DROP TRIGGER](../../t-sql/statements/drop-trigger-transact-sql.md) and [ALTER TRIGGER](../../t-sql/statements/alter-trigger-transact-sql.md) statements to rename the `Sales.bonus_reminder` trigger to `Sales.bonus_reminder_2`.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 IF OBJECT_ID(N'Sales.bonus_reminder', N'TR') IS NOT NULL  
     DROP TRIGGER Sales.bonus_reminder;  

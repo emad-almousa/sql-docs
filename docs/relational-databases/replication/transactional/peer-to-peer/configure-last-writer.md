@@ -3,17 +3,19 @@ title: Configure last writer conflict detection & resolution
 description: Describes how to configure last writer conflict detection and resolution for peer-to-peer replication.
 author: MikeRayMSFT
 ms.author: mikeray
+ms.date: 11/1/2021
 ms.service: sql
 ms.topic: how-to
-ms.date: 11/1/2021
-ms.custom: template-how-to 
+ms.custom:
+  - template-how-to
+  - updatefrequency5
 ---
 
 # Configure last writer conflict detection & resolution
 
 Beginning with [!INCLUDE [sssql19-md](../../../../includes/sssql19-md.md)] CU 13, you can configure peer-to-peer replication to automatically resolve conflicts by allowing the most recent insert or update to win the conflict. If either write deletes the row, SQL Server allows the delete to win the conflict. This method is known as last write wins.
 
-Use stored procedures to configure last write wins.
+Use stored procedures to configure last write wins. Do not use Peer-to-Peer Topology Wizard to add or remove nodes when you use last writer.
 
 ## Important configuration considerations
 

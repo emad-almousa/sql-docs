@@ -8,7 +8,6 @@ ms.date: 11/02/2022
 ms.service: sql
 ms.subservice: availability-groups
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 # Upgrade availability group replicas
 
@@ -95,6 +94,11 @@ If necessary, you can perform an extra manual failover to return the AG to its o
 > Upgrading a synchronous-commit replica and taking it offline will not delay transactions on the primary. Once the secondary replica is disconnected, transactions are committed on the primary without waiting for logs to harden on the secondary replica.
 >
 > If `REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT` is set to either `1` or `2`, the Primary replica may be unavailable for read/writes when a corresponding number of sync secondary replicas are not available during the update process.
+
+> [!NOTE]  
+> When you perform an in-place upgrade of a secondary replica to a newer version of SQL Server, the database inside the availability group remains in the **Synchronizing / In recovery** or **Synchronized / In Recovery** state until the availability group is manually failed over, which finishes the recovery and upgrades the database.  An upgraded primary replica can no longer ship logs to any lower version secondary replica and data movement stops and no automatic failover can occur for that replica, and your availability databases are vulnerable to data loss. After you upgrade the old primary, you may need to resume synchronization. It is recommended to upgrade all secondary replicas before failing over to a replica with the new version.  That way you have the option of doing a failover after the database(es) are upgraded to the new format.
+
+
 
 ## AG with one remote secondary replica
 
@@ -237,6 +241,7 @@ Depending on the update being applied, additional steps may be required for AG r
 
    > [!NOTE]  
    > This command may take several minutes to run.
+   > Skip this step if you're on SQL Server 2019 CU1 or later.  To learn more, review [KB4530283](https://support.microsoft.com/topic/kb4530283-improvement-execute-database-upgrade-scripts-when-database-state-changes-in-sql-server-2019-c824dd2a-2527-8d5d-82ef-b6c9f108ec9a) 
 
 1. Upgrade the instance that was originally the primary replica.
 

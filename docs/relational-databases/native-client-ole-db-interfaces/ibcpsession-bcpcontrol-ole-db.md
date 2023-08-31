@@ -1,24 +1,20 @@
 ---
+title: "IBCPSession::BCPControl (Native Client OLE DB provider)"
 description: "IBCPSession::BCPControl (Native Client OLE DB provider)"
-title: "IBCPSession::BCPControl (Native Client OLE DB provider) | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/14/2017"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: native-client
-ms.topic: "reference"
-apiname: 
-  - "IBCPSession::BCPControl (OLE DB)"
-apitype: "COM"
-helpviewer_keywords: 
-  - "BCPControl method"
-ms.assetid: d58f3fe1-45e3-4e46-8e9c-000971829d99
 author: markingmyname
 ms.author: maghan
+ms.date: "03/14/2017"
+ms.service: sql
+ms.subservice: native-client
+ms.topic: "reference"
+helpviewer_keywords:
+  - "BCPControl method"
+apiname: "IBCPSession::BCPControl (OLE DB)"
+apitype: "COM"
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # IBCPSession::BCPControl (Native Client OLE DB Provider)
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 > [!IMPORTANT]
 > [!INCLUDE[snac-removed-oledb-only](../../includes/snac-removed-oledb-only.md)]

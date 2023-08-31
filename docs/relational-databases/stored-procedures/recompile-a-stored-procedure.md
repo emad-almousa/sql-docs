@@ -1,23 +1,21 @@
 ---
 title: "Recompile a Stored Procedure"
 description: Learn details about how to recompile a stored procedure by using Transact-SQL.
-ms.custom: ""
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "12/01/2022"
 ms.service: sql
 ms.subservice: stored-procedures
-ms.reviewer: ""
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sp_recompile"
   - "WITH RECOMPILE clause"
   - "recompiling stored procedures"
   - "stored procedures [SQL Server], recompiling"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Recompile a Stored Procedure
-[!INCLUDE[SQL Server Azure SQL Database PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database PDW](../../includes/applies-to-version/sql-asdb-asdbmi-pdw.md)]
 
 This article describes how to recompile a stored procedure in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] by using [!INCLUDE[tsql](../../includes/tsql-md.md)]. There are three ways to do this: `WITH RECOMPILE` option in the procedure definition or when the procedure is called, the RECOMPILE query hint on individual statements, or by using the `sp_recompile` system stored procedure. 
 
@@ -65,7 +63,7 @@ If this option is used in an EXECUTE statement, it requires EXECUTE permissions 
 1. Copy and paste the following example into the query window and select **Execute**. This example creates the procedure definition.  
 
    ```sql
-   USE AdventureWorks2012;  
+   USE AdventureWorks2022;  
    GO  
    IF OBJECT_ID ( 'dbo.uspProductByVendor', 'P' ) IS NOT NULL   
        DROP PROCEDURE dbo.uspProductByVendor;  
@@ -88,7 +86,7 @@ If this option is used in an EXECUTE statement, it requires EXECUTE permissions 
 Select **New Query**, then copy and paste the following code example into the query window and select **Execute**. This executes the procedure and recompiles the procedure's query plan.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 EXECUTE HumanResources.uspProductByVendor WITH RECOMPILE;  
 GO
@@ -99,7 +97,7 @@ GO
 Select **New Query**, then copy and paste the following example into the query window and select **Execute**. This does not execute the procedure but it does mark the procedure to be recompiled so that its query plan is updated the next time that the procedure is executed.  
 
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 EXEC sp_recompile N'dbo.uspProductByVendor';   
 GO

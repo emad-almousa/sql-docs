@@ -8,7 +8,6 @@ ms.date: 10/20/2022
 ms.service: sql
 ms.subservice: release-landing
 ms.topic: conceptual
-ms.custom: sqlfreshmay19
 helpviewer_keywords:
   - "Setup [SQL Server], software"
   - "software [SQL Server]"
@@ -93,7 +92,7 @@ The following requirements apply to all installations:
 > [!IMPORTANT]  
 > There are additional hardware and software requirements for the PolyBase feature. For more information, see [Get started with PolyBase](../../relational-databases/polybase/polybase-guide.md).
 
-## Operate system support
+## Operating system support
 
 The following table shows which editions of [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)] are compatible with which versions of Windows:
 
@@ -146,7 +145,7 @@ For more information on installing [!INCLUDE[ssNoVersion](../../includes/ssnover
 
 ## <a id="CrossLanguageSupport"></a> Cross-language support
 
-For more information about cross-language support and considerations for installing [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] in localized languages, see [Local Language Versions in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ](../../sql-server/install/local-language-versions-in-sql-server.md).
+For more information about cross-language support and considerations for installing [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] in localized languages, see [Local Language Versions in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]](../../sql-server/install/local-language-versions-in-sql-server.md).
 
 ## <a id="HardDiskSpace"></a> Disk space requirements
 
@@ -179,7 +178,7 @@ Actual hard disk space requirements depend on your system configuration and the 
 The supported storage types for data files are:
 
 - Local Disk
-  - [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] currently supports disk drives that have standard native sector sizes of 512 bytes and 4 KB.  Hard disks with sector sizes larger than 4 KB may cause errors when attempting to store [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] data files on them.  See [Hard disk drive sector-size support boundaries in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ](https://support.microsoft.com/kb/926930) for more information on hard disk sector-size support in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. For more information, see [Troubleshoot errors related to system disk sector size greater than 4 KB](/troubleshoot/sql/admin/troubleshoot-os-4kb-disk-sector-size).
+  - [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] currently supports disk drives that have standard native sector sizes of 512 bytes and 4 KB.  Hard disks with sector sizes larger than 4 KB may cause errors when attempting to store [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] data files on them.  See [Hard disk drive sector-size support boundaries in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]](https://support.microsoft.com/kb/926930) for more information on hard disk sector-size support in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. For more information, see [Troubleshoot errors related to system disk sector size greater than 4 KB](/troubleshoot/sql/admin/troubleshoot-os-4kb-disk-sector-size).
   - [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] failover cluster installation supports Local Disk only for installing the `tempdb` files. Ensure that the path specified for the `tempdb` data and log files is valid on all the cluster nodes. During failover, if the `tempdb` directories are not available on the failover target node, the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] resource will fail to come online.
 - Shared Storage
 - [Storage Spaces Direct \(S2D\)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
@@ -203,7 +202,7 @@ For security reasons, we recommend that you do not install [!INCLUDE [ssnoversio
 You can get relevant installation media from the following locations:
 
 - [SQL Server evaluation center](https://www.microsoft.com/evalcenter/evaluate-sql-server-2022)
-- [Most recent cumulative updates](../../database-engine/install-windows/latest-updates-for-microsoft-sql-server.md)
+- [Most recent cumulative updates](/troubleshoot/sql/releases/download-and-install-latest-updates?bc=%2fsql%2fbreadcrumb%2ftoc.json&toc=%2fsql%2ftoc.json)
 
 Alternatively, you can create an [Azure virtual machine already running SQL Server](/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart) though [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]  on a virtual machine will be slower than running natively because of the overhead of virtualization.
 

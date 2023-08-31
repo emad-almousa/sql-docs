@@ -1,17 +1,15 @@
 ---
-description: "MSSQLSERVER_6522"
 title: MSSQLSERVER_6522
-ms.custom: ""
+description: "MSSQLSERVER_6522"
+author: suresh-kandoth
+ms.author: sureshka
+ms.reviewer: vencher, tejasaks, docast
 ms.date: 12/25/2020
 ms.service: sql
-ms.reviewer: ramakoni1, pijocoder, suresh-kandoth, vencher, tejasaks, docast
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "6522 (Database Engine error)"
-ms.assetid: 
-author: suresh-kandoth
-ms.author: ramakoni
 ---
 # MSSQLSERVER_6522
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

@@ -10,8 +10,8 @@ ms.service: sql-database
 ms.subservice: connect
 ms.topic: quickstart
 ms.custom:
-  - "sqldbrb=2"
-  - "mode-ui"
+  - sqldbrb=2
+  - mode-ui
 keywords: connect to sql database
 monikerRange: "= azuresql || = azuresql-db || = azuresql-mi"
 ---
@@ -31,7 +31,7 @@ monikerRange: "= azuresql || = azuresql-db || = azuresql-mi"
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
   | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md))| [Connectivity from a virtual machine (VM)](../managed-instance/connect-vm-instance-configure.md)|
   |||[Connectivity from on-premises](../managed-instance/point-to-site-p2s-configure.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md)
+  |Load data|Wide World Importers loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md)
   |||Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
 
   > [!IMPORTANT]
@@ -189,5 +189,5 @@ Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql) Transact-S
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Quickstart: Use SQL Server Management Studio to connect to a database in Azure SQL Database and query data](connect-query-ssms.md).
-- To connect and query using the Azure portal, see [Quickstart: Use the SQL Query editor in the Azure portal to connect and query data](connect-query-portal.md).
+- To connect and query using the Azure portal, see [Use the SQL Query editor in the Azure portal to connect and query data](query-editor.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](/archive/msdn-magazine/2017/june/data-points-visual-studio-code-create-a-database-ide-with-mssql-extension).

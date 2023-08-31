@@ -34,7 +34,7 @@ monikerRange: "= azuresqldb-current || >= sql-server-2016 || >= sql-server-linux
 
 Checks the current identity value for the specified table in [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] and, if needed, changes the identity value. You can also use `DBCC CHECKIDENT` to manually set a new current identity value for the identity column.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -129,7 +129,7 @@ When `DBCC CHECKIDENT` is used to specify a new seed value by using `RESEED <new
 
 Caller must own the schema that contains the table, or be a member of the **sysadmin** fixed server role, the **db_owner** fixed database role, or the **db_ddladmin** fixed database role.
 
-[!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)] requires **db_owner** permissions.
+[!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] requires **db_owner** permissions.
 
 ## Examples
 
@@ -138,7 +138,7 @@ Caller must own the schema that contains the table, or be a member of the **sysa
 The following example resets the current identity value, if it's needed, of the specified table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 DBCC CHECKIDENT ('Person.AddressType');
 GO
@@ -149,7 +149,7 @@ GO
 The following example reports the current identity value in the specified table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database, and doesn't correct the identity value if it's incorrect.
 
 ```sql
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 DBCC CHECKIDENT ('Person.AddressType', NORESEED);
 GO

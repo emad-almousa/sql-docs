@@ -1,20 +1,17 @@
 ---
+title: "Use Table-Valued Parameters (Database Engine)"
 description: "Use Table-Valued Parameters (Database Engine)"
-title: "Use Table-Valued Parameters (Database Engine) | Microsoft Docs"
-ms.custom: ""
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "03/16/2017"
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: table-view-index
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "table-valued parameters"
   - "table-valued parameters, about table-valued parameters"
   - "parameters [SQL Server], table-valued"
   - "TVP See table-valued parameters"
-ms.assetid: 5e95a382-1e01-4c74-81f5-055612c2ad99
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Use Table-Valued Parameters (Database Engine)
@@ -53,7 +50,7 @@ Table-valued parameters offer more flexibility and in some cases better performa
 - Are cached like a temp table when used in a stored procedure. Starting with [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)], table-valued parameters are also cached for parameterized queries.
 
 ## <a name="Permissions"></a> Permissions
-To create an instance of a User-Defined Table Type or call a stored procedure with a Table-valued parameter the user must have EXECUTE permission on the type, or on the schema or database containing the type.
+To create an instance of a User-Defined Table Type or call a stored procedure with a Table-valued parameter the user must have EXECUTE and REFERENCES permissions on the type, or on the schema or database containing the type.
 
 ## <a name="Restrictions"></a> Restrictions
 
@@ -87,7 +84,7 @@ CREATE PROCEDURE dbo. usp_InsertProductionLocation
    @TVP LocationTableType READONLY
       AS
       SET NOCOUNT ON
-      INSERT INTO AdventureWorks2012.Production.Location
+      INSERT INTO AdventureWorks2022.Production.Location
          (
             Name
             , CostRate
@@ -102,7 +99,7 @@ DECLARE @LocationTVP AS LocationTableType;
 /* Add data to the table variable. */
 INSERT INTO @LocationTVP (LocationName, CostRate)
    SELECT Name, 0.00
-   FROM AdventureWorks2012.Person.StateProvince;
+   FROM AdventureWorks2022.Person.StateProvince;
   
 /* Pass the table variable data to a stored procedure. */
 EXEC usp_InsertProductionLocation @LocationTVP;

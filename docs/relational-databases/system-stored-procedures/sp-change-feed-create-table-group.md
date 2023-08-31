@@ -1,46 +1,47 @@
 ---
-description: "The sp_change_feed_create_table_group system stored procedure enables the creation of new change feed table group within the current database"
 title: "sp_change_feed_create_table_group (Transact-SQL)"
-ms.date: 11/09/2022
-ms.service: synapse-analytics
-ms.reviewer: wiassaf
-ms.topic: "reference"
-f1_keywords: 
-  - "sp_change_feed_create_table_group_TSQL"
-  - "sp_change_feed_create_table_group_db"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
-  - "sp_change_feed_create_table_group"
+description: "The sp_change_feed_create_table_group system stored procedure enables the creation of new change feed table group within the current database"
 author: IdrisMotiwala
 ms.author: imotiwala
+ms.reviewer: wiassaf, randolphwest
+ms.date: 06/13/2023
+ms.service: synapse-analytics
+ms.topic: "reference"
+f1_keywords:
+  - "sp_change_feed_create_table_group_TSQL"
+  - "sp_change_feed_create_table_group_db"
+helpviewer_keywords:
+  - "sp_change_feed_create_table_group"
+dev_langs:
+  - "TSQL"
 monikerRange: ">=sql-server-ver16 || =azuresqldb-current"
 ---
 # sp_change_feed_create_table_group (Transact-SQL)
+
 [!INCLUDE [sqlserver2022-asdb](../../includes/applies-to-version/sqlserver2022-asdb.md)]
 
-Creates a source to maintain metadata specific to each table group. 
+Creates a source to maintain metadata specific to each table group.
 
 A table group represents the container for all the individual tables that will be replicated to the landing zone for [Azure Synapse Link for SQL](/azure/synapse-analytics/synapse-link/sql-synapse-link-overview). For more information, see [Manage Azure Synapse Link for SQL Server and Azure SQL Database](../../sql-server/synapse-link/synapse-link-sql-server-change-feed-manage.md).
 
-> [!NOTE]
+> [!NOTE]  
 > This stored procedure is used internally and is not recommended for direct administrative use. Use Synapse Studio instead. Using this procedure will introduce inconsistency with Synapse Workspace configuration.
 
-## Syntax  
-   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
-  
-```syntaxsql  
-EXECUTE sys.sp_change_feed_create_table_group
-    @table_group_id,
-    @table_group_name,
-    @workspace_id,
-    @destination_location,
-    @destination_credential
-GO
-```  
+## Syntax
 
-## Arguments  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+
+```syntaxsql
+EXECUTE sys.sp_change_feed_create_table_group
+    @table_group_id
+    , @table_group_name
+    , @workspace_id
+    , @destination_location
+    , @destination_credential
+[ ; ]
+```
+
+## Arguments
 
 #### @table_group_id
 
@@ -62,11 +63,11 @@ URL string of the landing zone folder.
 
 The credential name to access the landing zone.
 
-## Permissions  
+## Permissions
 
-  Currently, only a member of the sysadmin server role or db_owner role, or a user with CONTROL database permissions can execute this procedure.
+A user with [CONTROL database permissions](../security/permissions-database-engine.md), **db_owner** database role membership, or **sysadmin** server role membership can execute this procedure.
 
-## See also  
+## See also
 
 - [What is Azure Synapse Link for SQL?](/azure/synapse-analytics/synapse-link/sql-synapse-link-overview)
 - [sp_change_feed_enable_db (Transact-SQL)](sp-change-feed-enable-db.md)

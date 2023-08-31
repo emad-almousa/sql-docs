@@ -1,24 +1,20 @@
 ---
+title: "ISQLServerErrorInfo::GetErrorInfo (Native Client OLE DB provider)"
 description: "ISQLServerErrorInfo::GetErrorInfo (Native Client OLE DB provider)"
-title: "ISQLServerErrorInfo::GetErrorInfo (Native Client OLE DB provider) | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/16/2017"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: native-client
-ms.topic: "reference"
-apiname: 
-  - "ISQLServerErrorInfo::GetErrorInfo (OLE DB)"
-apitype: "COM"
-helpviewer_keywords: 
-  - "GetErrorInfo method"
-ms.assetid: 83265c9c-eaf9-41f0-9f73-b0ae0972f0d5
 author: markingmyname
 ms.author: maghan
+ms.date: "03/16/2017"
+ms.service: sql
+ms.subservice: native-client
+ms.topic: "reference"
+helpviewer_keywords:
+  - "GetErrorInfo method"
+apiname: "ISQLServerErrorInfo::GetErrorInfo (OLE DB)"
+apitype: "COM"
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # ISQLServerErrorInfo::GetErrorInfo (Native Client OLE DB Provider)
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 > [!IMPORTANT]
 > [!INCLUDE[snac-removed-oledb-only](../../includes/snac-removed-oledb-only.md)]

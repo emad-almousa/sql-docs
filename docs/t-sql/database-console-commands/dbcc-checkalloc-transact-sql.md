@@ -31,7 +31,7 @@ dev_langs:
 
 Checks the consistency of disk space allocation structures for a specified database.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -255,7 +255,7 @@ Requires membership in the sysadmin fixed server role or the db_owner fixed data
 
 ## Examples
 
-The following example executes `DBCC CHECKALLOC` for the current database and for the `AdventureWorks2022` database.
+The following example executes `DBCC CHECKALLOC` for the current database and for the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
 -- Check the current database.

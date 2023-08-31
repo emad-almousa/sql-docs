@@ -31,7 +31,7 @@ Rebuilds one or more indexes for a table in the specified database.
 
 **Applies to**: [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] and later versions.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -102,7 +102,7 @@ Caller must own the table, or be a member of the **sysadmin** fixed server role,
 
 ### A. Rebuild an index
 
-The following example rebuilds the `Employee_EmployeeID` clustered index with a fill factor of `80` on the `Employee` table in the `AdventureWorks2022` database.
+The following example rebuilds the `Employee_EmployeeID` clustered index with a fill factor of `80` on the `Employee` table in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
 USE AdventureWorks2022;
@@ -113,7 +113,7 @@ GO
 
 ### B. Rebuild all indexes
 
-The following example rebuilds all indexes on the `Employee` table in `AdventureWorks2022` by using a fill factor value of `70`.
+The following example rebuilds all indexes on the `Employee` table in [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] by using a fill factor value of `70`.
 
 ```sql
 USE AdventureWorks2022;

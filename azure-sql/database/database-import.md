@@ -1,17 +1,17 @@
 ---
 title: Import a .bacpac file to create a database in Azure SQL Database
 description: Create a new database in Azure SQL Database or Azure SQL Managed Instance from a .bacpac file.
-author: SudhirRaparla
-ms.author: nvraparl
-ms.reviewer: wiassaf, mathoma
-ms.date: 12/22/2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: jeschult, mathoma
+ms.date: 08/16/2023
 ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.topic: quickstart
 ms.custom:
-  - "sqldbrb=1"
-  - "devx-track-azurepowershell"
-  - "mode-api"
+  - sqldbrb=1
+  - devx-track-azurepowershell
+  - mode-api
 monikerRange: "= azuresql || = azuresql-db || = azuresql-mi"
 ---
 # Quickstart: Import a .bacpac file to a database in Azure SQL Database or Azure SQL Managed Instance
@@ -19,12 +19,6 @@ monikerRange: "= azuresql || = azuresql-db || = azuresql-mi"
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 You can import a SQL Server database into Azure SQL Database or SQL Managed Instance using a [.bacpac](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) file. You can import the data from a .bacpac file stored in Azure Blob storage (standard storage only) or from local storage in an on-premises location. To maximize import speed by providing more and faster resources, scale your database to a higher service tier and compute size during the import process. You can then scale down after the import is successful.
-
-> [!NOTE]  
-> The imported database's compatibility level is based on the source database's compatibility level.
-
-> [!IMPORTANT]  
-> After importing your database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
 > [!NOTE]  
 > [Import and Export using Private Link](database-import-export-private-link.md) is in preview.
@@ -109,7 +103,7 @@ $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>
     -StorageKey $(Get-AzStorageAccountKey `
         -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>").Value[0] `
         -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
-        -Edition "Standard" -ServiceObjectiveName "P6" `
+        -Edition "Premium" -ServiceObjectiveName "P6" `
         -AdministratorLogin "<userId>" `
         -AdministratorLoginPassword $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
 ```
@@ -151,17 +145,24 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## Cancel the import request
 
-Use the [Database Operations - Cancel API](/rest/api/sql/databaseoperations/cancel)
+Use the [Database Operations - Cancel API](/rest/api/sql/2022-08-01-preview/database-operations/cancel)
 or the [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) PowerShell command, as in the following example:
 
-```cmd
+```powershell
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
 ```
 
-> [!NOTE]  
-> To cancel import operation you will need to have one of the following roles:
-> - The [SQL DB Contributor](/azure/role-based-access-control/built-in-roles#sql-db-contributor) role or  
-> - A [custom Azure RBAC role](/azure/role-based-access-control/custom-roles) with `Microsoft.Sql/servers/databases/operations` permission
+### Permissions required to cancel import
+
+To cancel import operation you will need to have one of the following roles:
+
+- The [SQL DB Contributor](/azure/role-based-access-control/built-in-roles#sql-db-contributor) role or  
+- A [custom Azure RBAC role](/azure/role-based-access-control/custom-roles) with `Microsoft.Sql/servers/databases/operations` permission
+
+## Compatibility level of the new database
+
+- The imported database's compatibility level is based on the source database's compatibility level.
+- After importing your database, you can choose to operate the database at its current compatibility level or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
 ## Limitations
 
@@ -169,6 +170,7 @@ Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $Se
 - Import Export Service does not work when Allow access to Azure services is set to OFF. However you can work around the problem by manually running SqlPackage from an Azure VM or performing the export directly in your code by using the DacFx API.
 - Import does not support specifying a backup storage redundancy while creating a new database and creates with the default geo-redundant backup storage redundancy. To workaround, first create an empty database with desired backup storage redundancy using Azure portal or PowerShell and then import the .bacpac into this empty database.
 - Storage behind a firewall is currently not supported.
+- During the import process, do not create a database with the same name. The import process creates a new database of the specified name. 
 
 ## Additional tools
 

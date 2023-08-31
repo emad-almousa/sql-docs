@@ -34,7 +34,7 @@ items:
     - name: SQL Server 2019
       href: sql-server/sql-server-2019-release-notes.md
     - name: SQL Server 2017
-      href: sql-server/sql-server-2017-release-notes.md?toc=../toc.json
+      href: sql-server/sql-server-2017-release-notes.md
     - name: SQL Server 2016
       href: sql-server/sql-server-2016-release-notes.md
     - name: SQL Server 2014
@@ -63,6 +63,8 @@ items:
         href: relational-databases/backup-restore/quickstart-backup-restore-database.md
       - name: To Azure Blob Storage 
         href: relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service.md
+      - name: To S3-Compatible Object Storage
+        href: relational-databases/tutorial-sql-server-backup-and-restore-to-s3.md
     - name: How-to
       items:
       - name: Backup to Azure
@@ -109,6 +111,8 @@ items:
           href: relational-databases/backup-restore/back-up-the-transaction-log-when-the-database-is-damaged-sql-server.md
         - name: To a mirrored media set
           href: relational-databases/backup-restore/back-up-to-a-mirrored-media-set-transact-sql.md
+        - name: Schedule database backups
+          href: relational-databases/backup-restore/schedule-database-backup-operation-ssms.md
       - name: Restore
         items:
         - name: Use SQL Server Management Studio (SSMS)
@@ -589,7 +593,7 @@ items:
             href: database-engine/availability-groups/windows/cluster-dtc-for-sql-server-2016-availability-groups.md
         - name: Encrypted databases
           href: database-engine/availability-groups/windows/encrypted-databases-with-always-on-availability-groups-sql-server.md
-        - name: Failover cluster instances
+        - name: SQL Server Analysis Services (SSAS)
           href: database-engine/availability-groups/windows/analysis-services-with-always-on-availability-groups.md
         - name: FILESTREAM & FileTable
           href: database-engine/availability-groups/windows/filestream-and-filetable-with-always-on-availability-groups-sql-server.md
@@ -1009,7 +1013,7 @@ items:
       items:
       - name: Manage
         items:
-        - name: Create a Database
+        - name: Create a database
           href: relational-databases/databases/create-a-database.md
         - name: View databases
           href: relational-databases/databases/view-a-list-of-databases-on-an-instance-of-sql-server.md
@@ -1019,23 +1023,25 @@ items:
           href: relational-databases/databases/view-or-change-the-properties-of-a-database.md
         - name: Change configuration settings
           href: relational-databases/databases/change-the-configuration-settings-for-a-database.md
-        - name: Delete a Database
+        - name: Delete a database
           href: relational-databases/databases/delete-a-database.md
-        - name: Delete Data or Log Files from a Database
+        - name: Delete data or log files from a database
           href: relational-databases/databases/delete-data-or-log-files-from-a-database.md
-        - name: Display Data & Log Space Information for a Database
+        - name: Display data & log space information for a database
           href: relational-databases/databases/display-data-and-log-space-information-for-a-database.md
-        - name: Increase the Size of a Database
+        - name: Increase the size of a database
           href: relational-databases/databases/increase-the-size-of-a-database.md
-        - name: Manage Metadata
+        - name: Manage metadata
           href: relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server.md
-        - name: Rename
+        - name: Rename a database
           href: relational-databases/databases/rename-a-database.md
-        - name: Set Single-user Mode
+        - name: Set single-user mode
           href: relational-databases/databases/set-a-database-to-single-user-mode.md
-        - name: Shrink a Database
+        - name: Shrink a database
           href: relational-databases/databases/shrink-a-database.md
-        - name: Shrink a File
+        - name: Shrink the tempdb database
+          href: relational-databases/databases/shrink-tempdb-database.md
+        - name: Shrink a file
           href: relational-databases/databases/shrink-a-file.md
         - name: Compatibility level
           href: relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md
@@ -1235,59 +1241,63 @@ items:
       - name: DDL, Functions, Stored Procedures, & Views
         href: relational-databases/blob/filetable-ddl-functions-stored-procedures-and-views.md
   - name: Indexes
-    href: relational-databases/indexes/indexes.md
     items:
-    - name: Heaps (Tables without Clustered Indexes)
-      href: relational-databases/indexes/heaps-tables-without-clustered-indexes.md
-    - name: Clustered & Nonclustered Indexes
-      href: relational-databases/indexes/clustered-and-nonclustered-indexes-described.md
-      items:
-      - name: Create
+      - name: Overview
+        href: relational-databases/indexes/indexes.md
+      - name: Heaps (Tables without Clustered Indexes)
+        href: relational-databases/indexes/heaps-tables-without-clustered-indexes.md
+      - name: Clustered & Nonclustered Indexes
         items:
-        - name: Clustered Indexes
-          href: relational-databases/indexes/create-clustered-indexes.md
-        - name: Nonclustered Indexes
-          href: relational-databases/indexes/create-nonclustered-indexes.md
-        - name: Unique Indexes
-          href: relational-databases/indexes/create-unique-indexes.md
-        - name: Filtered Indexes
-          href: relational-databases/indexes/create-filtered-indexes.md
-        - name: With Included Columns
-          href: relational-databases/indexes/create-indexes-with-included-columns.md
-      - name: Delete
-        href: relational-databases/indexes/delete-an-index.md
-      - name: Modify
-        href: relational-databases/indexes/modify-an-index.md
-      - name: Move to a different filegroup
-        href: relational-databases/indexes/move-an-existing-index-to-a-different-filegroup.md
-      - name: Computed Columns
-        href: relational-databases/indexes/indexes-on-computed-columns.md
-      - name: SORT_IN_TEMPDB
-        href: relational-databases/indexes/sort-in-tempdb-option-for-indexes.md
-      - name: Disable
-        href: relational-databases/indexes/disable-indexes-and-constraints.md
-      - name: Enable
-        href: relational-databases/indexes/enable-indexes-and-constraints.md
-      - name: Rename
-        href: relational-databases/indexes/rename-indexes.md
-      - name: Set Options
-        href: relational-databases/indexes/set-index-options.md
-      - name: Tune nonclustered indexes with missing index suggestions
-        href: relational-databases/indexes/tune-nonclustered-missing-index-suggestions.md
-      - name: Disk Space Index DDL Operations
-        href: relational-databases/indexes/disk-space-requirements-for-index-ddl-operations.md
+        - name: Described
+          href: relational-databases/indexes/clustered-and-nonclustered-indexes-described.md
+        - name: Create
+          items:
+          - name: Clustered Indexes
+            href: relational-databases/indexes/create-clustered-indexes.md
+          - name: Nonclustered Indexes
+            href: relational-databases/indexes/create-nonclustered-indexes.md
+          - name: Unique Indexes
+            href: relational-databases/indexes/create-unique-indexes.md
+          - name: Filtered Indexes
+            href: relational-databases/indexes/create-filtered-indexes.md
+          - name: With Included Columns
+            href: relational-databases/indexes/create-indexes-with-included-columns.md
+        - name: Delete
+          href: relational-databases/indexes/delete-an-index.md
+        - name: Modify
+          href: relational-databases/indexes/modify-an-index.md
+        - name: Move to a different filegroup
+          href: relational-databases/indexes/move-an-existing-index-to-a-different-filegroup.md
+        - name: Computed Columns
+          href: relational-databases/indexes/indexes-on-computed-columns.md
+        - name: SORT_IN_TEMPDB
+          href: relational-databases/indexes/sort-in-tempdb-option-for-indexes.md
+        - name: Disable
+          href: relational-databases/indexes/disable-indexes-and-constraints.md
+        - name: Enable
+          href: relational-databases/indexes/enable-indexes-and-constraints.md
+        - name: Rename
+          href: relational-databases/indexes/rename-indexes.md
+        - name: Set Options
+          href: relational-databases/indexes/set-index-options.md
+        - name: Tune nonclustered indexes with missing index suggestions
+          href: relational-databases/indexes/tune-nonclustered-missing-index-suggestions.md
+        - name: Disk space index DDL operations
+          items:
+          - name: Disk space requirements
+            href: relational-databases/indexes/disk-space-requirements-for-index-ddl-operations.md
+          - name: Transaction log disk space
+            href: relational-databases/indexes/transaction-log-disk-space-for-index-operations.md
+          - name: Disk space example
+            href: relational-databases/indexes/index-disk-space-example.md
+        - name: Reorganize & rebuild
+          href: relational-databases/indexes/reorganize-and-rebuild-indexes.md
+        - name: Specify fill factor
+          href: relational-databases/indexes/specify-fill-factor-for-an-index.md
+      - name: Perform online operations
         items:
-        - name: Transaction Log Disk Space
-          href: relational-databases/indexes/transaction-log-disk-space-for-index-operations.md
-        - name: Disk Space Example
-          href: relational-databases/indexes/index-disk-space-example.md
-      - name: Reorganize & Rebuild
-        href: relational-databases/indexes/reorganize-and-rebuild-indexes.md
-      - name: Specify Fill Factor
-        href: relational-databases/indexes/specify-fill-factor-for-an-index.md
-      - name: Perform Online Operations
-        href: relational-databases/indexes/perform-index-operations-online.md
-        items:
+        - name: Overview
+          href: relational-databases/indexes/perform-index-operations-online.md
         - name: How it works
           href: relational-databases/indexes/how-online-index-operations-work.md
         - name: Guidelines
@@ -1296,23 +1306,24 @@ items:
         href: relational-databases/indexes/configure-parallel-index-operations.md
       - name: Index Properties F1 Help
         href: relational-databases/indexes/index-properties-f1-help.md
-    - name: Columnstore indexes
-      href: relational-databases/indexes/columnstore-indexes-overview.md
-      items:
-      - name: What's new
-        href: relational-databases/indexes/columnstore-indexes-what-s-new.md
-      - name: Design Guidance
-        href: relational-databases/indexes/columnstore-indexes-design-guidance.md
-      - name: Data loading Guidance
-        href: relational-databases/indexes/columnstore-indexes-data-loading-guidance.md
-      - name: Query performance
-        href: relational-databases/indexes/columnstore-indexes-query-performance.md
-      - name: Real-time operational analytics
-        href: relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics.md
-      - name: Data warehouse
-        href: relational-databases/indexes/columnstore-indexes-data-warehouse.md
-      - name: Defragment
-        href: relational-databases/indexes/reorganize-and-rebuild-indexes.md
+      - name: Columnstore indexes
+        items:
+        - name: Overview
+          href: relational-databases/indexes/columnstore-indexes-overview.md
+        - name: What's new
+          href: relational-databases/indexes/columnstore-indexes-what-s-new.md
+        - name: Design Guidance
+          href: relational-databases/indexes/columnstore-indexes-design-guidance.md
+        - name: Data loading Guidance
+          href: relational-databases/indexes/columnstore-indexes-data-loading-guidance.md
+        - name: Query performance
+          href: relational-databases/indexes/columnstore-indexes-query-performance.md
+        - name: Real-time operational analytics
+          href: relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics.md
+        - name: Data warehouse
+          href: relational-databases/indexes/columnstore-indexes-data-warehouse.md
+        - name: Defragment
+          href: relational-databases/indexes/reorganize-and-rebuild-indexes.md
   - name: SQL Graph
     href: relational-databases/graphs/sql-graph-overview.md
     items:
@@ -1993,7 +2004,7 @@ items:
         href: relational-databases/xml/create-views-over-xml-columns.md
       - name: Computed Columns
         href: relational-databases/xml/use-xml-in-computed-columns.md
-      - name: Retrieve & Query
+      - name: Query options and data
         href: relational-databases/xml/retrieve-and-query-xml-data.md
       - name: Add namespaces to queries
         href: relational-databases/xml/add-namespaces-to-queries-with-with-xmlnamespaces.md
@@ -4261,6 +4272,10 @@ items:
     href: relational-databases/sql-server-transaction-log-architecture-and-management-guide.md
   - name: Transaction Locking & Row Versioning Guide
     href: relational-databases/sql-server-transaction-locking-and-row-versioning-guide.md
+  - name: Optimized locking
+    href: relational-databases/performance/optimized-locking.md
+  - name: Deadlocks guide
+    href: relational-databases/sql-server-deadlocks-guide.md
   - name: Memory Management Architecture
     href: relational-databases/memory-management-architecture-guide.md
   - name: Diagnosing latch contention
@@ -4421,14 +4436,16 @@ items:
       - name: Change the Database Compatibility Mode with Query Tuning Assistant
         href: relational-databases/performance/upgrade-dbcompat-using-qta.md
       - name: Latest updates for SQL Server
-        href: database-engine/install-windows/latest-updates-for-microsoft-sql-server.md
+        href: /troubleshoot/sql/releases/download-and-install-latest-updates?toc=/sql/toc.json&bc=/sql/breadcrumb/toc.json
   - name: End of support
     items:
-    - name: Overview
+    - name: End of support options
       href: sql-server/end-of-support/sql-server-end-of-support-overview.md
       displayName: end of support, end of life
-    - name: Extended security updates
+    - name: Extended security updates (ESUs)
       href: sql-server/end-of-support/sql-server-extended-security-updates.md
+    - name: ESU frequently asked questions
+      href: sql-server/end-of-support/extended-security-updates-frequently-asked-questions.md
   - name: Configuration
     href: database-engine/configure-windows/database-engine-instances-sql-server.md
     items:
@@ -4593,7 +4610,7 @@ items:
         href: database-engine/configure-windows/configure-the-query-wait-server-configuration-option.md
       - name: Configure the recovery interval
         href: database-engine/configure-windows/configure-the-recovery-interval-server-configuration-option.md
-      - name: Configure the remote access
+      - name: Configure remote access
         href: database-engine/configure-windows/configure-the-remote-access-server-configuration-option.md
       - name: remote admin connections
         href: database-engine/configure-windows/remote-admin-connections-server-configuration-option.md
@@ -4668,18 +4685,18 @@ items:
           href: database-engine/configure-windows/scm-services-change-the-password-of-the-accounts-used.md
         - name: Configure SQL Server Error Logs
           href: database-engine/configure-windows/scm-services-configure-sql-server-error-logs.md
-    - name: Server Network Configuration
+    - name: Server network configuration
       href: database-engine/configure-windows/server-network-configuration.md
       items:
-      - name: Connect to SQL Server When System Administrators Are Locked Out
+      - name: Connect to SQL Server when system administrators are locked out
         href: database-engine/configure-windows/connect-to-sql-server-when-system-administrators-are-locked-out.md
-      - name: Default SQL Server Network Protocol Configuration
+      - name: Default SQL Server network protocol configuration
         href: database-engine/configure-windows/default-sql-server-network-protocol-configuration.md
-      - name: Enable or Disable a Server Network Protocol
+      - name: Enable or disable a server network protocol
         href: database-engine/configure-windows/enable-or-disable-a-server-network-protocol.md
-      - name: Configure a Server to Listen on a Specific TCP Port
+      - name: Configure a server to listen on a specific TCP port
         href: database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port.md
-      - name: Configure a Server to Listen on an Alternate Pipe
+      - name: Configure a server to listen on an alternate pipe
         href: database-engine/configure-windows/configure-a-server-to-listen-on-an-alternate-pipe.md
       - name: Encrypt connections to SQL Server
         items:
@@ -4695,23 +4712,23 @@ items:
           href: database-engine/configure-windows/certificate-procedures.md
         - name: SQL Server and client encryption summary
           href: database-engine/configure-windows/sql-server-and-client-encryption-summary.md
-      - name: Connect to SQL Server Through a Proxy Server
+      - name: Connect to SQL Server through a proxy server
         href: database-engine/configure-windows/connect-to-sql-server-through-a-proxy-server-sql-server-configuration-manager.md
-      - name: Configure a Windows Firewall for Database Engine Access
+      - name: Configure a Windows Firewall for Database Engine access
         href: database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md
-      - name: Hide an Instance of SQL Server Database Engine
+      - name: Hide an instance of SQL Server Database Engine
         href: database-engine/configure-windows/hide-an-instance-of-sql-server-database-engine.md
-      - name: Configure the Database Engine to Listen on Multiple TCP Ports
+      - name: Configure the Database Engine to listen on multiple TCP ports
         href: database-engine/configure-windows/configure-the-database-engine-to-listen-on-multiple-tcp-ports.md
       - name: How to enable the TCP protocol with SQLPS
         href: powershell/how-to-enable-tcp-sqlps.md
-      - name: Determine Whether the Database Engine Is Installed & Started
+      - name: Determine if the Database Engine is installed and started
         href: database-engine/configure-windows/determine-whether-the-database-engine-is-installed-and-started.md
-      - name: Connect to the Database Engine Using Extended Protection
+      - name: Connect to the Database Engine using Extended Protection
         href: database-engine/configure-windows/connect-to-the-database-engine-using-extended-protection.md
-      - name: Certificate Management
+      - name: Certificate management
         href: database-engine/configure-windows/manage-certificates.md
-      - name: Register a Service Principal Name for Kerberos Connections
+      - name: Register a Service Principal Name for Kerberos connections
         href: database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections.md
     - name: Client Network Configuration
       href: database-engine/configure-windows/client-network-configuration.md
@@ -4970,6 +4987,8 @@ items:
       items:
       - name: Configure replication
         items:
+        - name: With Azure AD authentication
+          href: relational-databases/replication/configure-replication-with-azure-ad-authentication.md
         - name: Distribution
           href: relational-databases/replication/configure-distribution.md
           items:
@@ -6156,11 +6175,11 @@ items:
       items:
       - name: Overview
         href: relational-databases/data-compression/data-compression.md
-      - name: Row Compression
+      - name: Row compression
         href: relational-databases/data-compression/row-compression-implementation.md
-      - name: Page Compression
+      - name: Page compression
         href: relational-databases/data-compression/page-compression-implementation.md
-      - name: Unicode Compression
+      - name: Unicode compression
         href: relational-databases/data-compression/unicode-compression-implementation.md
       - name: Enable
         href: relational-databases/data-compression/enable-compression-on-a-table-or-index.md
@@ -6414,43 +6433,6 @@ items:
         items:
         - name: Change the Target Recovery Time of a Database
           href: relational-databases/logs/change-the-target-recovery-time-of-a-database-sql-server.md
-    - name: SQL Server utility
-      href: relational-databases/manage/sql-server-utility-features-and-tasks.md
-      items:
-      - name: Considerations for Running Utility & non-Utility Collection Sets on the Same Instance of SQL Server
-        href: relational-databases/manage/run-utility-and-non-utility-collection-sets-on-same-sql-instance.md
-      - name: Create a SQL Server Utility Control Point
-        href: relational-databases/manage/create-a-sql-server-utility-control-point-sql-server-utility.md
-      - name: Connect to a SQL Server Utility
-        href: relational-databases/manage/connect-to-a-sql-server-utility.md
-      - name: Enroll an Instance of SQL Server
-        href: relational-databases/manage/enroll-an-instance-of-sql-server-sql-server-utility.md
-      - name: Use Utility Explorer to Manage the SQL Server Utility
-        href: relational-databases/manage/use-utility-explorer-to-manage-the-sql-server-utility.md
-      - name: Monitor Instances of SQL Server in the SQL Server Utility
-        href: relational-databases/manage/monitor-instances-of-sql-server-in-the-sql-server-utility.md
-      - name: View Resource Health Policy Results
-        href: relational-databases/manage/view-resource-health-policy-results-sql-server-utility.md
-      - name: Modify a Resource Health Policy Definition
-        href: relational-databases/manage/modify-a-resource-health-policy-definition-sql-server-utility.md
-      - name: Configure Your Utility Control Point Data Warehouse
-        href: relational-databases/manage/configure-your-utility-control-point-data-warehouse-sql-server-utility.md
-      - name: Configure Health Policies
-        href: relational-databases/manage/configure-health-policies-sql-server-utility.md
-      - name: Reduce Noise in CPU Utilization Policies
-        href: relational-databases/manage/reduce-noise-in-cpu-utilization-policies-sql-server-utility.md
-      - name: Remove an Instance of SQL Server from the SQL Server Utility
-        href: relational-databases/manage/remove-an-instance-of-sql-server-from-the-sql-server-utility.md
-      - name: Change the Proxy Account for the Utility Collection Set on a Managed Instance of SQL Server
-        href: relational-databases/manage/change-proxy-account-for-utility-collection-on-managed-sql-server.md
-      - name: Move a UCP from One Instance of SQL Server to Another
-        href: relational-databases/manage/move-a-ucp-from-one-instance-of-sql-server-to-another-sql-server-utility.md
-      - name: Remove a Utility Control Point
-        href: relational-databases/manage/remove-a-utility-control-point-sql-server-utility.md
-      - name: Troubleshoot SQL Server Resource Health
-        href: relational-databases/manage/troubleshoot-sql-server-resource-health-sql-server-utility.md
-      - name: Utility Explorer F1 Help
-        href: relational-databases/manage/utility-explorer-f1-help.md
     - name: SQL Assessment API
       href: tools/sql-assessment-api/sql-assessment-api-overview.md
   - name: Monitor
@@ -6756,7 +6738,7 @@ items:
     items:
     - name: Concepts
       items:
-      - name: Automatic Tuning
+      - name: Automatic tuning
         href: relational-databases/automatic-tuning/automatic-tuning.md
       - name: Cardinality estimation
         href: relational-databases/performance/cardinality-estimation-sql-server.md
@@ -6796,8 +6778,9 @@ items:
         - name: Tuning Database using workload from Query Store
           href: relational-databases/performance/tuning-database-using-workload-from-query-store.md
     - name: Execution plans
-      href: relational-databases/performance/execution-plans.md
       items:
+      - name: Overview
+        href: relational-databases/performance/execution-plans.md
       - name: Concepts
         items:
         - name: Query Profiling Infrastructure
@@ -7850,6 +7833,8 @@ items:
             items:
               - name: Set up SQL Server
                 items:
+                  - name: Without attestation
+                    href: relational-databases/security/encryption/always-encrypted-enclaves-no-attestation-plan.md
                   - name: Plan for Host Guardian Service attestation
                     href: relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-plan.md
                   - name: Deploy the Host Guardian Service
@@ -7870,6 +7855,10 @@ items:
             items:
               - name: Configure column encryption
                 href: relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption.md
+              - name: Configure columns encryption in-place with DACPAC
+                href: relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-dacpac.md
+              - name: Configure column encryption in-place with PowerShell
+                href: relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-powershell.md 
               - name: Configure column encryption in-place with Transact-SQL 
                 href: relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-tsql.md
               - name: Enable Always Encrypted with secure enclaves for existing encrypted columns
@@ -7881,7 +7870,7 @@ items:
           - name: Create and use indexes on enclave-enabled columns
             href: relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes.md
           - name: Develop applications using Always Encrypted with secure enclaves
-            href: relational-databases/security/encryption/always-encrypted-enclaves-client-development.md          
+            href: relational-databases/security/encryption/always-encrypted-enclaves-client-development.md        
       - name: Troubleshoot TDE
         href: relational-databases/security/encryption/troubleshoot-tde.md
       - name: Move a TDE protected database
@@ -8020,7 +8009,11 @@ items:
         - name: Always Encrypted cryptography
           href: relational-databases/security/encryption/always-encrypted-cryptography.md
       - name: Always Encrypted with secure enclaves
-        href: relational-databases/security/encryption/always-encrypted-enclaves.md
+        items:
+        - name: Always Encrypted with secure enclaves documentation
+          href: /azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing?toc=/sql/toc.json&bc=/sql/breadcrumb/toc.json
+        - name: Always Encrypted with secure enclaves overview
+          href: relational-databases/security/encryption/always-encrypted-enclaves.md
       - name: Encryption keys
         href: relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine.md
         items:
@@ -8059,8 +8052,10 @@ items:
         href: relational-databases/security/ledger/ledger-limits.md?view=sql-server-ver16&preserve-view=true
     - name: Networking
       items:
-      - name: TDS 8.0 and TLS 1.3
-        href: relational-databases/security/networking/tds-8-and-tls-1-3.md
+      - name: TDS 8.0
+        href: relational-databases/security/networking/tds-8.md
+      - name: TLS 1.3
+        href: relational-databases/security/networking/tls-1-3.md       
   - name: Tutorials
     items:
     - name: Always Encrypted
@@ -8069,9 +8064,11 @@ items:
         href: relational-databases/security/encryption/always-encrypted-tutorial-getting-started.md
     - name: Always Encrypted with secure enclaves
       items:
-      - name: Getting started with Always Encrypted with secure enclaves in SQL Server
+      - name: Always Encrypted with secure enclaves in SQL Server
         href: relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves.md
-      - name: Getting started with Always Encrypted with secure enclaves in Azure SQL Database >
+      - name: Always Encrypted with secure enclaves in SQL Server using HGS
+        href: relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves-hgs.md
+      - name: Getting started using Always Encrypted with secure enclaves in Azure SQL Database >
         href: /azure/azure-sql/database/always-encrypted-enclaves-getting-started
       - name: Create and use indexes on Always Encrypted with secure enclaves columns
         href: relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption.md
@@ -8246,8 +8243,6 @@ items:
         href: tools/distributed-replay/status-option-distributed-replay-administration-tool.md
       - name: Cancel Option
         href: tools/distributed-replay/cancel-option-distributed-replay-administration-tool.md
-  - name: Go-SQLCMD
-    href: tools/go-sqlcmd-utility.md
   - name: SQL Server Configuration Manager
     href: tools/configuration-manager/sql-server-services.md
     items:
@@ -8398,18 +8393,22 @@ items:
         href: tools/configuration-manager/viewing-the-windows-application-log.md
   - name: SQLCMD
     items:
-    - name: sqlcmd Overview
-      href: tools/sqlcmd-utility.md
-    - name: Start the Utility
-      href: ssms/scripting/sqlcmd-start-the-utility.md
-    - name: Use the Utility
-      href: ssms/scripting/sqlcmd-use-the-utility.md
+    - name: sqlcmd overview
+      href: tools/sqlcmd/sqlcmd-utility.md
+    - name: Authenticate sqlcmd with Azure AD
+      href: tools/sqlcmd/sqlcmd-authentication.md
+    - name: Start the utility
+      href: tools/sqlcmd/sqlcmd-start-utility.md
+    - name: Use the utility
+      href: tools/sqlcmd/sqlcmd-use-utility.md
     - name: Connect to the Database Engine
-      href: ssms/scripting/sqlcmd-connect-to-the-database-engine.md
-    - name: Run T-SQL Script Files
-      href: ssms/scripting/sqlcmd-run-transact-sql-script-files.md
-    - name: Use with Scripting Variables
-      href: ssms/scripting/sqlcmd-use-with-scripting-variables.md
+      href: tools/sqlcmd/sqlcmd-connect-database-engine.md
+    - name: Run T-SQL script files
+      href: tools/sqlcmd/sqlcmd-run-transact-sql-script-files.md
+    - name: Use with scripting variables
+      href: tools/sqlcmd/sqlcmd-use-scripting-variables.md
+    - name: Edit SQLCMD scripts with Query Editor
+      href: tools/sqlcmd/edit-sqlcmd-scripts-query-editor.md
   - name: SSB Diagnose
     href: tools/ssbdiagnose/ssbdiagnose-utility-service-broker.md
     items:
@@ -8427,8 +8426,6 @@ items:
       href: ssdt/sql-server-data-tools.md
     - name: Download SSDT
       href: ssdt/download-sql-server-data-tools-ssdt.md
-    - name: Release notes for SSDT in VS2017
-      href: ssdt/release-notes-ssdt.md
     - name: Previous releases of SSDT & SSDT-BI
       href: ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi.md
     - name: Anonymous Usage Data
@@ -8609,22 +8606,16 @@ items:
         href: ssdt/dac-framework-compatibility.md
     - name: Alter DacFx Used by SSDT
       href: ssdt/alter-dacfx-used-by-ssdt.md
-    - name: SSIS Projects extension for VS2019 troubleshooting guide
-      href: ssdt/release-notes-ssdt-2019.md
-    - name: SSIS Projects extension for VS2022 troubleshooting guide
-      href: ssdt/release-notes-integration-services-2022.md
+    - name: VS2019 SSIS troubleshooting guide
+      href: ssdt/ssis-vs2019-troubleshooting-guide.md
+    - name: VS2022 SSIS troubleshooting guide
+      href: ssdt/ssis-vs2022-troubleshooting-guide.md
   - name: SQL Server Management Studio (SSMS)
     items:
     - name: Download SSMS
       href: ssms/download-sql-server-management-studio-ssms.md
     - name: Release notes
       href: ssms/release-notes-ssms.md    
-    - name: Preview
-      items:
-      - name: Download SSMS 19 (Preview)
-        href: ssms/download-sql-server-management-studio-ssms-19.md
-      - name: SSMS 19 (Preview) release notes
-        href: ssms/release-notes-ssms-19.md
     - name: Overview
       items:
       - name: SQL Server Management Studio (SSMS)
@@ -8823,8 +8814,6 @@ items:
             href: ssms/scripting/search-documents-interactively.md
           - name: Search Documents Using Results Lists
             href: ssms/scripting/search-documents-using-results-lists.md
-          - name: Search Text with Wildcards
-            href: ssms/scripting/search-text-with-wildcards.md
           - name: Search Text with Regular Expressions
             href: ssms/scripting/search-text-with-regular-expressions.md
           - name: Find & Replace
@@ -9263,8 +9252,6 @@ items:
           href: ssms/scripting/manage-code-formatting.md
         - name: Navigate Code & Text
           href: ssms/scripting/navigate-code-and-text.md
-        - name: Edit SQLCMD Scripts with Query Editor
-          href: ssms/scripting/edit-sqlcmd-scripts-with-query-editor.md
     - name: References
       items:
       - name: SQL Server Management Objects (SMO)
@@ -9287,8 +9274,6 @@ items:
           href: ssms/property-pages-in-sql-server-management-studio.md
         - name: Properties Window in SSMS
           href: ssms/properties-window-management-studio.md
-        - name: Output Window in SSMS
-          href: ssms/output-window.md
         - name: Use the Toolbox
           href: ssms/use-the-toolbox.md
       - name: F1 help
@@ -9341,38 +9326,44 @@ items:
           href: ssms/menu-help/sql-server-management-studio-menu-help.md
         - name: Properties Window F1 Help (Management Studio)
           href: ssms/menu-help/properties-window-f1-help-management-studio.md
-        - name: Options (Environment - Fonts & Colors Page)
-          href: ssms/menu-help/options-environment-fonts-and-colors-page.md
+        - name: Options Dialog Boxes F1 Help
+          href: ssms/menu-help/options-dialog-boxes-f1-help.md
         - name: Options (Environment - Help - General Page)
           href: ssms/menu-help/options-environment-help-general-page.md
+        - name: Options (Environment - General Page)
+          href: ssms/menu-help/options-environment-general-page.md
+        - name: Options (Environment - Fonts & Colors Page)
+          href: ssms/menu-help/options-environment-fonts-and-colors-page.md
+        - name: Options (Environment - Keyboard Page)
+          href: ssms/menu-help/options-environment-keyboard-page.md
+        - name: Options (Environment - Startup Page)
+          href: ssms/menu-help/options-environment-startup-page.md
         - name: Options (Query Execution options - Help - General Page)
           href: ssms/menu-help/options-query-execution.md
-        - name: Options (Output Window)
-          href: ssms/menu-help/options-output-window-page.md
+        - name: Options (Designers - Table & Database Designers Page)
+          href: ssms/menu-help/options-designers-table-and-database-designers-page.md
+        - name: Options (Designers - Analysis Services Designers - General)
+          href: ssms/menu-help/options-designers-analysis-services-designers-general.md
         - name: Options (Azure Service - Help - General Page)
           href: ssms/menu-help/options-azure-services.md
+        - name: Options (SQL Server Object Explorer Commands window)
+          href: ssms/menu-help/options-sql-server-object-explorer-commands.md
+        - name: Options (Output window)
+          href: ssms/menu-help/options-output-window-page.md
+        - name: Options (SQL Server Object Explorer - Scripting)
+          href: ssms/menu-help/options-sql-server-object-explorer-scripting.md
         - name: External Tools
           href: ssms/menu-help/external-tools.md
         - name: Customize (Commands Page)
           href: ssms/menu-help/customize-commands-page.md
-        - name: Options (Environment - General Page)
-          href: ssms/menu-help/options-environment-general-page.md
-        - name: Options (Environment - Startup Page)
-          href: ssms/menu-help/options-environment-startup-page.md
-        - name: Options Dialog Boxes F1 Help
-          href: ssms/menu-help/options-dialog-boxes-f1-help.md
         - name: Choose Toolbox Items (Maintenance Tasks Page)
           href: ssms/menu-help/choose-toolbox-items-maintenance-tasks-page.md
-        - name: Options (Designers - Table & Database Designers Page)
-          href: ssms/menu-help/options-designers-table-and-database-designers-page.md
         - name: About SQL Server Management Studio
           href: ssms/menu-help/about-sql-server-management-studio.md
         - name: Save Changes
           href: ssms/menu-help/save-changes.md
         - name: Open With (New File)
           href: ssms/menu-help/open-with-new-file.md
-        - name: Options (Designers - Analysis Services Designers - General)
-          href: ssms/menu-help/options-designers-analysis-services-designers-general.md
         - name: Windows Dialog Box (Microsoft Document Explorer Help)
           href: ssms/menu-help/windows-dialog-box-microsoft-document-explorer-help.md
         - name: Advanced Save Options
@@ -9387,8 +9378,6 @@ items:
           href: ssms/menu-help/choose-search-folders-dialog-box-visual-studio.md
         - name: Options (Environment - Help - Online Page)
           href: ssms/menu-help/options-environment-help-online-page.md
-        - name: Options (Environment - Keyboard Page)
-          href: ssms/menu-help/options-environment-keyboard-page.md
         - name: Object Explorer
           href: ssms/object/object-explorer.md
         - name: Add Steps to a SQL Server Agent Master Job
@@ -9417,10 +9406,6 @@ items:
           href: ssms/object/select-object-types-object-explorer.md
         - name: Select Objects (Object Explorer)
           href: ssms/object/select-objects-object-explorer.md
-        - name: Options (SQL Server Object Explorer - Scripting Page)
-          href: ssms/object/options-sql-server-object-explorer-scripting-page.md
-        - name: Filter Settings (Object Explorer & Utility Explorer)
-          href: ssms/object/filter-settings-object-explorer-and-utility-explorer.md
         - name: Delete Objects
           href: ssms/object/delete-objects.md
         - name: Add a Custom Report to Management Studio
@@ -9429,8 +9414,6 @@ items:
           href: ssms/object/custom-reports-in-management-studio.md
         - name: Add Objects
           href: ssms/object/add-objects.md
-        - name: Options (SQL Server Object Explorer - Commands)
-          href: ssms/object/options-sql-server-object-explorer-commands.md
         - name: Unsuppress Run Custom Report Warnings
           href: ssms/object/unsuppress-run-custom-report-warnings.md
       - name: Solution explorer
@@ -10055,7 +10038,7 @@ items:
       href: relational-databases/tutorial-signing-stored-procedures-with-a-certificate.md
     - name: Ownership Chains & Context Switching
       href: relational-databases/tutorial-ownership-chains-and-context-switching.md
-    - name: Using Azure Blob Storage with SQL Server 2016 databases
+    - name: Use Azure Blob Storage with SQL Server databases
       href: relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016.md
   - name: Writing T-SQL Statements
     href: t-sql/tutorial-writing-transact-sql-statements.md
@@ -10087,13 +10070,13 @@ items:
         href: linux/sql-server-linux-release-notes-2017.md
     - name: Release history
       items:
-      - name: SQL Server 2022
-        href: linux/sql-server-linux-release-history-2022.md
-      - name: SQL Server 2019
-        href: linux/sql-server-linux-release-history-2019.md
-      - name: SQL Server 2017
-        href: linux/sql-server-linux-release-history-2017.md
-    - name: Editions & Features
+      - name: SQL Server 2022 >
+        href: /troubleshoot/sql/linux/release-history-2022?toc=/sql/toc.json&bc=/sql/breadcrumb/toc.json
+      - name: SQL Server 2019 >
+        href: /troubleshoot/sql/linux/release-history-2019?toc=/sql/toc.json&bc=/sql/breadcrumb/toc.json
+      - name: SQL Server 2017 >
+        href: /troubleshoot/sql/linux/release-history-2017?toc=/sql/toc.json&bc=/sql/breadcrumb/toc.json
+    - name: Editions and features
       items:
       - name: SQL Server 2022
         href: linux/sql-server-linux-editions-and-components-2022.md
@@ -10105,21 +10088,21 @@ items:
       href: linux/sql-server-linux-faq.yml
   - name: Quickstarts
     items:
-    - name: Install & Connect - Red Hat
+    - name: Install and connect (Red Hat)
       href: linux/quickstart-install-connect-red-hat.md
-    - name: Install & Connect - SUSE
+    - name: Install and connect (SUSE)
       href: linux/quickstart-install-connect-suse.md
-    - name: Install & Connect - Ubuntu
+    - name: Install and connect (Ubuntu)
       href: linux/quickstart-install-connect-ubuntu.md
-    - name: Run & Connect - Container
+    - name: Run and connect (containers)
       href: linux/quickstart-install-connect-docker.md
-    - name: Deploy SQL Server container - Kubernetes
-      href: linux/quickstart-sql-server-containers-kubernetes.md
+    - name: Deploy SQL Server container cluster
+      href: linux/quickstart-sql-server-containers-azure.md
     - name: Deploy to Azure VMs with Ansible playbook
       href: linux/sql-server-linux-deploy-ansible.md
-    - name: Provision a SQL VM in Azure >
+    - name: Provision a SQL Server VM in Azure >
       href: /azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart
-    - name: Run & Connect - Cloud
+    - name: Run and connect - Cloud
       href: linux/quickstart-install-connect-clouds.md
   - name: Tutorials
     items:
@@ -10154,7 +10137,7 @@ items:
       href: linux/sql-server-linux-shared-disk-cluster-operate.md
     - name: Deploy a Pacemaker cluster
       href: linux/sql-server-linux-deploy-pacemaker-cluster.md
-    - name: Create & configure availability groups
+    - name: Create and configure availability groups
       href: linux/sql-server-linux-create-availability-group.md
     - name: Configure replication
       href: linux/sql-server-linux-replication-tutorial-tsql.md
@@ -10190,8 +10173,12 @@ items:
         href: linux/sql-server-linux-configure-msdtc.md
       - name: Configure persistent memory PMEM
         href: linux/sql-server-linux-configure-pmem.md
-      - name: Configure the time zone
+      - name: Configure time zone on SQL Server 2022
         href: linux/sql-server-linux-configure-time-zone.md
+      - name: Configure time zone on SQL Server 2019
+        href: linux/sql-server-linux-configure-time-zone-2019.md
+      - name: Configure time zone on SQL Server 2017
+        href: linux/sql-server-linux-configure-time-zone-2017.md
       - name: Configure to send usage and diagnostic data to Microsoft
         href: linux/usage-and-diagnostic-data-configuration-for-sql-server-linux.md
     - name: Containers
@@ -10206,15 +10193,16 @@ items:
         href: linux/sql-server-linux-kubernetes-best-practices-statefulsets.md
       - name: Use MSDTC with containers
         href: linux/sql-server-linux-configure-msdtc-docker.md
-      - name: Troubleshoot Docker containers
+      - name: Troubleshoot containers
         href: linux/sql-server-linux-docker-container-troubleshooting.md
       - name: Setup AD Authentication using adutil
         href: linux/sql-server-linux-containers-ad-auth-adutil-tutorial.md
       - name: Deploy to AKS with Helm charts
         href: linux/sql-server-linux-containers-deploy-helm-charts-kubernetes.md
     - name: Develop
-      href: linux/sql-server-linux-develop-overview.md
       items:
+      - name: Overview
+        href: linux/sql-server-linux-develop-overview.md
       - name: Connectivity libraries
         href: linux/sql-server-linux-develop-connectivity-libraries.md
       - name: Use Visual Studio Code
@@ -10222,8 +10210,9 @@ items:
       - name: Use SSDT
         href: linux/sql-server-linux-develop-use-ssdt.md
     - name: Manage
-      href: linux/sql-server-linux-management-overview.md
       items:
+      - name: Overview
+        href: linux/sql-server-linux-management-overview.md
       - name: Manage SQL services
         href: linux/sql-server-linux-start-stop-restart-sql-server-services.md
       - name: Use SSMS to manage
@@ -10236,21 +10225,23 @@ items:
         href: linux/sql-server-linux-manage-powershell-core.md
       - name: Use log shipping
         href: linux/sql-server-linux-use-log-shipping.md
-      - name: Use DB Mail & email alerts
+      - name: Database Mail and email alerts
         href: linux/sql-server-linux-db-mail-sql-agent.md
     - name: Migrate
-      href: linux/sql-server-linux-migrate-overview.md
       items:
-      - name: Export & import a BACPAC from Windows
+      - name: Overview
+        href: linux/sql-server-linux-migrate-overview.md
+      - name: Export and import a BACPAC from Windows
         href: linux/sql-server-linux-migrate-ssms.md
       - name: Migrate with SQL Server Migration Assistant
         href: linux/sql-server-linux-migrate-ssma.md
       - name: Bulk copy with bcp
         href: linux/sql-server-linux-migrate-bcp.md
     - name: Extract, transform, load
-      href: linux/sql-server-linux-migrate-ssis.md
       items:
-      - name: Limitations & known issues
+      - name: Overview
+        href: linux/sql-server-linux-migrate-ssis.md
+      - name: Limitations and known issues
         href: linux/sql-server-linux-ssis-known-issues.md
       - name: Configure SSIS
         href: linux/sql-server-linux-configure-ssis.md
@@ -10262,7 +10253,7 @@ items:
         href: linux/sql-server-linux-business-continuity-dr.md
       - name: Availability basics
         href: linux/sql-server-linux-ha-basics.md
-      - name: Backup & restore
+      - name: Backup and restore
         href: linux/sql-server-linux-backup-and-restore-database.md
         items:
         - name: Virtual Device Interface - Linux
@@ -10287,8 +10278,6 @@ items:
           items:
           - name: Create for high availability
             href: linux/sql-server-linux-availability-group-ha.md
-          - name: Configure an AG
-            href: linux/sql-server-linux-availability-group-configure-ha.md
           - name: Configure with DH2i
             href: /azure/azure-sql/virtual-machines/linux/dh2i-high-availability-tutorial
           - name: Configure with HPE Serviceguard
@@ -10297,6 +10286,8 @@ items:
             items:
             - name: Pacemaker basics
               href: linux/sql-server-linux-pacemaker-basics.md
+            - name: Configure an AG
+              href: linux/sql-server-linux-availability-group-configure-ha.md
             - name: Configure on RHEL, SLES, and Ubuntu
               href: linux/sql-server-linux-availability-group-cluster-pacemaker.md
             - name: Configure failover
@@ -10309,31 +10300,33 @@ items:
           items:
           - name: Configure an AG
             href: linux/sql-server-linux-availability-group-configure-rs.md
-        - name: Configure cross-platform (Windows & Linux)
+        - name: Configure cross-platform (Windows and Linux)
           href: linux/sql-server-linux-availability-group-cross-platform.md
       - name: High availability for containers
-        href: linux/sql-server-linux-container-ha-overview.md
         items:
-        - name: Configure a container in Kubernetes
-          href: linux/quickstart-sql-server-containers-kubernetes.md
-        - name: Deploy availability group with DH2i on AKS
+        - name: Overview
+          href: linux/sql-server-linux-container-ha-overview.md
+        - name: Configure a container cluster in Azure
+          href: linux/quickstart-sql-server-containers-azure.md
+        - name: Deploy AGs with DH2i DxEnterprise
           href: linux/tutorial-sql-server-containers-kubernetes-dh2i.md
     - name: Security
-      href: linux/sql-server-linux-security-overview.md
       items:
+      - name: Overview
+        href: linux/sql-server-linux-security-overview.md
       - name: Get started with security features
         href: linux/sql-server-linux-security-get-started.md
       - name: Active Directory authentication
         href: linux/sql-server-linux-active-directory-auth-overview.md
       - name: Join an AD domain
         href: linux/sql-server-linux-active-directory-join-domain.md
-      - name: Encrypting connections
+      - name: Encrypt connections
         href: linux/sql-server-linux-encrypted-connections.md
       - name: Introduction to adutil
         href: linux/sql-server-linux-ad-auth-adutil-introduction.md
-      - name: Understanding AD Authentication
+      - name: Understand AD Authentication
         href: linux/sql-server-linux-ad-auth-understanding.md
-      - name: Troubleshooting AD Authentication
+      - name: Troubleshoot AD Authentication
         href: linux/sql-server-linux-ad-auth-troubleshooting.md
       - name: Rotate SQL Server on Linux keytabs
         href: linux/sql-server-linux-ad-auth-rotate-keytabs.md
@@ -10344,8 +10337,9 @@ items:
       - name: Get started with performance features
         href: linux/sql-server-linux-performance-get-started.md
     - name: Replication
-      href: linux/sql-server-linux-replication.md
       items:
+      - name: Overview
+        href: linux/sql-server-linux-replication.md
       - name: Configure
         href: linux/sql-server-linux-replication-configure.md
       - name: Snapshot folder
@@ -10362,9 +10356,11 @@ items:
         href: linux/sample-unattended-install-suse.md
       - name: Ubuntu
         href: linux/sample-unattended-install-ubuntu.md
+    - name: SQL Assessment API
+      href: linux/sql-server-linux-sql-assessment-api.md
   - name: Resources
     items:
-    - name: Troubleshoot
+    - name: Troubleshooting guide
       href: linux/sql-server-linux-troubleshooting-guide.md
     - name: Restore the master database
       href: linux/sql-server-linux-restore-master-database-in-single-user-mode.md
@@ -10396,27 +10392,86 @@ items:
       href: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
     - name: SQL Server on Azure VMs >
       href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
-
 - name: Azure Arc-enabled SQL Server
   items:
+    - name: Azure Arc-enabled SQL Server
+      href: sql-server/azure-arc/index.yml
     - name: Overview
-      href: sql-server/azure-arc/overview.md
-    - name: Release notes
-      href: sql-server/azure-arc/release-notes.md
-    - name: Connect
-      href: sql-server/azure-arc/connect.md
-    - name: Connect at scale
-      href: sql-server/azure-arc/connect-at-scale.md
-    - name: Assess
-      href: sql-server/azure-arc/assess.md
-    - name: View databases
-      href: sql-server/azure-arc/view-databases.md
-    - name: Configure advanced data Security
-      href: sql-server/azure-arc/configure-advanced-data-security.md
-    - name: Billing through Microsoft Azure
-      href: sql-server/azure-arc/billing.md
+      items:
+      - name: What is Azure Arc-enabled SQL Server?
+        href: sql-server/azure-arc/overview.md
+      - name: Release notes
+        href: sql-server/azure-arc/release-notes.md
+    - name: Quickstarts
+      items:
+      - name: Deploy Azure Arc-enabled SQL Server
+        href: sql-server/azure-arc/quick-enabled-sql-server.md
+    - name: How-to guides
+      items:
+      - name: Test Arc-enabled SQL Server on Azure VM
+        href: sql-server/azure-arc/plan-evaluate-on-azure-virtual-machine.md
+      - name: Deploy
+        items:
+        - name: Prerequisites
+          href: sql-server/azure-arc/prerequisites.md
+        - name: Connect SQL Server to Azure using Arc
+          href: sql-server/azure-arc/automatically-connect.md
+        - name: Alternate methods to connect
+          items:
+            - name: Deployment options
+              href: sql-server/azure-arc/deployment-options.md
+            - name: Connect when machine not connected to Azure
+              href: sql-server/azure-arc/connect.md
+            - name: Connect with installer (.msi)
+              href: sql-server/azure-arc/connect-with-installer.md
+            - name: Connect when machine already connected to Azure
+              href: sql-server/azure-arc/connect-already-enabled.md
+            - name: Azure policy
+              href: sql-server/azure-arc/connect-at-scale-policy.md
+            - name: Script
+              href: sql-server/azure-arc/connect-at-scale-script.md
+            - name: Automatically connect
+              href: sql-server/azure-arc/connect-at-scale-autodeploy.md
+            - name: Connect machines using Configuration Manager custom task sequence
+              href: sql-server/azure-arc/onboard-configuration-manager-custom-task.md
+    - name: Manage
+      items:
+      - name: Assess
+        href: sql-server/azure-arc/assess.md
+      - name: View databases
+        href: sql-server/azure-arc/view-databases.md
+      - name: Configure SQL Server
+        href: sql-server/azure-arc/manage-configuration.md
+      - name: Automated patching
+        href: sql-server/azure-arc/patch.md
+      - name: Automated backups
+        href: sql-server/azure-arc/point-in-time-restore.md
+      - name: Delete from or restore to Azure Arc
+        href: sql-server/azure-arc/delete-from-azure-arc.md
+    - name: Monitor
+      items:
+      - name: Activity Logs
+        href: sql-server/azure-arc/activity-logs.md
+    - name: Secure
+      items:
+      - name: Configure advanced data Security
+        href: sql-server/azure-arc/configure-advanced-data-security.md
+      - name: Certificate rotation
+        href: sql-server/azure-arc/rotate-certificates.md
+      - name: Extended Security Updates
+        href: sql-server/azure-arc/extended-security-updates.md
     - name: FAQ
       href: sql-server/azure-arc/faq.yml
+    - name: Data collection and reporting
+      href: sql-server/azure-arc/data-collection.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot deployment
+        href: sql-server/azure-arc/troubleshoot-deployment.md
+      - name: Troubleshoot best practices assessment
+        href: sql-server/azure-arc/troubleshoot-assessment.md
+
+
 - name: Big Data Clusters
   items:
   - name: Big Data Clusters
@@ -10429,22 +10484,32 @@ items:
       items:
         - name: Platform release notes
           href: big-data-cluster/release-notes-big-data-cluster.md
-        - name: Cumulative Update 18
-          href: big-data-cluster/release-notes-cumulative-update-18.md
-        - name: Cumulative Update 17
-          href: big-data-cluster/release-notes-cumulative-update-17.md
-        - name: Cumulative Update 16
-          href: big-data-cluster/release-notes-cumulative-update-16.md
-        - name: Cumulative Update 15
-          href: big-data-cluster/release-notes-cumulative-update-15.md
-        - name: Cumulative Update 14
-          href: big-data-cluster/release-notes-cumulative-update-14.md
-        - name: Cumulative Update 13
-          href: big-data-cluster/release-notes-cumulative-update-13.md
-        - name: Cumulative Update 12
-          href: big-data-cluster/release-notes-cumulative-update-12.md
-        - name: Cumulative Update history
-          href: big-data-cluster/release-notes-cumulative-updates-history.md
+        - name: Release history
+          items:
+          - name: Cumulative Update history
+            href: big-data-cluster/release-notes-cumulative-updates-history.md
+          - name: Past details
+            items: 
+            - name: Cumulative Update 21
+              href: big-data-cluster/release-notes-cumulative-update-21.md
+            - name: Cumulative Update 20
+              href: big-data-cluster/release-notes-cumulative-update-20.md
+            - name: Cumulative Update 19
+              href: big-data-cluster/release-notes-cumulative-update-19.md
+            - name: Cumulative Update 18
+              href: big-data-cluster/release-notes-cumulative-update-18.md
+            - name: Cumulative Update 17
+              href: big-data-cluster/release-notes-cumulative-update-17.md
+            - name: Cumulative Update 16
+              href: big-data-cluster/release-notes-cumulative-update-16.md
+            - name: Cumulative Update 15
+              href: big-data-cluster/release-notes-cumulative-update-15.md
+            - name: Cumulative Update 14
+              href: big-data-cluster/release-notes-cumulative-update-14.md
+            - name: Cumulative Update 13
+              href: big-data-cluster/release-notes-cumulative-update-13.md
+            - name: Cumulative Update 12
+              href: big-data-cluster/release-notes-cumulative-update-12.md
   - name: Install
     items:
     - name: Get Started
@@ -10755,6 +10820,8 @@ items:
       href: sql-server/educational-sql-resources.yml
     - name: Microsoft Learn training >>
       href: /training/
+    - name: T-SQL videos
+      href: t-sql/videos-transact-sql.md
   - name: Help
     items:
     - name: Get help
@@ -10908,8 +10975,9 @@ items:
     - name: All GitHub Samples >>
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples
   - name: Errors & events
-    href: relational-databases/errors-events/errors-and-events-reference-database-engine.md
     items:
+    - name: Overview
+      href: relational-databases/errors-events/errors-and-events-reference-database-engine.md
     - name: Understanding Database Engine errors
       href: relational-databases/errors-events/understanding-database-engine-errors.md
     - name: Database Engine error severities
@@ -10920,6 +10988,8 @@ items:
         href: relational-databases/errors-events/database-engine-events-and-errors.md
       - name: Errors 0 to 999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-0-to-999.md
         - name: 102
           href: relational-databases/errors-events/mssqlserver-102-database-engine-error.md
         - name: 107
@@ -10992,6 +11062,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-948-database-engine-error.md
       - name: Errors 1,000 to 1,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-1000-to-1999.md
         - name: 1101
           href: relational-databases/errors-events/mssqlserver-1101-database-engine-error.md
         - name: 1105
@@ -11032,6 +11104,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-1904-database-engine-error.md
       - name: Errors 2,000 to 2,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-2000-to-2999.md
         - name: 2020
           href: relational-databases/errors-events/mssqlserver-2020-database-engine-error.md
         - name: 2501
@@ -11092,8 +11166,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-2596-database-engine-error.md
         - name: 2814
           href: relational-databases/errors-events/mssqlserver-2814-database-engine-error.md
-      - name: Errors 3,000 to 4,999
+      - name: Errors 3,000 to 3,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-3000-to-3999.md
         - name: 3013
           href: relational-databases/errors-events/mssqlserver-3013-database-engine-error.md
         - name: 3023
@@ -11146,6 +11222,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-3617-database-engine-error.md
         - name: 3619
           href: relational-databases/errors-events/mssqlserver-3619-database-engine-error.md
+        - name: 3624
+          href: relational-databases/errors-events/mssqlserver-3624-database-engine-error.md          
         - name: 3937
           href: relational-databases/errors-events/mssqlserver-3937-database-engine-error.md
         - name: 3961
@@ -11156,6 +11234,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-3988-database-engine-error.md
         - name: 3989
           href: relational-databases/errors-events/mssqlserver-3989-database-engine-error.md
+      - name: Errors 4,000 to 4,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-4000-to-4999.md
         - name: 4064
           href: relational-databases/errors-events/mssqlserver-4064-database-engine-error.md
         - name: 4104
@@ -11166,8 +11248,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-4214-database-engine-error.md
         - name: 4846
           href: relational-databases/errors-events/mssqlserver-4846-database-engine-error.md
-      - name: Errors 5,000 to 7,999
+      - name: Errors 5,000 to 5,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-5000-to-5999.md
         - name: 5009
           href: relational-databases/errors-events/mssqlserver-5009-database-engine-error.md
         - name: 5120
@@ -11202,14 +11286,26 @@ items:
           href: relational-databases/errors-events/mssqlserver-5515-database-engine-error.md
         - name: 5554
           href: relational-databases/errors-events/mssqlserver-5554-database-engine-error.md
+      - name: Errors 6,000 to 6,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-6000-to-6999.md
         - name: 6522
           href: relational-databases/errors-events/mssqlserver-6522-database-engine-error.md
         - name: 6602
           href: relational-databases/errors-events/mssqlserver-6602-database-engine-error.md
+      - name: Errors 7,000 to 7,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-7000-to-7999.md
         - name: 7105
           href: relational-databases/errors-events/mssqlserver-7105-database-engine-error.md
         - name: 7308
           href: relational-databases/errors-events/mssqlserver-7308-database-engine-error.md
+        - name: 7357
+          href: relational-databases/errors-events/mssqlserver-7357-database-engine-error.md
+        - name: 7391
+          href: relational-databases/errors-events/mssqlserver-7391-database-engine-error.md  
         - name: 7711
           href: relational-databases/errors-events/mssqlserver-7711-database-engine-error.md
         - name: 7901
@@ -11268,8 +11364,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-7988-database-engine-error.md
         - name: 7995
           href: relational-databases/errors-events/mssqlserver-7995-database-engine-error.md
-      - name: Errors 8,000 to 9,999
+      - name: Errors 8,000 to 8,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-8000-to-8999.md
         - name: 8443
           href: relational-databases/errors-events/mssqlserver-8443-database-engine-error.md
         - name: 8525
@@ -11312,6 +11410,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-8994-database-engine-error.md
         - name: 8996
           href: relational-databases/errors-events/mssqlserver-8996-database-engine-error.md
+      - name: Errors 9,000 to 9,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-9000-to-9999.md
         - name: 9001
           href: relational-databases/errors-events/mssqlserver-9001-database-engine-error.md
         - name: 9002
@@ -11332,14 +11434,14 @@ items:
           href: relational-databases/errors-events/mssqlserver-9790-database-engine-error.md
         - name: 9955
           href: relational-databases/errors-events/mssqlserver-9955-database-engine-error.md
-      - name: Errors 10,000 to 11,999
+      - name: Errors 10,000 to 10,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-10000-to-10999.md
         - name: 10001
           href: relational-databases/errors-events/mssqlserver-10001-database-engine-error.md
         - name: 10003
           href: relational-databases/errors-events/mssqlserver-10003-database-engine-error.md
-        - name: 10060
-          href: relational-databases/errors-events/mssqlserver-10060-database-engine-error.md
         - name: 10061
           href: relational-databases/errors-events/mssqlserver-10061-database-engine-error.md
         - name: 10502
@@ -11388,6 +11490,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-10787-database-engine-error.md
         - name: 10794
           href: relational-databases/errors-events/mssqlserver-10794-database-engine-error.md
+      - name: Errors 11,000 to 12,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-11000-to-12999.md
         - name: 11001
           href: relational-databases/errors-events/mssqlserver-11001-database-engine-error.md
         - name: 11409
@@ -11414,12 +11520,24 @@ items:
           href: relational-databases/errors-events/mssqlserver-12308-database-engine-error.md
         - name: 12329
           href: relational-databases/errors-events/mssqlserver-12329-database-engine-error.md
+      - name: Errors 13,000 to 13,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-13000-to-13999.md
+      - name: Errors 14,000 to 14,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-14000-to-14999.md
         - name: 14265
           href: relational-databases/errors-events/mssqlserver-14265-database-engine-error.md
         - name: 14420
           href: relational-databases/errors-events/mssqlserver-14420-database-engine-error.md
         - name: 14421
           href: relational-databases/errors-events/mssqlserver-14421-database-engine-error.md
+      - name: Errors 15,000 to 15,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-15000-to-15999.md
         - name: 15401
           href: relational-databases/errors-events/mssqlserver-15401-database-engine-error.md
         - name: 15404
@@ -11432,6 +11550,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-15599-database-engine-error.md
         - name: 15661
           href: relational-databases/errors-events/mssqlserver-15661-database-engine-error.md
+      - name: Errors 16,000 to 17,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-16000-to-17999.md
         - name: 16591
           href: relational-databases/errors-events/mssqlserver-16591-database-engine-error.md
         - name: 16594
@@ -11452,6 +11574,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-17084-database-engine-error.md
         - name: 17112
           href: relational-databases/errors-events/mssqlserver-17112-database-engine-error.md
+        - name: 17120
+          href: relational-databases/errors-events/mssqlserver-17120-database-engine-error.md
         - name: 17128
           href: relational-databases/errors-events/mssqlserver-17128-database-engine-error.md
         - name: 17130
@@ -11464,6 +11588,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-17147-database-engine-error.md
         - name: 17148
           href: relational-databases/errors-events/mssqlserver-17148-database-engine-error.md
+        - name: 17182
+          href: relational-databases/errors-events/mssqlserver-17182-database-engine-error.md
         - name: 17194
           href: relational-databases/errors-events/mssqlserver-17194-database-engine-error.md
         - name: 17204
@@ -11482,6 +11608,8 @@ items:
           href: relational-databases/errors-events/mssqlserver-17803-database-engine-error.md
         - name: 17809
           href: relational-databases/errors-events/mssqlserver-17809-database-engine-error.md
+        - name: 17826
+          href: relational-databases/errors-events/mssqlserver-17826-database-engine-error.md          
         - name: 17832
           href: relational-databases/errors-events/mssqlserver-17832-database-engine-error.md
         - name: 17883
@@ -11494,6 +11622,12 @@ items:
           href: relational-databases/errors-events/mssqlserver-17890-database-engine-error.md
         - name: 17892
           href: relational-databases/errors-events/mssqlserver-17892-database-engine-error.md
+      - name: Errors 18,000 to 18,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-18000-to-18999.md
+        - name: 18210
+          href: relational-databases/errors-events/mssqlserver-18210-database-engine-error.md
         - name: 18264
           href: relational-databases/errors-events/mssqlserver-18264-database-engine-error.md
         - name: 18452
@@ -11506,10 +11640,16 @@ items:
           href: relational-databases/errors-events/mssqlserver-18483-database-engine-error.md
         - name: 18752
           href: relational-databases/errors-events/mssqlserver-18752-database-engine-error.md
-      - name: Errors 19,000 to 19,999
+      - name: Errors 19,000 to 20,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-19000-to-20999.md
         - name: 19407
           href: relational-databases/errors-events/mssqlserver-19407-database-engine-error.md
+        - name: 19419
+          href: relational-databases/errors-events/mssqlserver-19419-database-engine-error.md
+        - name: 19421
+          href: relational-databases/errors-events/mssqlserver-19421-database-engine-error.md
       - name: Errors 20,000 to 33,999
         items:
         - name: 20557
@@ -11518,6 +11658,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-20572-database-engine-error.md
         - name: 20574
           href: relational-databases/errors-events/mssqlserver-20574-database-engine-error.md
+      - name: Errors 21,000 to 21,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-21000-to-21999.md
         - name: 21862
           href: relational-databases/errors-events/mssqlserver-21862-database-engine-error.md
         - name: 21871
@@ -11534,14 +11678,34 @@ items:
           href: relational-databases/errors-events/mssqlserver-21898-database-engine-error.md
         - name: 21899
           href: relational-databases/errors-events/mssqlserver-21899-database-engine-error.md
+      - name: Errors 22,000 to 22,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-22000-to-22999.md
+      - name: Errors 23,000 to 25,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-23000-to-25999.md
+      - name: Errors 26,000 to 27,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-26000-to-27999.md
         - name: 26013
           href: relational-databases/errors-events/mssqlserver-26013-database-engine-error.md
         - name: 26014
           href: relational-databases/errors-events/mssqlserver-26014-database-engine-error.md
+      - name: Errors 28,000 to 30,999
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-28000-to-30999.md
         - name: 30053
           href: relational-databases/errors-events/mssqlserver-30053-database-engine-error.md
         - name: 30089
           href: relational-databases/errors-events/mssqlserver-30089-database-engine-error.md
+      - name: Errors 31,000 to 41,399
+        items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-31000-to-41399.md
         - name: 32040
           href: relational-databases/errors-events/mssqlserver-32040-database-engine-error.md
         - name: 32042
@@ -11566,6 +11730,8 @@ items:
         items:
         - name: 35250
           href: relational-databases/errors-events/mssqlserver-35250-database-engine-error.md
+        - name: 35267
+          href: relational-databases/errors-events/mssqlserver-35267-database-engine-error.md
       - name: Errors 41,000 to 41,399
         items:
         - name: 41030
@@ -11600,8 +11766,10 @@ items:
           href: relational-databases/errors-events/mssqlserver-41396-database-engine-error.md
         - name: 41399
           href: relational-databases/errors-events/mssqlserver-41399-database-engine-error.md
-      - name: Errors 41,400 to 41,209
+      - name: Errors 41,400 to 42,999
         items:
+        - name: Overview
+          href: relational-databases/errors-events/database-engine-events-and-errors-41400-to-42999.md
         - name: 42108
           href: relational-databases/errors-events/mssqlserver-42108-database-engine-error.md
         - name: 42109
@@ -12922,6 +13090,8 @@ items:
         href: relational-databases/system-dynamic-management-views/sys-dm-db-session-space-usage-transact-sql.md
       - name: sys.dm_db_task_space_usage
         href: relational-databases/system-dynamic-management-views/sys-dm-db-task-space-usage-transact-sql.md
+      - name: sys.dm_db_tuning_recommendations
+        href: relational-databases/system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md
       - name: sys.dm_db_uncontained_entities
         href: relational-databases/system-dynamic-management-views/sys-dm-db-uncontained-entities-transact-sql.md
       - name: sys.dm_database_copies (Azure SQL Database)
@@ -12949,6 +13119,8 @@ items:
     - name: Execution
       href: relational-databases/system-dynamic-management-views/execution-related-dynamic-management-views-and-functions-transact-sql.md
       items:
+      - name: sys.dm_db_exec_cursors
+        href: relational-databases/system-dynamic-management-views/sys-dm-db-exec-cursors-transact-sql.md
       - name: sys.dm_exec_background_job_queue
         href: relational-databases/system-dynamic-management-views/sys-dm-exec-background-job-queue-transact-sql.md
       - name: sys.dm_exec_background_job_queue_stats
@@ -13284,6 +13456,8 @@ items:
         href: relational-databases/system-dynamic-management-views/sys-dm-cryptographic-provider-sessions-transact-sql.md
       - name: sys.dm_database_encryption_keys
         href: relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql.md
+      - name: sys.dm_external_provider_certificate_info
+        href: relational-databases/system-dynamic-management-views/sys-dm-external-provider-certificate-info-transact-sql.md
     - name: Server-Related
       href: relational-databases/system-dynamic-management-views/server-related-dynamic-management-views-and-functions-transact-sql.md
       items:
@@ -13449,6 +13623,7 @@ items:
       - name: sys.dm_os_workers
         href: relational-databases/system-dynamic-management-views/sys-dm-os-workers-transact-sql.md
     - name: Stretch Database
+      href: relational-databases/system-dynamic-management-views/stretch-database-related-dynamic-management-views-transact-sql.md
       items:
       - name: sys.dm_db_rda_migration_status
         href: relational-databases/system-dynamic-management-views/stretch-database-sys-dm-db-rda-migration-status.md
@@ -13467,6 +13642,8 @@ items:
         href: relational-databases/system-dynamic-management-views/sys-dm-tran-current-transaction-transact-sql.md
       - name: sys.dm_tran_database_transactions
         href: relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql.md
+      - name: sys.dm_tran_distributed_transaction_stats
+        href: relational-databases/system-dynamic-management-views/sys-dm-tran-distributed-transaction-stats.md
       - name: sys.dm_tran_locks
         href: relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql.md
       - name: sys.dm_tran_session_transactions
@@ -13686,15 +13863,17 @@ items:
     - name: VIEWS
       href: relational-databases/system-information-schema-views/views-transact-sql.md
   - name: System stored procedures
-    href: relational-databases/system-stored-procedures/system-stored-procedures-transact-sql.md
     items:
+    - name: Overview
+      href: relational-databases/system-stored-procedures/system-stored-procedures-transact-sql.md
     - name: Active Geo-Replication
       items:
       - name: sp_wait_for_database_copy_sync
-        href: relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync.md
-    - name: Spatial Indexes
-      href: relational-databases/system-stored-procedures/spatial-index-stored-procedures-arguments-and-properties.md
+        href: relational-databases/system-stored-procedures/sp-wait-for-database-copy-sync-transact-sql.md
+    - name: Spatial indexes
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/spatial-index-stored-procedures-arguments-and-properties.md
       - name: sp_help_spatial_geometry_index
         href: relational-databases/system-stored-procedures/sp-help-spatial-geometry-index-transact-sql.md
       - name: sp_help_spatial_geometry_index_xml
@@ -13708,8 +13887,9 @@ items:
       - name: sp_help_spatial_geography_histogram
         href: relational-databases/system-stored-procedures/sp-help-spatial-geography-histogram-transact-sql.md
     - name: Catalog
-      href: relational-databases/system-stored-procedures/catalog-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/catalog-stored-procedures-transact-sql.md
       - name: sp_column_privileges
         href: relational-databases/system-stored-procedures/sp-column-privileges-transact-sql.md
       - name: sp_columns
@@ -13739,8 +13919,9 @@ items:
       - name: sp_tables
         href: relational-databases/system-stored-procedures/sp-tables-transact-sql.md
     - name: Change Data Capture
-      href: relational-databases/system-stored-procedures/change-data-capture-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/change-data-capture-stored-procedures-transact-sql.md
       - name: sys.sp_cdc_add_job
         href: relational-databases/system-stored-procedures/sys-sp-cdc-add-job-transact-sql.md
       - name: sys.sp_cdc_change_job
@@ -13776,8 +13957,9 @@ items:
       - name: sys.sp_cdc_set_scheduler_job
         href: relational-databases/system-stored-procedures/sys-cdc-set-scheduler-job-transact-sql.md
     - name: Change Tracking
-      href: relational-databases/system-stored-procedures/change-tracking-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/change-tracking-stored-procedures-transact-sql.md
       - name: sys.sp_flush_commit_table
         href: relational-databases/system-stored-procedures/sys-sp-flush-commit-table-transact-sql.md       
       - name: sys.sp_flush_commit_table_on_demand
@@ -13785,8 +13967,9 @@ items:
       - name: sys.sp_flush_CT_internal_table_on_demand
         href: relational-databases/system-stored-procedures/sys-sp-flush-ct-internal-table-on-demand-transact-sql.md
     - name: Cursor
-      href: relational-databases/system-stored-procedures/cursor-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/cursor-stored-procedures-transact-sql.md
       - name: sp_cursor_list
         href: relational-databases/system-stored-procedures/sp-cursor-list-transact-sql.md
       - name: sp_cursor
@@ -13824,8 +14007,9 @@ items:
       - name: sp_unprepare
         href: relational-databases/system-stored-procedures/sp-unprepare-transact-sql.md
     - name: Data Collector
-      href: relational-databases/system-stored-procedures/data-collector-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/data-collector-stored-procedures-transact-sql.md
       - name: sp_syscollector_create_collection_item
         href: relational-databases/system-stored-procedures/sp-syscollector-create-collection-item-transact-sql.md
       - name: sp_syscollector_create_collection_set
@@ -13867,8 +14051,9 @@ items:
       - name: sp_syscollector_upload_collection_set
         href: relational-databases/system-stored-procedures/sp-syscollector-upload-collection-set-transact-sql.md
     - name: Database Engine
-      href: relational-databases/system-stored-procedures/database-engine-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/database-engine-stored-procedures-transact-sql.md
       - name: sp_add_data_file_recover_suspect_db
         href: relational-databases/system-stored-procedures/sp-add-data-file-recover-suspect-db-transact-sql.md
       - name: sp_addextendedproc
@@ -14079,13 +14264,16 @@ items:
         href: relational-databases/system-stored-procedures/sys-sp-xtp-control-proc-exec-stats-transact-sql.md
       - name: sys.sp_xtp_control_query_exec_stats
         href: relational-databases/system-stored-procedures/sys-sp-xtp-control-query-exec-stats-transact-sql.md
+      - name: sys.sp_xtp_force_gc
+        href: relational-databases/system-stored-procedures/sys-sp-xtp-force-gc-transact-sql.md
       - name: sys.sp_xtp_merge_checkpoint_files
         href: relational-databases/system-stored-procedures/sys-sp-xtp-merge-checkpoint-files-transact-sql.md
       - name: sys.sp_xtp_unbind_db_resource_pool
         href: relational-databases/system-stored-procedures/sys-sp-xtp-unbind-db-resource-pool-transact-sql.md
     - name: Database Mail
-      href: relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql.md
       - name: sp_send_dbmail
         href: relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql.md
       - name: sysmail_add_account_sp
@@ -14135,8 +14323,9 @@ items:
       - name: sysmail_update_profileaccount_sp
         href: relational-databases/system-stored-procedures/sysmail-update-profileaccount-sp-transact-sql.md
     - name: Database Maintenance Plan
-      href: relational-databases/system-stored-procedures/database-maintenance-plan-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/database-maintenance-plan-stored-procedures-transact-sql.md
       - name: sp_add_maintenance_plan
         href: relational-databases/system-stored-procedures/sp-add-maintenance-plan-transact-sql.md
       - name: sp_add_maintenance_plan_db
@@ -14152,8 +14341,9 @@ items:
       - name: sp_help_maintenance_plan
         href: relational-databases/system-stored-procedures/sp-help-maintenance-plan-transact-sql.md
     - name: Distributed Queries
-      href: relational-databases/system-stored-procedures/distributed-queries-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/distributed-queries-stored-procedures-transact-sql.md
       - name: sp_addlinkedserver
         href: relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql.md
       - name: sp_addlinkedsrvlogin
@@ -14182,16 +14372,18 @@ items:
         href: relational-databases/system-stored-procedures/sp-tables-ex-transact-sql.md
       - name: sp_testlinkedserver
         href: relational-databases/system-stored-procedures/sp-testlinkedserver-transact-sql.md
-    - name: Filestream & Filetable
-      href: relational-databases/system-stored-procedures/filestream-and-filetable-system-stored-procedures.md
+    - name: FILESTREAM and FileTable
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/filestream-and-filetable-system-stored-procedures.md
       - name: sp_filestream_force_garbage_collection
         href: relational-databases/system-stored-procedures/filestream-and-filetable-sp-filestream-force-garbage-collection.md
       - name: sp_kill_filestream_non_transacted_handles
         href: relational-databases/system-stored-procedures/filestream-and-filetable-sp-kill-filestream-non-transacted-handles.md
-    - name: Firewall Rules (Azure SQL Database)
-      href: relational-databases/system-stored-procedures/firewall-rules-stored-procedures-azure-sql-database.md
+    - name: Firewall rules (Azure SQL Database)
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/firewall-rules-stored-procedures-azure-sql-database.md
       - name: sp_set_firewall_rule (Azure SQL Database)
         href: relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database.md
       - name: sp_set_database_firewall_rule (Azure SQL Database)
@@ -14201,8 +14393,9 @@ items:
       - name: sp_delete_database_firewall_rule (Azure SQL Database)
         href: relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database.md
     - name: Full-Text Search & Semantic Search
-      href: relational-databases/system-stored-procedures/full-text-search-and-semantic-search-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/full-text-search-and-semantic-search-stored-procedures-transact-sql.md
       - name: sp_fulltext_catalog
         href: relational-databases/system-stored-procedures/sp-fulltext-catalog-transact-sql.md
       - name: sp_fulltext_column
@@ -14239,9 +14432,10 @@ items:
         href: relational-databases/system-stored-procedures/sp-help-fulltext-tables-transact-sql.md
       - name: sp_help_fulltext_tables_cursor
         href: relational-databases/system-stored-procedures/sp-help-fulltext-tables-cursor-transact-sql.md
-    - name: General Extended
-      href: relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql.md
+    - name: General extended
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql.md
       - name: xp_cmdshell
         href: relational-databases/system-stored-procedures/xp-cmdshell-transact-sql.md
       - name: xp_enumgroups
@@ -14264,9 +14458,10 @@ items:
         href: relational-databases/system-stored-procedures/xp-sqlmaint-transact-sql.md
       - name: xp_sscanf
         href: relational-databases/system-stored-procedures/xp-sscanf-transact-sql.md
-    - name: Log Shipping
-      href: relational-databases/system-stored-procedures/log-shipping-stored-procedures-transact-sql.md
+    - name: Log shipping
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/log-shipping-stored-procedures-transact-sql.md
       - name: sp_add_log_shipping_primary_database
         href: relational-databases/system-stored-procedures/sp-add-log-shipping-primary-database-transact-sql.md
       - name: sp_add_log_shipping_primary_secondary
@@ -14317,9 +14512,10 @@ items:
         href: relational-databases/system-stored-procedures/sp-refresh-log-shipping-monitor-transact-sql.md
       - name: sp_upgrade_log_shipping
         href: relational-databases/system-stored-procedures/sp-upgrade-log-shipping-transact-sql.md
-    - name: Managed Backup
-      href: relational-databases/system-stored-procedures/managed-backup-stored-procedures-transact-sql.md
+    - name: Managed backup
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/managed-backup-stored-procedures-transact-sql.md
       - name: managed_backup.sp_backup_config_basic
         href: relational-databases/system-stored-procedures/managed-backup-sp-backup-config-basic-transact-sql.md
       - name: managed_backup.sp_backup_config_advanced
@@ -14335,8 +14531,9 @@ items:
       - name: managed_backup.sp_backup_on_demand
         href: relational-databases/system-stored-procedures/managed-backup-sp-backup-on-demand-transact-sql.md
     - name: Management Data Warehouse
-      href: relational-databases/system-stored-procedures/management-data-warehouse-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/management-data-warehouse-stored-procedures-transact-sql.md
       - name: core.sp_create_snapshot
         href: relational-databases/system-stored-procedures/core-sp-create-snapshot-transact-sql.md
       - name: core.sp_update_data_source
@@ -14347,9 +14544,17 @@ items:
         href: relational-databases/system-stored-procedures/core-sp-remove-collector-type-transact-sql.md
       - name: core.sp_purge_data
         href: relational-databases/system-stored-procedures/core-sp-purge-data-transact-sql.md
-    - name: OLE Automation
-      href: relational-databases/system-stored-procedures/ole-automation-stored-procedures-transact-sql.md
+    - name: MSDTC
+      href: relational-databases/system-stored-procedures/msdtc-stored-procedures-transact-sql.md
       items:
+      - name: sp_manage_distributed_transaction
+        href: relational-databases/system-stored-procedures/sys-sp-manage-distributed-transaction.md
+      - name: sp_reset_dtc_log
+        href: relational-databases/system-stored-procedures/sp-reset-dtc-log.md
+    - name: OLE automation
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/ole-automation-stored-procedures-transact-sql.md
       - name: Object Hierarchy Syntax
         href: relational-databases/system-stored-procedures/object-hierarchy-syntax-transact-sql.md
       - name: sp_OACreate
@@ -14377,8 +14582,9 @@ items:
       - name: sp_data_source_objects
         href: relational-databases/system-stored-procedures/sp-data-source-objects.md
     - name: Policy-Based Management
-      href: relational-databases/system-stored-procedures/policy-based-management-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/policy-based-management-stored-procedures-transact-sql.md
       - name: sp_syspolicy_add_policy_category
         href: relational-databases/system-stored-procedures/sp-syspolicy-add-policy-category-transact-sql.md
       - name: sp_syspolicy_add_policy_category_subscription
@@ -14418,8 +14624,9 @@ items:
       - name: sp_syspolicy_update_policy_category_subscription
         href: relational-databases/system-stored-procedures/sp-syspolicy-update-policy-category-subscription-transact-sql.md
     - name: Query Store
-      href: relational-databases/system-stored-procedures/query-store-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/query-store-stored-procedures-transact-sql.md
       - name: sp_query_store_clear_hints
         href: relational-databases/system-stored-procedures/sys-sp-query-store-clear-hints-transact-sql.md
       - name: sp_query_store_flush_db
@@ -14427,7 +14634,7 @@ items:
       - name: sp_query_store_force_plan
         href: relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql.md
       - name: sp_query_store_remove_plan
-        href: relational-databases/system-stored-procedures/sp-query-store-remove-plan-transct-sql.md
+        href: relational-databases/system-stored-procedures/sp-query-store-remove-plan-transact-sql.md
       - name: sp_query_store_remove_query
         href: relational-databases/system-stored-procedures/sp-query-store-remove-query-transact-sql.md
       - name: sp_query_store_reset_exec_stats
@@ -14438,10 +14645,10 @@ items:
         href: relational-databases/system-stored-procedures/sp-query-store-unforce-plan-transact-sql.md
       - name: sp_query_store_clear_message_queues
         href: relational-databases/system-stored-procedures/sp-query-store-clear-message-queues-transact-sql.md   
-        
     - name: Replication
-      href: relational-databases/system-stored-procedures/replication-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/replication-stored-procedures-transact-sql.md
       - name: sp_add_agent_parameter
         href: relational-databases/system-stored-procedures/sp-add-agent-parameter-transact-sql.md
       - name: sp_add_agent_profile
@@ -14899,8 +15106,9 @@ items:
       - name: sp_vupgrade_replication
         href: relational-databases/system-stored-procedures/sp-vupgrade-replication-transact-sql.md
     - name: Security
-      href: relational-databases/system-stored-procedures/security-stored-procedures-transact-sql.md
       items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/security-stored-procedures-transact-sql.md
       - name: sp_add_trusted_assembly
         href: relational-databases/system-stored-procedures/sys-sp-add-trusted-assembly-transact-sql.md
       - name: sp_addapprole
@@ -15010,7 +15218,7 @@ items:
       - name: sp_setapprole
         href: relational-databases/system-stored-procedures/sp-setapprole-transact-sql.md
       - name: sp_srvrolepermission
-        href: relational-databases/system-stored-procedures/sp-srvrolepermission-transact-sql.md
+
       - name: sp_unsetapprole
         href: relational-databases/system-stored-procedures/sp-unsetapprole-transact-sql.md
       - name: sp_validatelogins
@@ -15054,6 +15262,8 @@ items:
         href: relational-databases/system-stored-procedures/sp-change-feed-drop-table-group.md
       - name: sp_help_change_feed
         href: relational-databases/system-stored-procedures/sp-help-change-feed.md
+      - name: sp_help_change_feed_table
+        href: relational-databases/system-stored-procedures/sp-help-change-feed-table.md
       - name: sp_change_feed_configure_parameters
         href: relational-databases/system-stored-procedures/sp-change-feed-configure-parameters.md
       - name: sp_change_feed_create_table_group
@@ -15062,8 +15272,6 @@ items:
         href: relational-databases/system-stored-procedures/sp-change-feed-enable-db.md
       - name: sp_change_feed_enable_table
         href: relational-databases/system-stored-procedures/sp-change-feed-enable-table.md
-      - name: sp_change_feed_table
-        href: relational-databases/system-stored-procedures/sp-change-feed-table.md
     - name: SQL Server Agent
       href: relational-databases/system-stored-procedures/sql-server-agent-stored-procedures-transact-sql.md
       items:
@@ -15294,7 +15502,7 @@ items:
       - name: changefeed.change_feed_table_groups
         href: relational-databases/system-tables/changefeed-change-feed-table-groups-transact-sql.md
       - name: changefeed.change_feed_tables
-        href: relational-databases/system-tables/changefeed-change-feed-tables-transact-sql.md      
+        href: relational-databases/system-tables/changefeed-change-feed-tables-transact-sql.md
     - name: Backup & Restore Tables
       href: relational-databases/system-tables/backup-and-restore-tables-transact-sql.md
       items:
@@ -15401,7 +15609,7 @@ items:
       - name: dbo.sysjobschedules
         href: relational-databases/system-tables/dbo-sysjobschedules-transact-sql.md
       - name: dbo.sysjobservers
-        href: relational-databases/system-tables/dbo-sysjobservers-transact-sql.md
+        href: relational-databases/system-tables/dbo-sysjobservers-transact-sql.md      
       - name: dbo.sysjobsteps
         href: relational-databases/system-tables/dbo-sysjobsteps-transact-sql.md
       - name: dbo.sysjobstepslogs
@@ -15430,6 +15638,272 @@ items:
         href: relational-databases/system-tables/dbo-systargetservers-transact-sql.md
       - name: dbo.systaskids
         href: relational-databases/system-tables/dbo-systaskids-transact-sql.md
+      - name: sp_unsetapprole
+        href: relational-databases/system-stored-procedures/sp-unsetapprole-transact-sql.md
+      - name: sp_validatelogins
+        href: relational-databases/system-stored-procedures/sp-validatelogins-transact-sql.md
+      - name: sp_verify_database_ledger
+        href: relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-transact-sql.md
+      - name: sp_verify_database_ledger_from_digest_storage
+        href: relational-databases/system-stored-procedures/sys-sp-verify-database-ledger-from-digest-storage-transact-sql.md
+      - name: sp_xp_cmdshell_proxy_account
+        href: relational-databases/system-stored-procedures/sp-xp-cmdshell-proxy-account-transact-sql.md
+    - name: Snapshot backup
+      items:
+      - name: sp_delete_backup_file_snapshot
+        href: relational-databases/system-stored-procedures/snapshot-backup-sp-delete-backup-file-snapshot.md
+      - name: sp_delete_backup
+        href: relational-databases/system-stored-procedures/snapshot-backup-sp-delete-backup.md
+    - name: Azure Synapse Analytics
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/sql-data-warehouse-stored-procedures.md
+      - name: sp_datatype_info_90
+        href: relational-databases/system-stored-procedures/sp-datatype-info-90-sql-data-warehouse.md
+      - name: sp_pdw_add_network_credentials
+        href: relational-databases/system-stored-procedures/sp-pdw-add-network-credentials-sql-data-warehouse.md
+      - name: sp_pdw_database_encryption
+        href: relational-databases/system-stored-procedures/sp-pdw-database-encryption-sql-data-warehouse.md
+      - name: sp_pdw_database_encryption_regenerate_system_keys
+        href: relational-databases/system-stored-procedures/sp-pdw-database-encryption-regenerate-system-keys-sql-data-warehouse.md
+      - name: sp_pdw_log_user_data_masking
+        href: relational-databases/system-stored-procedures/sp-pdw-log-user-data-masking-sql-data-warehouse.md
+      - name: sp_pdw_remove_network_credentials
+        href: relational-databases/system-stored-procedures/sp-pdw-remove-network-credentials-sql-data-warehouse.md
+      - name: sp_special_columns_100
+        href: relational-databases/system-stored-procedures/sp-special-columns-100-sql-data-warehouse.md
+    - name: Azure Synapse Link for SQL
+      items:
+      - name: sp_change_feed_disable_db
+        href: relational-databases/system-stored-procedures/sp-change-feed-disable-db.md
+      - name: sp_change_feed_disable_table
+        href: relational-databases/system-stored-procedures/sp-change-feed-disable-table.md
+      - name: sp_change_feed_drop_table_group
+        href: relational-databases/system-stored-procedures/sp-change-feed-drop-table-group.md
+      - name: sp_help_change_feed
+        href: relational-databases/system-stored-procedures/sp-help-change-feed.md
+      - name: sp_help_change_feed_table
+        href: relational-databases/system-stored-procedures/sp-help-change-feed-table.md
+      - name: sp_change_feed_configure_parameters
+        href: relational-databases/system-stored-procedures/sp-change-feed-configure-parameters.md
+      - name: sp_change_feed_create_table_group
+        href: relational-databases/system-stored-procedures/sp-change-feed-create-table-group.md
+      - name: sp_change_feed_enable_db
+        href: relational-databases/system-stored-procedures/sp-change-feed-enable-db.md
+      - name: sp_change_feed_enable_table
+        href: relational-databases/system-stored-procedures/sp-change-feed-enable-table.md
+    - name: SQL Server Agent
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/sql-server-agent-stored-procedures-transact-sql.md
+      - name: sp_add_alert
+        href: relational-databases/system-stored-procedures/sp-add-alert-transact-sql.md
+      - name: sp_add_category
+        href: relational-databases/system-stored-procedures/sp-add-category-transact-sql.md
+      - name: sp_add_job
+        href: relational-databases/system-stored-procedures/sp-add-job-transact-sql.md
+      - name: sp_add_jobschedule
+        href: relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql.md
+      - name: sp_add_jobserver
+        href: relational-databases/system-stored-procedures/sp-add-jobserver-transact-sql.md
+      - name: sp_add_jobstep
+        href: relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql.md
+      - name: sp_add_notification
+        href: relational-databases/system-stored-procedures/sp-add-notification-transact-sql.md
+      - name: sp_add_operator
+        href: relational-databases/system-stored-procedures/sp-add-operator-transact-sql.md
+      - name: sp_add_proxy
+        href: relational-databases/system-stored-procedures/sp-add-proxy-transact-sql.md
+      - name: sp_add_schedule
+        href: relational-databases/system-stored-procedures/sp-add-schedule-transact-sql.md
+      - name: sp_add_targetservergroup
+        href: relational-databases/system-stored-procedures/sp-add-targetservergroup-transact-sql.md
+      - name: sp_add_targetsvrgrp_member
+        href: relational-databases/system-stored-procedures/sp-add-targetsvrgrp-member-transact-sql.md
+      - name: sp_apply_job_to_targets
+        href: relational-databases/system-stored-procedures/sp-apply-job-to-targets-transact-sql.md
+      - name: sp_attach_schedule
+        href: relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql.md
+      - name: sp_cycle_agent_errorlog
+        href: relational-databases/system-stored-procedures/sp-cycle-agent-errorlog-transact-sql.md
+      - name: sp_cycle_errorlog
+        href: relational-databases/system-stored-procedures/sp-cycle-errorlog-transact-sql.md
+      - name: sp_delete_alert
+        href: relational-databases/system-stored-procedures/sp-delete-alert-transact-sql.md
+      - name: sp_delete_category
+        href: relational-databases/system-stored-procedures/sp-delete-category-transact-sql.md
+      - name: sp_delete_job
+        href: relational-databases/system-stored-procedures/sp-delete-job-transact-sql.md
+      - name: sp_delete_jobschedule
+        href: relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql.md
+      - name: sp_delete_jobserver
+        href: relational-databases/system-stored-procedures/sp-delete-jobserver-transact-sql.md
+      - name: sp_delete_jobstep
+        href: relational-databases/system-stored-procedures/sp-delete-jobstep-transact-sql.md
+      - name: sp_delete_jobsteplog
+        href: relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql.md
+      - name: sp_delete_notification
+        href: relational-databases/system-stored-procedures/sp-delete-notification-transact-sql.md
+      - name: sp_delete_operator
+        href: relational-databases/system-stored-procedures/sp-delete-operator-transact-sql.md
+      - name: sp_delete_proxy
+        href: relational-databases/system-stored-procedures/sp-delete-proxy-transact-sql.md
+      - name: sp_delete_schedule
+        href: relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql.md
+      - name: sp_delete_targetserver
+        href: relational-databases/system-stored-procedures/sp-delete-targetserver-transact-sql.md
+      - name: sp_delete_targetservergroup
+        href: relational-databases/system-stored-procedures/sp-delete-targetservergroup-transact-sql.md
+      - name: sp_delete_targetsvrgrp_member
+        href: relational-databases/system-stored-procedures/sp-delete-targetsvrgrp-member-transact-sql.md
+      - name: sp_detach_schedule
+        href: relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql.md
+      - name: sp_enum_login_for_proxy
+        href: relational-databases/system-stored-procedures/sp-enum-login-for-proxy-transact-sql.md
+      - name: sp_enum_proxy_for_subsystem
+        href: relational-databases/system-stored-procedures/sp-enum-proxy-for-subsystem-transact-sql.md
+      - name: sp_grant_proxy_to_subsystem
+        href: relational-databases/system-stored-procedures/sp-grant-proxy-to-subsystem-transact-sql.md
+      - name: sp_grant_login_to_proxy
+        href: relational-databases/system-stored-procedures/sp-grant-login-to-proxy-transact-sql.md
+      - name: sp_help_alert
+        href: relational-databases/system-stored-procedures/sp-help-alert-transact-sql.md
+      - name: sp_help_category
+        href: relational-databases/system-stored-procedures/sp-help-category-transact-sql.md
+      - name: sp_help_downloadlist
+        href: relational-databases/system-stored-procedures/sp-help-downloadlist-transact-sql.md
+      - name: sp_help_job
+        href: relational-databases/system-stored-procedures/sp-help-job-transact-sql.md
+      - name: sp_help_jobactivity
+        href: relational-databases/system-stored-procedures/sp-help-jobactivity-transact-sql.md
+      - name: sp_help_jobcount
+        href: relational-databases/system-stored-procedures/sp-help-jobcount-transact-sql.md
+      - name: sp_help_jobhistory
+        href: relational-databases/system-stored-procedures/sp-help-jobhistory-transact-sql.md
+      - name: sp_help_jobs_in_schedule
+        href: relational-databases/system-stored-procedures/sp-help-jobs-in-schedule-transact-sql.md
+      - name: sp_help_jobschedule
+        href: relational-databases/system-stored-procedures/sp-help-jobschedule-transact-sql.md
+      - name: sp_help_jobserver
+        href: relational-databases/system-stored-procedures/sp-help-jobserver-transact-sql.md
+      - name: sp_help_jobstep
+        href: relational-databases/system-stored-procedures/sp-help-jobstep-transact-sql.md
+      - name: sp_help_jobsteplog
+        href: relational-databases/system-stored-procedures/sp-help-jobsteplog-transact-sql.md
+      - name: sp_help_notification
+        href: relational-databases/system-stored-procedures/sp-help-notification-transact-sql.md
+      - name: sp_help_operator
+        href: relational-databases/system-stored-procedures/sp-help-operator-transact-sql.md
+      - name: sp_help_proxy
+        href: relational-databases/system-stored-procedures/sp-help-proxy-transact-sql.md
+      - name: sp_help_schedule
+        href: relational-databases/system-stored-procedures/sp-help-schedule-transact-sql.md
+      - name: sp_help_targetserver
+        href: relational-databases/system-stored-procedures/sp-help-targetserver-transact-sql.md
+      - name: sp_help_targetservergroup
+        href: relational-databases/system-stored-procedures/sp-help-targetservergroup-transact-sql.md
+      - name: sp_manage_jobs_by_login
+        href: relational-databases/system-stored-procedures/sp-manage-jobs-by-login-transact-sql.md
+      - name: sp_msx_defect
+        href: relational-databases/system-stored-procedures/sp-msx-defect-transact-sql.md
+      - name: sp_msx_enlist
+        href: relational-databases/system-stored-procedures/sp-msx-enlist-transact-sql.md
+      - name: sp_msx_get_account
+        href: relational-databases/system-stored-procedures/sp-msx-get-account-transact-sql.md
+      - name: sp_msx_set_account
+        href: relational-databases/system-stored-procedures/sp-msx-set-account-transact-sql.md
+      - name: sp_notify_operator
+        href: relational-databases/system-stored-procedures/sp-notify-operator-transact-sql.md
+      - name: sp_post_msx_operation
+        href: relational-databases/system-stored-procedures/sp-post-msx-operation-transact-sql.md
+      - name: sp_purge_jobhistory
+        href: relational-databases/system-stored-procedures/sp-purge-jobhistory-transact-sql.md
+      - name: sp_readerrorlog
+        href: relational-databases/system-stored-procedures/sp-readerrorlog-transact-sql.md
+      - name: sp_remove_job_from_targets
+        href: relational-databases/system-stored-procedures/sp-remove-job-from-targets-transact-sql.md
+      - name: sp_resync_targetserver
+        href: relational-databases/system-stored-procedures/sp-resync-targetserver-transact-sql.md
+      - name: sp_revoke_login_from_proxy
+        href: relational-databases/system-stored-procedures/sp-revoke-login-from-proxy-transact-sql.md
+      - name: sp_revoke_proxy_from_subsystem
+        href: relational-databases/system-stored-procedures/sp-revoke-proxy-from-subsystem-transact-sql.md
+      - name: sp_start_job
+        href: relational-databases/system-stored-procedures/sp-start-job-transact-sql.md
+      - name: sp_stop_job
+        href: relational-databases/system-stored-procedures/sp-stop-job-transact-sql.md
+      - name: sp_update_alert
+        href: relational-databases/system-stored-procedures/sp-update-alert-transact-sql.md
+      - name: sp_update_category
+        href: relational-databases/system-stored-procedures/sp-update-category-transact-sql.md
+      - name: sp_update_job
+        href: relational-databases/system-stored-procedures/sp-update-job-transact-sql.md
+      - name: sp_update_jobschedule
+        href: relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql.md
+      - name: sp_update_jobstep
+        href: relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql.md
+      - name: sp_update_notification
+        href: relational-databases/system-stored-procedures/sp-update-notification-transact-sql.md
+      - name: sp_update_operator
+        href: relational-databases/system-stored-procedures/sp-update-operator-transact-sql.md
+      - name: sp_update_proxy
+        href: relational-databases/system-stored-procedures/sp-update-proxy-transact-sql.md
+      - name: sp_update_schedule
+        href: relational-databases/system-stored-procedures/sp-update-schedule-transact-sql.md
+      - name: sp_update_targetservergroup
+        href: relational-databases/system-stored-procedures/sp-update-targetservergroup-transact-sql.md
+    - name: SQL Server Profiler
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/sql-server-profiler-stored-procedures-transact-sql.md
+      - name: sp_trace_create
+        href: relational-databases/system-stored-procedures/sp-trace-create-transact-sql.md
+      - name: sp_trace_generateevent
+        href: relational-databases/system-stored-procedures/sp-trace-generateevent-transact-sql.md
+      - name: sp_trace_setevent
+        href: relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md
+      - name: sp_trace_setfilter
+        href: relational-databases/system-stored-procedures/sp-trace-setfilter-transact-sql.md
+      - name: sp_trace_setstatus
+        href: relational-databases/system-stored-procedures/sp-trace-setstatus-transact-sql.md
+    - name: Stretch Database extended
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/stretch-database-extended-stored-procedures-transact-sql.md
+      - name: sys.sp_rda_deauthorize_db
+        href: relational-databases/system-stored-procedures/sys-sp-rda-deauthorize-db-transact-sql.md
+      - name: sys.sp_rda_get_rpo_duration
+        href: relational-databases/system-stored-procedures/sys-sp-rda-get-rpo-duration-transact-sql.md
+      - name: sys.sp_rda_reauthorize_db
+        href: relational-databases/system-stored-procedures/sys-sp-rda-reauthorize-db-transact-sql.md
+      - name: sys.sp_rda_reconcile_batch
+        href: relational-databases/system-stored-procedures/sys-sp-rda-reconcile-batch-transact-sql.md
+      - name: sys.sp_rda_reconcile_columns
+        href: relational-databases/system-stored-procedures/sys-sp-rda-reconcile-columns-transact-sql.md
+      - name: sys.sp_rda_reconcile_indexes
+        href: relational-databases/system-stored-procedures/sys-sp-rda-reconcile-indexes-transact-sql.md
+      - name: sys.sp_rda_set_query_mode
+        href: relational-databases/system-stored-procedures/sys-sp-rda-set-query-mode-transact-sql.md
+      - name: sys.sp_rda_set_rpo_duration
+        href: relational-databases/system-stored-procedures/sys-sp-rda-set-rpo-duration-transact-sql.md
+      - name: sys.sp_rda_test_connection
+        href: relational-databases/system-stored-procedures/sys-sp-rda-test-connection-transact-sql.md
+    - name: Temporal tables
+      items:
+      - name: sys.sp_cleanup_temporal_history
+        href: relational-databases/system-stored-procedures/temporal-table-sys-sp-cleanup-temporal-history.md
+      - name: sp_xtp_flush_temporal_history
+        href: relational-databases/system-stored-procedures/temporal-table-sp-xtp-flush-temporal-history.md
+    - name: XML
+      items:
+      - name: Overview
+        href: relational-databases/system-stored-procedures/xml-stored-procedures-transact-sql.md
+      - name: sp_xml_preparedocument
+        href: relational-databases/system-stored-procedures/sp-xml-preparedocument-transact-sql.md
+      - name: sp_xml_removedocument
+        href: relational-databases/system-stored-procedures/sp-xml-removedocument-transact-sql.md
+      - name: sp_db_selective_xml_index
+        href: relational-databases/system-stored-procedures/sp-db-selective-xml-index-transact-sql.md
     - name: Replication Tables
       href: relational-databases/system-tables/replication-tables-transact-sql.md
       items:
@@ -15571,6 +16045,8 @@ items:
         href: relational-databases/system-tables/msqreader-agents-transact-sql.md
       - name: MSqreader_history
         href: relational-databases/system-tables/msqreader-history-transact-sql.md
+      - name: MSrepl_agent_jobs
+        href: relational-databases/system-tables/msrepl-agent-jobs-transact-sql.md
       - name: MSrepl_backup_lsns
         href: relational-databases/system-tables/msrepl-backup-lsns-transact-sql.md
       - name: MSrepl_commands
@@ -15583,6 +16059,8 @@ items:
         href: relational-databases/system-tables/msrepl-originators-transact-sql.md
       - name: MSrepl_queuedtraninfo
         href: relational-databases/system-tables/msrepl-queuedtraninfo-transact-sql.md
+      - name: MSreplservers
+        href: relational-databases/system-tables/msreplservers.md
       - name: MSrepl_transactions
         href: relational-databases/system-tables/msrepl-transactions-transact-sql.md
       - name: MSrepl_version
@@ -16107,13 +16585,13 @@ items:
         href: t-sql/data-types/constants-transact-sql.md
       - name: Conversion
         href: t-sql/data-types/data-type-conversion-database-engine.md
-      - name: Nondeterministic Conversion
+      - name: Nondeterministic conversion
         href: t-sql/data-types/nondeterministic-convert-date-literals.md
       - name: Precedence
         href: t-sql/data-types/data-type-precedence-transact-sql.md
       - name: Synonyms
         href: t-sql/data-types/data-type-synonyms-transact-sql.md
-      - name: Precision, Scale, & Length
+      - name: Precision, scale, & length
         href: t-sql/data-types/precision-scale-and-length-transact-sql.md
       - name: Cursor
         href: t-sql/data-types/cursor-transact-sql.md
@@ -16121,7 +16599,7 @@ items:
         href: t-sql/data-types/rowversion-transact-sql.md
       - name: sql_variant
         href: t-sql/data-types/sql-variant-transact-sql.md
-      - name: Table
+      - name: table
         href: t-sql/data-types/table-transact-sql.md
       - name: uniqueidentifier
         href: t-sql/data-types/uniqueidentifier-transact-sql.md
@@ -16753,6 +17231,10 @@ items:
         items:
         - name: ASCII
           href: t-sql/functions/ascii-transact-sql.md
+        - name: BASE64_DECODE
+          href: t-sql/functions/base64-decode-transact-sql.md
+        - name: BASE64_ENCODE
+          href: t-sql/functions/base64-encode-transact-sql.md
         - name: CHAR
           href: t-sql/functions/char-transact-sql.md
         - name: CHARINDEX
@@ -17142,19 +17624,21 @@ items:
           items:
           - name: Overview
             href: t-sql/language-elements/string-operators-transact-sql.md
-          - name: "+ (String Concatenation)"
+          - name: "= (String comparison or assignment)"
+            href: t-sql/language-elements/string-comparison-assignment.md
+          - name: "+ (String concatenation)"
             href: t-sql/language-elements/string-concatenation-transact-sql.md
-          - name: "+= (String Concatenation Assignment)"
+          - name: "+= (String concatenation assignment)"
             href: t-sql/language-elements/string-concatenation-equal-transact-sql.md
-          - name: "% (Wildcard - Character(s) to Match)"
+          - name: "% (Wildcard - character(s) to match)"
             href: t-sql/language-elements/percent-character-wildcard-character-s-to-match-transact-sql.md
-          - name: "[ ] (Wildcard - Character(s) to Match)"
+          - name: "[ ] (Wildcard - character(s) to match)"
             href: t-sql/language-elements/wildcard-character-s-to-match-transact-sql.md
-          - name: "[^] (Wildcard - Character(s) Not to Match)"
+          - name: "[^] (Wildcard - character(s) not to match)"
             href: t-sql/language-elements/wildcard-character-s-not-to-match-transact-sql.md
-          - name: "_ (Wildcard - Match One Character)"
+          - name: "_ (Wildcard - match one character)"
             href: t-sql/language-elements/wildcard-match-one-character-transact-sql.md
-        - name: Operator Precedence
+        - name: Operator precedence
           href: t-sql/language-elements/operator-precedence-transact-sql.md
       - name: Transactions
         href: t-sql/language-elements/transactions-transact-sql.md
@@ -17198,17 +17682,17 @@ items:
           href: t-sql/queries/aliasing-azure-sql-data-warehouse-parallel-data-warehouse.md
         - name: EXPLAIN
           href: t-sql/queries/explain-transact-sql.md
-        - name: OPTION Clause
+        - name: OPTION clause
           href: t-sql/queries/option-clause-transact-sql.md
-        - name: OUTPUT Clause
+        - name: OUTPUT clause
           href: t-sql/queries/output-clause-transact-sql.md
         - name: READTEXT
           href: t-sql/queries/readtext-transact-sql.md
-        - name: Search Condition
+        - name: Search condition
           href: t-sql/queries/search-condition-transact-sql.md
         - name: Subqueries (Azure Synapse Analytics, Parallel Data Warehouse)
           href: t-sql/queries/subqueries-azure-sql-data-warehouse-parallel-data-warehouse.md
-        - name: Table Value Constructor
+        - name: Table value constructor
           href: t-sql/queries/table-value-constructor-transact-sql.md
         - name: TOP
           href: t-sql/queries/top-transact-sql.md
@@ -17638,8 +18122,8 @@ items:
         - name: FUNCTION
           displayName: CREATE FUNCTION
           href: t-sql/statements/create-function-transact-sql.md
-        - name: FUNCTION (Azure Synapse Analytics)
-          displayName: CREATE FUNCTION (Azure Synapse Analytics)
+        - name: FUNCTION (Synapse Analytics and Fabric)
+          displayName: CREATE FUNCTION (Synapse Analytics and Fabric)
           href: t-sql/statements/create-function-sql-data-warehouse.md
         - name: INDEX
           displayName: CREATE INDEX
@@ -17728,14 +18212,17 @@ items:
         - name: TABLE
           displayName: CREATE TABLE
           href: t-sql/statements/create-table-transact-sql.md
-        - name: TABLE (Azure Synapse Analytics)
-          displayName: CREATE TABLE (Azure Synapse Analytics)
+        - name: TABLE AS CLONE OF
+          displayName: CREATE TABLE AS CLONE OF
+          href: t-sql/statements/create-table-as-clone-of-transact-sql.md
+        - name: TABLE (Synapse Analytics and Fabric)
+          displayName: CREATE TABLE
           href: t-sql/statements/create-table-azure-sql-data-warehouse.md
         - name: TABLE (SQL Graph)
           displayName: CREATE TABLE (SQL Graph)
           href: t-sql/statements/create-table-sql-graph.md
-        - name: TABLE AS SELECT (Azure Synapse Analytics)
-          displayName: CREATE TABLE AS SELECT (Azure Synapse Analytics)
+        - name: TABLE AS SELECT (Synapse Analytics and Fabric)
+          displayName: CREATE TABLE AS SELECT
           href: t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md
         - name: TABLE IDENTITY (Property)
           displayName: CREATE TABLE IDENTITY (Property)
@@ -18005,7 +18492,7 @@ items:
           href: t-sql/statements/open-master-key-transact-sql.md
         - name: OPEN SYMMETRIC KEY
           href: t-sql/statements/open-symmetric-key-transact-sql.md
-        - name: "Permissions: GRANT, DENY, REVOKE (Azure Synapse Analytics, Parallel Data Warehouse)"
+        - name: "Permissions: GRANT, DENY, REVOKE"
           href: t-sql/statements/permissions-grant-deny-revoke-azure-sql-data-warehouse-parallel-data-warehouse.md
         - name: REVERT
           href: t-sql/statements/revert-transact-sql.md
@@ -18128,6 +18615,8 @@ items:
           href: t-sql/statements/set-query-governor-cost-limit-transact-sql.md
         - name: QUOTED_IDENTIFIER
           href: t-sql/statements/set-quoted-identifier-transact-sql.md
+        - name: RECOMMENDATIONS
+          href: t-sql/statements/set-recommendations-sql.md          
         - name: REMOTE_PROC_TRANSACTIONS
           href: t-sql/statements/set-remote-proc-transactions-transact-sql.md
         - name: RESULT SET CACHING

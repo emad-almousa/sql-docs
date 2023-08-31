@@ -16,9 +16,9 @@ monikerRange: ">= aps-pdw-2016 || = azure-sqldw-latest"
 
 [!INCLUDE[applies-to-version/asa-pdw](../../includes/applies-to-version/asa-pdw.md)]
 
-Displays the number of rows, disk space reserved, and disk space used for a specific table, or for all tables in a [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] or [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] database.
+Displays the number of rows, disk space reserved, and disk space used for a specific table, or for all tables in a [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] or [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] database.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -81,7 +81,7 @@ The following is the result set for one table.
 
 ### A. DBCC PDW_SHOWSPACEUSED basic syntax
 
-The following examples using the `AdventureWorks2022` sample database show multiple ways to display the number of rows, disk space reserved, and disk space used by the `FactInternetSales` table in the [!INCLUDE[ssawPDW](../../includes/ssawpdw-md.md)] database.
+The following examples using the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] sample database show multiple ways to display the number of rows, disk space reserved, and disk space used by the `FactInternetSales` table in the [!INCLUDE[ssawPDW](../../includes/ssawpdw-md.md)] database.
 
 ```sql
 -- Uses AdventureWorks2022
@@ -94,7 +94,7 @@ DBCC PDW_SHOWSPACEUSED ( FactInternetSales );
 
 ### B. Show the disk space used by all tables in the current database
 
- The following example using the `AdventureWorks2022` sample database shows the disk space reserved and used by all user tables and system tables in the [!INCLUDE[ssawPDW](../../includes/ssawpdw-md.md)] database.
+ The following example using the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] sample database shows the disk space reserved and used by all user tables and system tables in the [!INCLUDE[ssawPDW](../../includes/ssawpdw-md.md)] database.
 
 ```sql
 -- Uses AdventureWorks2022  

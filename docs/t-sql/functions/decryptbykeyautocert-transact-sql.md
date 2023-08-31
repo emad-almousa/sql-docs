@@ -20,7 +20,7 @@ dev_langs:
 
 This function decrypts data with a symmetric key. That symmetric key automatically decrypts with a certificate.  
 
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -72,7 +72,7 @@ This example shows how `DECRYPTBYKEYAUTOCERT` can simplify decryption code. This
   
 ```sql  
 --Create the keys and certificate.  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'mzkvdlk979438teag$$ds987yghn)(*&4fdg^';  
 OPEN MASTER KEY DECRYPTION BY PASSWORD = 'mzkvdlk979438teag$$ds987yghn)(*&4fdg^';  
 CREATE CERTIFICATE HumanResources037   

@@ -2,10 +2,10 @@
 title: Restore a database from a backup
 titleSuffix: Azure SQL Managed Instance
 description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Managed Instance up to 35 days.
-author: MilanMSFT
-ms.author: mlazic
+author: Stralle
+ms.author: strrodic
 ms.reviewer: wiassaf, mathoma, danil
-ms.date: 11/16/2022
+ms.date: 06/23/2023
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
 ms.topic: how-to
@@ -22,8 +22,8 @@ Some of the content in this article is duplicated in /azure-sql/database/recover
 
 
 > [!div class="op_single_selector"]
-> * [Azure SQL Database](../database/recovery-using-backups.md)
-> * [Azure SQL Managed Instance](recovery-using-backups.md)
+> * [Azure SQL Database](../database/recovery-using-backups.md?view=azuresql-db&preserve-view=true)
+> * [Azure SQL Managed Instance](recovery-using-backups.md?view=azuresql-mi&preserve-view=true)
 
 This article provides steps to recover a database from a backup in Azure SQL Managed Instance. For Azure SQL Database, see [Restore a database from a backup in Azure SQL Database](../database/recovery-using-backups.md).
 
@@ -35,8 +35,6 @@ This article provides steps to recover a database from a backup in Azure SQL Man
 - Create a new database on the same managed instance or a different managed instance, recovered to a specified point in time within the retention period.
 - Create a database on the same managed instance or a different managed instance, recovered to the deletion time for a deleted database.
 - Create a new database on any managed instance in same subscription or different subscription in same tenant and in the same region, recovered to the point of the most recent backups.
-
-Cross-region restore for SQL Managed Instance isn't currently supported. Additionally, when [service endpoint policies](service-endpoint-policies-configure.md) are enabled on Azure SQL Managed Instance, placing a service endpoint policy on a subnet prevents point-in-time restores (PITR) from instances in different subnets. 
 
 If you configured [long-term retention (LTR)](../database/long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any instance.
 
@@ -95,11 +93,15 @@ You generally restore a database to an earlier point for recovery purposes. You 
   
 ### [Azure portal](#tab/azure-portal)
 
-To recover a database in SQL Managed Instance to a point in time by using the Azure portal, open the source database overview page, and select **Restore** on the toolbar. Provide target managed instance details on the **Basics** tab, and source managed instance details on the **Data source** tab. Configure retention settings on the **Additional settings** tab. 
+To recover a database in SQL Managed Instance to a point in time by using the Azure portal, you can go to the database in the portal and choose **Restore**. Alternatively, you can open the target SQL Managed Instance overview page, and select **+ New database** on the toolbar to open the **Create Azure SQL Managed Database** page. 
 
-:::image type="content" source="media/point-in-time-restore/choose-database-to-restore.png" alt-text="Screenshot of the Azure portal, SQL Managed Instance overview blade, with a database selected. ":::
+:::image type="content" source="media/point-in-time-restore/choose-database-to-restore.png" alt-text="Screenshot that shows the SQL Managed Instance overview pane in the Azure portal, with adding a new database selected. ":::
 
-:::image type="content" source="./media/point-in-time-restore/restore-database-to-mi.png" alt-text="Screenshot of the Azure portal, database overview page, Restore is highlighted.":::
+Provide target managed instance details on the **Basics** tab, and choose a type of backup from the **Data source** tab. 
+
+:::image type="content" source="./media/point-in-time-restore/database-data-source.png" alt-text="Screenshot of the Azure portal that shows the data source tab of the Create Azure SQL Managed Database page, with point-in-time restore selected.":::
+
+For greater details, review the [Point in time restore](point-in-time-restore.md#restore-an-existing-database) article. 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -168,14 +170,13 @@ From the Azure portal, you can restore a geo-replicated backup to an existing in
 
 To restore to an existing instance, follow the steps in [Point-in-time restore](#point-in-time-restore), and be sure to choose the appropriate source and target instances to restore your database to your intended instance. 
 
-To gep-restore to a new instance by using the Azure portal, follow these steps: 
+To geo-restore to a new instance by using the Azure portal, follow these steps: 
 
 1. Go to your new managed instance. 
 1. Select **New database**.
 1. Enter a database name. 
 1. Under **Data source**, choose the appropriate type of backup, and then provide details for the data source. 
 1. Select a backup from the list of available geo-restore backups. 
-
 
 After you complete the process of creating an instance database, it will contain the restored geo-restore backup.
 
@@ -191,13 +192,21 @@ For a PowerShell script that shows how to perform geo-restore for a database in 
 
 ### Geo-restore considerations
 
-For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../database/disaster-recovery-guidance.md#recover-using-geo-restore).
-
 Geo-restore is the most basic disaster-recovery solution available in SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) of up to 1 hour and an estimated recovery time objective (RTO) of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and isn't critical to the business, geo-restore is an appropriate disaster-recovery solution. 
 
 For business-critical applications that require large databases and must ensure business continuity, use [auto-failover groups](auto-failover-group-sql-mi.md). That feature offers a much lower RPO and RTO, and the capacity is always guaranteed. 
 
 For more information about business continuity choices, see [Overview of business continuity](../database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+
+## Limitations
+
+Consider the following limitations when working with backups and Azure SQL Managed Instance: 
+
+- Geo-restore of a database can only be performed to an instance in the same subscription as the source SQL managed instance. 
+- SQL Managed Instance databases can only be [restored to SQL Server 2022](restore-database-to-sql-server.md) (either on-premises, or on a virtual machine) if the source SQL Managed Instance has enrolled in the [November 2022 feature wave](november-2022-feature-wave-enroll.md).
+- SQL Managed Instance databases are encrypted with TDE by default. When the source database uses a customer-managed key (CMK) as the TDE protector, to restore your database to an instance other than the source SQL Managed Instance, the target instance must have access to the same key used to encrypt the source database in Azure Key Vault, or you must disable TDE encryption on the source database before taking the backup.
+- You can only track the progress of the restore process by using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) dynamic management views.
+- When [service endpoint policies](service-endpoint-policies-configure.md) are enabled on Azure SQL Managed Instance, placing a service endpoint policy on a subnet prevents point-in-time restores (PITR) from instances in different subnets. 
 
 ## Next steps
 

@@ -1,10 +1,13 @@
 ---
 title: GROUP BY (Transact-SQL)
 description: "SELECT - GROUP BY- Transact-SQL"
+author: MikeRayMSFT
+ms.author: mikeray
+ms.date: "10/12/2021"
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "GROUP"
   - "CUBE"
   - "ROLLUP"
@@ -15,9 +18,7 @@ f1_keywords:
   - "GROUP_TSQL"
   - "CUBE_TSQL"
   - "ROLLUP_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "GROUP BY clause, about GROUP BY clause"
   - "dividing tables into groups"
   - "GROUPING SETS"
@@ -25,23 +26,20 @@ helpviewer_keywords:
   - "table groups [SQL Server]"
   - "groups [SQL Server], tables divided into groups"
   - "summary values [SQL Server]"
-author: MikeRayMSFT
-ms.author: mikeray
-ms.reviewer: ""
-ms.custom: ""
-ms.date: "10/12/2021"
-monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+dev_langs:
+  - "TSQL"
+monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||=fabric"
 ---
 
 # SELECT - GROUP BY- Transact-SQL
 
-[!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE [sql-asdb-asdbmi-asa-pdw-fabricse-fabricdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw-fabricse-fabricdw.md)]
 
 A SELECT statement clause that divides the query result into groups of rows, usually by performing one or more aggregations on each group. The SELECT statement returns one row per group.
   
 ## Syntax  
 
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions &#40;Transact-SQL&#41;](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
   
 ```syntaxsql
 -- Syntax for SQL Server and Azure SQL Database   
@@ -291,7 +289,7 @@ Applies to: SQL Server and Azure SQL Database
 >This syntax is provided for backward compatibility only. Avoid using this syntax in new development work, and plan to modify applications that currently use this syntax.
 
 ### WITH (DISTRIBUTED_AGG)
-Applies to: [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+Applies to: [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
 
 The DISTRIBUTED_AGG query hint forces the massively parallel processing (MPP) system to redistribute a table on a specific column before performing an aggregation. Only one column in the GROUP BY clause can have a DISTRIBUTED_AGG query hint. After the query finishes, the redistributed table is dropped. The original table is not changed.  
 
@@ -318,7 +316,7 @@ NULL values:
   
 ## Limitations and Restrictions
 
-Applies to: SQL Server (starting with 2008) and [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)]
+Applies to: SQL Server (starting with 2008) and [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)]
 
 ### Maximum capacity
 
@@ -342,7 +340,7 @@ For a GROUP BY clause that uses ROLLUP, CUBE, or GROUPING SETS, the maximum numb
     GROUP BY CUBE (a1, ..., a13)   
     GROUP BY a1, ..., a13 WITH CUBE   
     ```    
-	For backwards compatible GROUP BY clauses that don't contain CUBE or ROLLUP, the number of group by items is limited by the GROUP BY column sizes, the aggregated columns, and the aggregate values involved in the query. This limit originates from the limit of 8,060 bytes on the intermediate worktable that is needed to hold intermediate query results. A maximum of 12 grouping expressions is permitted when CUBE or ROLLUP is specified.
+    For backwards compatible GROUP BY clauses that don't contain CUBE or ROLLUP, the number of group by items is limited by the GROUP BY column sizes, the aggregated columns, and the aggregate values involved in the query. This limit originates from the limit of 8,060 bytes on the intermediate worktable that is needed to hold intermediate query results. A maximum of 12 grouping expressions is permitted when CUBE or ROLLUP is specified.
 
 ### Support for ISO and ANSI SQL-2006 GROUP BY Features
 

@@ -1,16 +1,15 @@
 ---
 title: "Example: Specifying the CDATA Directive"
 description: View an example of how to specify the CDATA directive to wrap the specified data in a CDATA section.
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "CDATA directive"
-author: MikeRayMSFT
-ms.author: mikeray
 ---
 # Example: Specify the CDATA directive
 
@@ -21,7 +20,7 @@ If the directive is set to **CDATA**, the contained data isn't entity encoded, b
 The following query wraps the product model summary description in a CDATA section.
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT  1 as Tag,
         0 as Parent,

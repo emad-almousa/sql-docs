@@ -8,7 +8,6 @@ ms.date: 04/17/2018
 ms.service: sql
 ms.subservice: data-warehouse
 ms.topic: conceptual
-ms.custom: seo-dt-2019
 ---
 
 # Configure System Center Operations Manager (SCOM) to Monitor Analytics Platform System
@@ -61,7 +60,7 @@ Here are detailed instructions on how to do the tasks:
   
         ![Screenshot showing the Profiles option.](./media/configure-scom-to-monitor-analytics-platform-system/AdministrationRunAsConfigurationProfiles.png "AdministrationRunAsConfigurationProfiles")  
   
-    2.  Right click on **Microsoft APS Watcher Account** from the list and select **Properties**.  
+    2.  Right-click on **Microsoft APS Watcher Account** from the list and select **Properties**.  
   
         ![Screenshot showing the Properties option.](./media/configure-scom-to-monitor-analytics-platform-system/MicrosoftApsWatcherAccountProperties.png "MicrosoftApsWatcherAccountProperties")  
   

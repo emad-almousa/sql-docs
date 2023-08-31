@@ -34,7 +34,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
 
 Opens the Database Master Key of the current database.  
   
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -68,15 +68,15 @@ Requires CONTROL permission on the database.
   
 ## Examples
 
-The following example opens the Database Master Key of the `AdventureWorks2012` database, which has been encrypted with a password.  
+The following example opens the Database Master Key of the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database, which has been encrypted with a password.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 OPEN MASTER KEY DECRYPTION BY PASSWORD = '43987hkhj4325tsku7';  
 GO  
 ```  
   
-## Examples: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+## Examples: [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
 
 The following example opens the database master, which has been encrypted with a password.  
   

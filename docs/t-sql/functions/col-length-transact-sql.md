@@ -23,7 +23,7 @@ dev_langs:
 
 This function returns the defined length of a column, in bytes.
   
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
   
 ## Syntax  
   
@@ -55,7 +55,7 @@ For **varchar** columns declared with the **max** specifier (**varchar(max)**), 
 This example shows the return values for a column of type `varchar(40)` and a column of type `nvarchar(40)`:
   
 ```sql
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 CREATE TABLE t1(c1 VARCHAR(40), c2 NVARCHAR(40) );  
 GO  

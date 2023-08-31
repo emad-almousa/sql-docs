@@ -7,6 +7,7 @@ ms.reviewer: wiassaf, mathoma
 ms.date: 03/07/2022
 ms.service: sql-db-mi
 ms.subservice: deployment-configuration
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 monikerRange: "= azuresql || = azuresql-db || = azuresql-mi"
 ---
@@ -141,8 +142,7 @@ The following example creates a new managed instance and sets the maintenance wi
      -ResourceGroupName "your_resource_group_name" `
      -Location "your_mi_location" `
      -SubnetId /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNETName}/subnets/{SubnetName} `
-     -MaintenanceConfigurationId "/subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}" `
-     -AsJob
+     -MaintenanceConfigurationId "/subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}"
    ```
 
 # [CLI](#tab/azure-cli)
@@ -321,8 +321,7 @@ It's important to make sure that the `$maintenanceConfig` value must be a valid 
    ```powershell-interactive
    Set-AzSqlInstance -Name "your_mi_name" `
      -ResourceGroupName "your_resource_group_name" `
-     -MaintenanceConfigurationId "/subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}" `
-     -AsJob
+     -MaintenanceConfigurationId "/subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}"
    ```
 
 # [CLI](#tab/azure-cli)

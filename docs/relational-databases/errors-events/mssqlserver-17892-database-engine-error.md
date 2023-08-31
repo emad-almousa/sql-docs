@@ -1,17 +1,15 @@
 ---
-description: "MSSQLSERVER_17892"
 title: MSSQLSERVER_17892
-ms.custom: ""
+description: "MSSQLSERVER_17892"
+author: suresh-kandoth
+ms.author: sureshka
+ms.reviewer: jopilov, mathoma
 ms.date: 08/20/2020
 ms.service: sql
-ms.reviewer: ramakoni1, pijocoder, suresh-kandoth, Masha
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "17892 (Database Engine error)"
-ms.assetid: 
-author: suresh-kandoth
-ms.author: ramakoni
 ---
 # MSSQLSERVER_17892
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

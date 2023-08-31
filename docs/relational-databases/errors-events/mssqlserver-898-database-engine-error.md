@@ -1,17 +1,15 @@
 ---
-description: "MSSQLSERVER_898"
 title: MSSQLSERVER_898
-ms.custom: ""
+description: "MSSQLSERVER_898"
+author: suresh-kandoth
+ms.author: sureshka
+ms.reviewer: wiassaf
 ms.date: 02/15/2022
 ms.service: sql
-ms.reviewer: ramakoni1, pijocoder, suresh-kandoth, wiassaf
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "898 (Database Engine error)"
-ms.assetid: 
-author: suresh-kandoth
-ms.author: ramakoni
 ---
 # MSSQLSERVER_898
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

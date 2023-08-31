@@ -1,20 +1,17 @@
 ---
+title: "Upgrade Integration Services"
 description: "Upgrade Integration Services"
-title: "Upgrade Integration Services | Microsoft Docs"
-ms.custom: ""
+author: "MikeRayMSFT"
+ms.author: "mikeray"
 ms.date: "03/14/2017"
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: integration-services
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "Integration Services, upgrading"
   - "SSIS, upgrading"
   - "SQL Server Integration Services, upgrading"
   - "upgrading Integration Services"
-ms.assetid: 04f9863c-ba0b-47c5-af91-f2d41b078a23
-author: "MikeRayMSFT"
-ms.author: "mikeray"
 ---
 # Upgrade Integration Services
 
@@ -60,7 +57,7 @@ ms.author: "mikeray"
   
 -   Move from one localized version of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] to another localized version.  
   
- When you upgrade, you can upgrade both [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] and the [!INCLUDE[ssDE](../../includes/ssde-md.md)], or just upgrade the [!INCLUDE[ssDE](../../includes/ssde-md.md)], or just upgrade [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)]. If you upgrade only the [!INCLUDE[ssDE](../../includes/ssde-md.md)], [!INCLUDE[ssISversion10](../../includes/ssisversion10-md.md)] or later remains functional, but you do not have the functionality of [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)]. If you upgrade only [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)], [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)] is fully functional, but can only store packages in the file system, unless an instance of the [!INCLUDE[ssDECurrent](../../includes/ssdecurrent-md.md)] is available on another computer.  
+ When you upgrade, you can upgrade both [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] and the [!INCLUDE[ssDE](../../includes/ssde-md.md)], or just upgrade the [!INCLUDE[ssDE](../../includes/ssde-md.md)], or just upgrade [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)]. If you upgrade only the [!INCLUDE[ssDE](../../includes/ssde-md.md)], [!INCLUDE[ssISversion10](../../includes/ssisversion10-md.md)] or later remains functional, but you do not have the functionality of [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)]. If you upgrade only [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)], [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)] is fully functional, but can only store packages in the file system, unless an instance of the [!INCLUDE [ssdenoversion-md](../../includes/ssdenoversion-md.md)] is available on another computer.  
   
 ## Upgrading Both Integration Services and the Database Engine to [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)]  
  This section describes the effects of performing an upgrade that has the following criteria:  

@@ -1,17 +1,16 @@
 ---
 title: "FOR XML Support for the xml Data Type"
 description: Learn about the use of FOR XML queries on SQL database columns of the xml data type.
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "user-defined functions [SQL Server], XML"
   - "xml data type [SQL Server], FOR XML clause"
-author: MikeRayMSFT
-ms.author: mikeray
 ---
 # FOR XML support for the xml data type
 
@@ -22,7 +21,7 @@ If a FOR XML query specifies a column of **xml** type in the SELECT clause, colu
 For example, the following query retrieves customer contact information such as the `BusinessEntityID`, `FirstName`, and `LastName` columns, and the telephone numbers from the `AdditionalContactInfo` column of **xml** type.
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT BusinessEntityID, FirstName, LastName, AdditionalContactInfo.query('
 declare namespace act="http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactTypes";
@@ -126,7 +125,7 @@ FOR XML queries can be used for returning XML from a user-defined function that 
 For example, the following user-defined function returns a table with a single column of **xm**l type:
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 CREATE FUNCTION dbo.MyUDF (@ProudctModelID int)
 RETURNS @T TABLE

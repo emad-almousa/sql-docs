@@ -3,7 +3,7 @@ title: Transport Layer Security and digital certificates
 description: This article describes Transport Layer Security and digital certificates.
 author: sevend2
 ms.author: v-sidong
-ms.reviewer: ramakoni1, randolphwest
+ms.reviewer: sureshka, randolphwest
 ms.date: 12/08/2022
 ms.service: sql
 ms.subservice: configuration
@@ -27,12 +27,12 @@ Enabling TLS encryption increases the security of data transmitted across networ
 - Packets sent from the instance of SQL Server to the application must be encrypted by the server TLS stack and decrypted by the client TLS stack.
 
 > [!IMPORTANT]  
-> Starting with SQL Server 2016 (13.x), Secure Sockets Layer (SSL) has been discontinued. Use TLS (TLS 1.2 is recommended) instead. For more information, see [KB3135244 - TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/topic/kb3135244-tls-1-2-support-for-microsoft-sql-server-e4472ef8-90a9-13c1-e4d8-44aad198cdbe). SQL Server 2022 introduces support for TLS 1.3. For more information, see [TDS 8.0 and TLS 1.3 support](/sql/relational-databases/security/networking/tds-8-and-tls-1-3).
+> Starting with SQL Server 2016 (13.x), Secure Sockets Layer (SSL) has been discontinued. Use TLS (TLS 1.2 is recommended) instead. For more information, see [KB3135244 - TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/topic/kb3135244-tls-1-2-support-for-microsoft-sql-server-e4472ef8-90a9-13c1-e4d8-44aad198cdbe). SQL Server 2022 introduces support for TLS 1.3. For more information, see [TLS 1.3 support](../../relational-databases/security/networking/tls-1-3.md).
 > If no matching protocols exist between the client and server computer, you can run into the error described in [An existing connection was forcibly closed by the remote host](/troubleshoot/sql/connect/tls-exist-connection-closed).
 
 ## Digital certificate overview
 
-Digital certificates are electronic files that work like an online password to verify the identity of a user or a computer. They're used to create the encrypted channel that's used for client communications. A certificate is a digital statement that's issued by a certification authority (CA) that vouches for the identity of the certificate holder and enables the parties to communicate securely manner by using encryption.
+Digital certificates are electronic files that work like an online password to verify the identity of a user or a computer. They're used to create the encrypted channel that's used for client communications. A certificate is a digital statement that's issued by a certification authority (CA) that vouches for the identity of the certificate holder and enables the parties to communicate securely by using encryption.
 
 Digital certificates provide the following services:
 

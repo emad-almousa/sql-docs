@@ -1,23 +1,19 @@
 ---
-description: "Table Properties (Visual Database Tools)"
 title: Table Properties
-ms.custom: seo-lt-2019
+description: "Table Properties (Visual Database Tools)"
+author: markingmyname
+ms.author: maghan
 ms.date: 01/19/2017
 ms.service: sql
 ms.subservice: ssms
 ms.topic: conceptual
-f1_keywords: 
+f1_keywords:
   - "vdt.tabledesigner"
   - "vdt.designers.properties.Table"
-ms.assetid: cc392987-1aab-45f5-b5af-a26be53409bf
-author: markingmyname
-ms.author: maghan
-ms.reviewer: 
-
 ---
 # Table Properties (Visual Database Tools)
 [!INCLUDE[SQL Server](../../includes/applies-to-version/sqlserver.md)]
-These properties appear in the Properties window when you right click in Table Designer and select Properties. Unless otherwise noted, you can edit these properties in the Properties window when the table is selected.  
+These properties appear in the Properties window when you right-click in Table Designer and select Properties. Unless otherwise noted, you can edit these properties in the Properties window when the table is selected.  
   
 > [!NOTE]  
 > If the table is published for replication, you must make schema changes using the Transact-SQL statement [ALTER TABLE](../../t-sql/statements/alter-table-transact-sql.md) or SQL Server Management Objects (SMO). When schema changes are made using the Table Designer or the Database Diagram Designer, it attempts to drop and recreate the table. You cannot drop published objects, therefore the schema change will fail.  

@@ -1,22 +1,19 @@
 ---
-description: "Specify a Target Server's Location"
 title: Specify a Target Server Location
-ms.custom: seo-lt-2019
+description: "Specify a Target Server's Location"
+author: markingmyname
+ms.author: maghan
 ms.date: 01/19/2017
 ms.service: sql
 ms.subservice: ssms
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "SQL Server Agent jobs, target servers"
   - "target servers [SQL Server], location"
-ms.assetid: 511ff311-21f5-4f2f-839f-b4deee26ec98
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
 monikerRange: "= azuresqldb-mi-current || >= sql-server-2016"
 ---
 # Specify a Target Server's Location
-[!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
+[!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
 > [!IMPORTANT]  
 > On [Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance), most, but not all SQL Server Agent features are currently supported. See [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/sql-database/sql-database-managed-instance-transact-sql-information#sql-server-agent) for details.
@@ -60,7 +57,7 @@ Requires membership in the **sysadmin** fixed server role.
     GO  
     -- enlists the current server into the AdventureWorks1 master server.   
     -- The location for the current server is Building 21, Room 309, Rack 5  
-    EXEC dbo.sp_msx_enlist N'AdventureWorks2012',   
+    EXEC dbo.sp_msx_enlist N'AdventureWorks2022',   
         N'Building 21, Room 309, Rack 5' ;  
     GO  
     ```  

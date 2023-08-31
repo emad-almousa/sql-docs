@@ -8,7 +8,6 @@ ms.date: "05/15/2017"
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
-ms.custom: seo-lt-2019
 helpviewer_keywords:
   - "database roles [SQL Server], permissions"
   - "denying permissions [SQL Server], database roles"
@@ -32,7 +31,7 @@ dev_langs:
   Denies permissions granted on a database user, database role, or application role in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
 
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -149,7 +148,7 @@ DENY permission [ ,...n ]
  The following example denies `CONTROL` permission on the [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)] user `Wanida` to user `RolandX`.  
   
 ```sql 
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 DENY CONTROL ON USER::Wanida TO RolandX;  
 GO  
 ```  
@@ -158,7 +157,7 @@ GO
  The following example denies `VIEW DEFINITION` permission on the [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)] role `SammamishParking` to database user `JinghaoLiu`. The `CASCADE` option is specified because user `JinghaoLiu` was granted VIEW DEFINITION permission WITH GRANT OPTION.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 DENY VIEW DEFINITION ON ROLE::SammamishParking   
     TO JinghaoLiu CASCADE;  
 GO  
@@ -170,7 +169,7 @@ GO
 **Applies to**: [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] and later, [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 DENY IMPERSONATE ON USER::HamithaL TO AccountsPayable17;  
 GO    
 ```  

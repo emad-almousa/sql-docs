@@ -1,18 +1,16 @@
 ---
-description: "Delete Primary Keys"
 title: "Delete Primary Keys"
-ms.custom: ""
+description: "Delete Primary Keys"
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "10/21/2021"
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: table-view-index
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "removing primary keys"
   - "deleting primary keys"
   - "primary keys [SQL Server], deleting"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Delete Primary Keys
@@ -58,7 +56,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 3.  Copy and paste the following example into the query window and select **Execute**. The example first identifies the name of the primary key constraint and then deletes the constraint.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     -- Return the name of primary key.  
     SELECT name  

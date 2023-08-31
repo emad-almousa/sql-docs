@@ -1,22 +1,17 @@
 ---
-description: "SQL Server Native Client Conversions Performed from Client to Server"
 title: "Conversions Performed from Client to Server"
-ms.date: "03/14/2017"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: 
-
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "conversions [OLE DB], client to server"
-ms.assetid: 6bb24928-0f3e-4119-beda-cfd04a44a3eb
+description: "SQL Server Native Client Conversions Performed from Client to Server"
 author: markingmyname
 ms.author: maghan
-ms.custom: seo-dt-2019
+ms.date: "03/14/2017"
+ms.service: sql
+ms.topic: "reference"
+helpviewer_keywords:
+  - "conversions [OLE DB], client to server"
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # SQL Server Native Client Conversions Performed from Client to Server
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   This topic describes date/time conversions performed between a client application written with [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client OLE DB and [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] (or later).  
   

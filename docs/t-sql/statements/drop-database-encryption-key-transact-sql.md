@@ -25,7 +25,7 @@ monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-ser
 > [!IMPORTANT]  
 >  The backup of the certificate that was protecting the database encryption key should be retained even if the encryption is no longer enabled on a database. Even though the database is not encrypted anymore, parts of the transaction log may still remain protected, and the certificate may be needed for some operations until the full backup of the database is performed.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -48,7 +48,7 @@ DROP DATABASE ENCRYPTION KEY
  The following example removes the database encryption and drops the database encryption key.  
   
 ```sql  
-ALTER DATABASE AdventureWorks2012  
+ALTER DATABASE AdventureWorks2022  
 SET ENCRYPTION OFF;  
 GO  
 /* Wait for decryption operation to complete, look for a   
@@ -56,13 +56,13 @@ value of  1 in the query below. */
 SELECT encryption_state  
 FROM sys.dm_database_encryption_keys;  
 GO  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 DROP DATABASE ENCRYPTION KEY;  
 GO  
 ```  
   
-## Examples: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]  
+## Examples: [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]  
  The following example removes the TDE encryption and then drops the database encryption key.  
   
 ```sql  

@@ -8,7 +8,6 @@ ms.date: "05/24/2022"
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
-ms.custom: event-tier1-build-2022
 f1_keywords:
   - "MERGE"
   - "MERGE_TSQL"
@@ -60,7 +59,7 @@ WHERE NOT EXISTS (SELECT col FROM tbl_A A2 WHERE A2.col = tbl_B.col);
 > ```  
 ::: moniker-end
   
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
 ::: moniker range="= azuresqldb-current || = azuresqldb-mi-current || >= sql-server-2016 || >= sql-server-linux-2017"  
@@ -92,7 +91,8 @@ MERGE
 <merge_hint>::=  
 {  
     { [ <table_hint_limited> [ ,...n ] ]  
-    [ [ , ] INDEX ( index_val [ ,...n ] ) ] }  
+    [ [ , ] { INDEX ( index_val [ ,...n ] ) | INDEX = index_val }]
+    }  
 }  
 
 <merge_search_condition> ::=  
@@ -185,13 +185,13 @@ The table or view against which the data rows from \<table_source> are matched b
   
 If *target_table* is a view, any actions against it must satisfy the conditions for updating views. For more information, see [Modify Data Through a View](../../relational-databases/views/modify-data-through-a-view.md).  
   
-*target_table* can't be a remote table. *target_table* can't have any rules defined on it.  
+*target_table* can't be a remote table. *target_table* can't have any rules defined on it. *target_table* can't be a memory-optimized table. 
 
 
 Hints can be specified as a <merge_hint>. 
 
 ::: moniker range="=azure-sqldw-latest"
-Note that merge_hints aren't supported for [!INCLUDE[ssazuresynapse_md](../../includes/ssazuresynapse_md.md)].
+Note that merge_hints aren't supported for [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)].
 ::: moniker-end
   
 #### [ AS ] *table_alias*  
@@ -299,7 +299,7 @@ Specifies the graph match pattern. For more information about the arguments for 
 ::: moniker range="=azure-sqldw-latest"
 
 >[!NOTE]
-> In Azure Synapse Analytics, the MERGE command has following differences compared to SQL server and Azure SQL database.  
+> In Azure Synapse Analytics, the MERGE command has following differences compared to SQL Server and Azure SQL database.  
 > - Using MERGE to update a distribution key column is not supported in builds older than `10.0.17829.0`. If unable to pause or force-upgrade, use the ANSI `UPDATE FROM ... JOIN` statement as a workaround until on version `10.0.17829.0`.
 > - A MERGE update is implemented as a delete and insert pair. The affected row count for a MERGE update includes the deleted and inserted rows. 
 > - MERGE…WHEN NOT MATCHED INSERT is not supported for tables with IDENTITY columns.  

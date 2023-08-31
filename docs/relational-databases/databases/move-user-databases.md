@@ -1,13 +1,12 @@
 ---
-description: "Move User Databases"
 title: "Move User Databases"
-ms.custom: ""
+description: "Move User Databases"
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "11/02/2021"
 ms.service: sql
-ms.reviewer: ""
-ms.subservice: 
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "disaster recovery [SQL Server], moving database files"
   - "database files [SQL Server], moving"
   - "data files [SQL Server], moving"
@@ -21,8 +20,6 @@ helpviewer_keywords:
   - "relocating database files"
   - "planned database relocations [SQL Server]"
   - "databases [SQL Server], moving"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # Move User Databases
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -133,7 +130,7 @@ ms.author: wiassaf
     ALTER DATABASE database_name MODIFY FILE( NAME = logical_name , FILENAME = 'new_path\os_file_name' );  
     ```  
   
-     For more information about how to use the **sqlcmd** utility, see [Use the sqlcmd Utility](../../ssms/scripting/sqlcmd-use-the-utility.md).  
+     For more information about how to use the **sqlcmd** utility, see [Use the sqlcmd Utility](../../tools/sqlcmd/sqlcmd-use-utility.md).  
   
 4.  Exit the **sqlcmd** utility or [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)].  
   
@@ -160,24 +157,24 @@ GO
 -- Return the logical file name.  
 SELECT name, physical_name AS CurrentLocation, state_desc  
 FROM sys.master_files  
-WHERE database_id = DB_ID(N'AdventureWorks2012')  
+WHERE database_id = DB_ID(N'AdventureWorks2022')  
     AND type_desc = N'LOG';  
 GO  
-ALTER DATABASE AdventureWorks2012 SET OFFLINE;  
+ALTER DATABASE AdventureWorks2022 SET OFFLINE;  
 GO  
 -- Physically move the file to a new location.  
 -- In the following statement, modify the path specified in FILENAME to  
 -- the new location of the file on your server.  
-ALTER DATABASE AdventureWorks2012   
-    MODIFY FILE ( NAME = AdventureWorks2012_Log,   
-                  FILENAME = 'C:\NewLoc\AdventureWorks2012_Log.ldf');  
+ALTER DATABASE AdventureWorks2022   
+    MODIFY FILE ( NAME = AdventureWorks2022_Log,   
+                  FILENAME = 'C:\NewLoc\AdventureWorks2022_Log.ldf');  
 GO  
-ALTER DATABASE AdventureWorks2012 SET ONLINE;  
+ALTER DATABASE AdventureWorks2022 SET ONLINE;  
 GO  
 --Verify the new location.  
 SELECT name, physical_name AS CurrentLocation, state_desc  
 FROM sys.master_files  
-WHERE database_id = DB_ID(N'AdventureWorks2012')  
+WHERE database_id = DB_ID(N'AdventureWorks2022')  
     AND type_desc = N'LOG';  
 ```  
   
@@ -190,5 +187,4 @@ WHERE database_id = DB_ID(N'AdventureWorks2012')
  - [Move Database Files](../../relational-databases/databases/move-database-files.md)   
  - [BACKUP &#40;Transact-SQL&#41;](../../t-sql/statements/backup-transact-sql.md)   
  - [RESTORE &#40;Transact-SQL&#41;](../../t-sql/statements/restore-statements-transact-sql.md)   
- - [Start, Stop, Pause, Resume, Restart the Database Engine, SQL Server Agent, or SQL Server Browser Service](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md)  
-  
+ - [Start, Stop, Pause, Resume, Restart the Database Engine, SQL Server Agent, or SQL Server Browser Service](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md)

@@ -1,16 +1,16 @@
 ---
 title: "Azure SQL Database: Manage long-term backup retention"
 description: Learn how to store and restore automated backups for Azure SQL Database in Azure storage (for up to 10 years) using the Azure portal, Azure CLI, and PowerShell.
-author: SudhirRaparla
-ms.author: nvraparl
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: wiassaf, mathoma
 ms.date: 10/4/2022
 ms.service: sql-database
 ms.subservice: backup-restore
 ms.topic: how-to
 ms.custom:
-  - "devx-track-azurepowershell"
-  - "devx-track-azurecli"
+  - devx-track-azurepowershell
+  - devx-track-azurecli
 monikerRange: "= azuresql || = azuresql-db"
 ---
 
@@ -29,7 +29,7 @@ An active Azure subscription.
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE[azure-cli-prepare-your-environment-no-header](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE[azure-cli-prepare-your-environment-no-header](~/../azure-sql/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [PowerShell](#tab/powershell)
 

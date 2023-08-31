@@ -1,17 +1,14 @@
 ---
-description: "MSSQLSERVER_17207"
 title: MSSQLSERVER_17207
-ms.custom: ""
+description: "MSSQLSERVER_17207"
+author: pijocoder
+ms.author: jopilov
 ms.date: 07/25/2020
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "17204 (Database Engine error)"
-ms.assetid: 
-author: PijoCoder
-ms.author: jopilov
 ---
 # MSSQLSERVER_17207
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

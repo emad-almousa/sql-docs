@@ -1,21 +1,18 @@
 ---
-description: "Enhanced Date and Time Type Behavior with Previous SQL Server Versions (ODBC)"
 title: "Date Time in SQL versions (ODBC)"
-ms.custom: ""
-ms.date: 12/18/2019
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: native-client
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "date/time [ODBC], enhanced behavior with earlier SQL Server versions"
-ms.assetid: cd4e137f-dc5e-4df7-bc95-51fe18c587e0
+description: "Enhanced Date and Time Type Behavior with Previous SQL Server Versions (ODBC)"
 author: markingmyname
 ms.author: maghan
+ms.date: 12/18/2019
+ms.service: sql
+ms.subservice: native-client
+ms.topic: "reference"
+helpviewer_keywords:
+  - "date/time [ODBC], enhanced behavior with earlier SQL Server versions"
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Enhanced Date and Time Type Behavior with Previous SQL Server Versions (ODBC)
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   This topic describes the expected behavior when a client application that uses enhanced date and time features communicates with a version of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] earlier than [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)], and when a client application using Microsoft Data Access Components, Windows Data Access Components, or a version of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client earlier than [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] sends commands to a server that supports enhanced date and time features.  
   

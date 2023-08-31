@@ -4,19 +4,17 @@ description: Step-by-step instructions for creating a listener for an Always On 
 author: tarynpratt
 ms.author: tarynpratt
 ms.reviewer: mathoma
-ms.date: 11/10/2021
+ms.date: 03/29/2023
 ms.service: virtual-machines-sql
 ms.subservice: hadr
 ms.topic: how-to
-ms.custom: seo-lt-2019
 editor: monicar
 ---
 # Configure a load balancer & availability group listener (SQL Server on Azure VMs)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-> [!TIP]
-> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+[!INCLUDE[tip-for-multi-subnet-ag](../../includes/virtual-machines-ag-listener-multi-subnet.md)]
 
 
 This article explains how to create a load balancer for a SQL Server Always On availability group in Azure Virtual Machines within a single subnet that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
@@ -173,7 +171,7 @@ The load-balancing rules configure how the load balancer routes traffic to the S
    | **Health Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
-   | **Floating IP (direct server return)** | |Enabled |
+   | **Floating IP (direct server return)** | A flow topology and an IP address mapping scheme |Enabled |
 
    > [!WARNING]
    > Direct server return is set during creation. It cannot be changed.
@@ -227,7 +225,7 @@ The WSFC IP address also needs to be on the load balancer. If you're using Windo
    | **Probe** |The name you specified for the probe | WSFCEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
-   | **Floating IP (direct server return)** | |Enabled |
+   | **Floating IP (direct server return)** | A flow topology and an IP address mapping scheme |Enabled |
 
    > [!WARNING]
    > Direct server return is set during creation. It cannot be changed.
@@ -269,7 +267,7 @@ You now have an availability group in Azure virtual machines running in Resource
 
 Test the connection by doing the following steps:
 
-1. Use remote desktop protocol (RDP) to connect to a SQL Server instance that's in the same virtual network, but does not own the replica. This server can be the other SQL Server instance in the cluster.
+1. Use remote desktop protocol (RDP) to connect to a SQL Server instance that's in the same virtual network, but doesn't own the replica. This server can be the other SQL Server instance in the cluster.
 
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
@@ -281,7 +279,7 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 ## Create an IP address for an additional availability group
 
-Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address does not support floating IP](/azure/load-balancer/load-balancer-floating-ip).
+Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address doesn't support floating IP](/azure/load-balancer/load-balancer-floating-ip).
 
 To add an IP address to a load balancer with the Azure portal, do the following steps:
 
@@ -306,7 +304,7 @@ To add an IP address to a load balancer with the Azure portal, do the following 
    |:-----|:----
    |**Name** |A name to identify the probe.
    |**Protocol** |TCP
-   |**Port** |An unused TCP port, which must be available on all virtual machines. It cannot be used for any other purpose. No two listeners can use the same probe port.
+   |**Port** |An unused TCP port, which must be available on all virtual machines. It can't be used for any other purpose. No two listeners can use the same probe port.
    |**Interval** |The amount of time between probe attempts. Use the default (5).
 
 8. Select **Add** to save the probe.
@@ -332,7 +330,7 @@ To add an IP address to a load balancer with the Azure portal, do the following 
 
 To finish configuring the cluster, repeat the steps that you followed when you made the first availability group. That is, configure the [cluster to use the new IP address](#configure-the-cluster-to-use-the-load-balancer-ip-address).
 
-After you have added an IP address for the listener, configure the additional availability group by doing the following steps:
+After you've added an IP address for the listener, configure the additional availability group by doing the following steps:
 
 1. Verify that the probe port for the new IP address is open on both SQL Server virtual machines.
 
@@ -340,8 +338,8 @@ After you have added an IP address for the listener, configure the additional av
 
 3. [Configure the IP resource for the availability group](#congroup).
 
-   >[!IMPORTANT]
-   >When you create the IP address, use the IP address that you added to the load balancer.  
+   > [!IMPORTANT]
+   > When you create the IP address, use the IP address that you added to the load balancer.  
 
 4. [Make the SQL Server availability group resource dependent on the client access point](#dependencyGroup).
 
@@ -349,7 +347,18 @@ After you have added an IP address for the listener, configure the additional av
  
 6. [Set the cluster parameters in PowerShell](#setparam).
 
-After you configure the availability group to use the new IP address, configure the connection to the listener. 
+
+If you're on the secondary replica VM, and you're unable to connect to the listener, it's possible the probe port was not configured correctly. 
+
+You can use the following script to validate the probe port is correctly configured for the availability group: 
+
+```powershell
+Clear-Host
+Get-ClusterResource `
+| Where-Object {$_.ResourceType.Name -like "IP Address"} `
+| Get-ClusterParameter `
+| Where-Object {($_.Name -like "Network") -or ($_.Name -like "Address") -or ($_.Name -like "ProbePort") -or ($_.Name -like "SubnetMask")}
+```
 
 ## Add load-balancing rule for distributed availability group
 

@@ -25,7 +25,7 @@ dev_langs:
 
   Compiles each query but does not execute it.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -50,7 +50,7 @@ SET NOEXEC { ON | OFF }
  The following example uses `NOEXEC` with a valid query, a query with an object name that is not valid, and a query with incorrect syntax.  
   
 ```sql
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 PRINT 'Valid query';  
 GO  
@@ -75,7 +75,7 @@ GO
 SET NOEXEC ON;  
 GO  
 -- Function name used is a reserved keyword.  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 CREATE FUNCTION dbo.Values(@BusinessEntityID int)  
 RETURNS TABLE  

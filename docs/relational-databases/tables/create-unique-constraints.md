@@ -1,20 +1,18 @@
 ---
-description: "Create Unique Constraints"
 title: "Create Unique Constraints"
-ms.custom: FY22Q2Fresh
+description: "Create Unique Constraints"
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "10/21/2021"
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: table-view-index
 ms.topic: conceptual
-f1_keywords: 
+f1_keywords:
   - "UNIQUE_TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "UNIQUE constraints [SQL Server], creating"
   - "constraints [SQL Server], creating"
   - "constraints [SQL Server], unique"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Create Unique Constraints
@@ -55,7 +53,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 3.  Copy and paste the following example into the query window and select **Execute**. The example creates the table `TransactionHistoryArchive4` and creates a unique constraint on the column `TransactionID`.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     CREATE TABLE Production.TransactionHistoryArchive4  
      (  
@@ -75,7 +73,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 3.  Copy and paste the following example into the query window and select **Execute**. The example creates a unique constraint on the columns `PasswordHash` and `PasswordSalt` in the table `Person.Password`.  
   
     ```sql  
-    USE AdventureWorks2012;   
+    USE AdventureWorks2022;   
     GO  
     ALTER TABLE Person.Password   
     ADD CONSTRAINT AK_Password UNIQUE (PasswordHash, PasswordSalt);   
@@ -92,7 +90,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 3.  Copy and paste the following example into the query window and select **Execute**. The example creates a table and defines a unique constraint on the column `TransactionID`.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     CREATE TABLE Production.TransactionHistoryArchive2  
     (  

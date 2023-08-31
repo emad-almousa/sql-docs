@@ -1,17 +1,15 @@
 ---
-description: "MSSQLSERVER_8632"
 title: MSSQLSERVER_8632
-ms.custom: ""
+description: "MSSQLSERVER_8632"
+author: suresh-kandoth
+ms.author: sureshka
+ms.reviewer: vencher, tejasaks, docast
 ms.date: 10/27/2020
 ms.service: sql
-ms.reviewer: ramakoni1, pijocoder, suresh-kandoth, vencher, tejasaks, docast
 ms.subservice: supportability
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "8632 (Database Engine error)"
-ms.assetid: 
-author: suresh-kandoth
-ms.author: ramakoni
 ---
 # MSSQLSERVER_8632
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]

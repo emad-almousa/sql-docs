@@ -1,17 +1,16 @@
 ---
 title: "Example: Specifying the ID and IDREFS Directives"
 description: Learn how specifying the ID and IDREFS directives in an SQL query can enable intra-document links.
-ms.custom: "fresh2019may"
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "IDREFS directive"
   - "ID directive"
-author: MikeRayMSFT
-ms.author: mikeray
 ---
 # Example: Specify the ID and IDREFS directives
 
@@ -39,7 +38,7 @@ Elements of **IDREFS** type also have more than one value. Therefore, you have t
 This is the query that produces the XML you want. The query uses the `ID` and `IDREFS` directives to overwrite the types in the column names (`SalesOrder!2!SalesOrderID!ID`, `Customer!1!SalesOrderIDList!IDREFS`).
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT  1 as Tag,
         0 as Parent,

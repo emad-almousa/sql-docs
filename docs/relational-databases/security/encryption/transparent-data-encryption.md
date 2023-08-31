@@ -8,7 +8,6 @@ ms.date: 11/21/2022
 ms.service: sql
 ms.subservice: security
 ms.topic: conceptual
-ms.custom: FY22Q2Fresh
 helpviewer_keywords:
   - "Transparent data encryption"
   - "database encryption key, about"
@@ -24,7 +23,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
 
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-Transparent data encryption (TDE) encrypts [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], [!INCLUDE[ssSDSFull](../../../includes/sssdsfull-md.md)], and [!INCLUDE[ssSDWfull](../../../includes/sssdwfull-md.md)] data files. This encryption is known as encrypting data at rest.
+Transparent data encryption (TDE) encrypts [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], [!INCLUDE [ssazure-sqldb](../../../includes/ssazure-sqldb.md)], and [!INCLUDE[ssazuresynapse-md](../../../includes/ssazuresynapse-md.md)] data files. This encryption is known as encrypting data at rest.
 
 To help secure a user database, you can take precautions like:
 
@@ -44,7 +43,7 @@ TDE protects data at rest, which is the data and log files. It lets you follow m
 > TDE is not available for system databases. It can't be used to encrypt master, model, or `msdb`. `tempdb` is automatically encrypted when a user database enabled TDE, but can't be encrypted directly.
 
 > [!IMPORTANT]  
-> TDE doesn't provide encryption across communication channels. For more information about how to encrypt data across communication channels, see [Enable Encrypted Connections to the Database Engine (SQL Server Configuration Manager)](../../../database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine.md).
+> TDE doesn't provide encryption across communication channels. For more information about how to encrypt data across communication channels, see [Enable Encrypted Connections to the Database Engine (SQL Server Configuration Manager)](../../../database-engine/configure-windows/configure-sql-server-encryption.md).
 >  
 > **Related topics:**
 >  
@@ -95,22 +94,22 @@ To use TDE, follow these steps.
 
 1. Set the database to use encryption.
 
-The following example shows encryption and decryption of the `AdventureWorks2012` database using a certificate named `MyServerCert` that's installed on the server.
+The following example shows encryption and decryption of the [!INCLUDE [sssampledbobject-md](../../../includes/sssampledbobject-md.md)] database using a certificate named `MyServerCert` that's installed on the server.
 
 ```sql
 USE master;
 GO
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<UseStrongPasswordHere>';
-go
+GO
 CREATE CERTIFICATE MyServerCert WITH SUBJECT = 'My DEK Certificate';
-go
-USE AdventureWorks2012;
+GO
+USE AdventureWorks2022;
 GO
 CREATE DATABASE ENCRYPTION KEY
 WITH ALGORITHM = AES_256
 ENCRYPTION BY SERVER CERTIFICATE MyServerCert;
 GO
-ALTER DATABASE AdventureWorks2012
+ALTER DATABASE AdventureWorks2022
 SET ENCRYPTION ON;
 GO
 ```
@@ -254,7 +253,7 @@ Letting a database use TDE removes the remaining part of the current virtual tra
 To find the status of log-file encryption, see the `encryption_state` column in the `sys.dm_database_encryption_keys` view, as in this example:
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 /* The value 3 represents an encrypted state
    on the database and transaction logs. */
@@ -280,7 +279,7 @@ Replication doesn't automatically replicate data from a TDE-enabled database in 
 
 Snapshot replication can store data in unencrypted intermediate files like BCP files. The initial data distribution for transactional and merge replication can too. During such replication, you can enable encryption to protect the communication channel.
 
-For more information, see [Enable Encrypted Connections to the Database Engine (SQL Server Configuration Manager)](../../../database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine.md).
+For more information, see [Enable Encrypted Connections to the Database Engine (SQL Server Configuration Manager)](../../../database-engine/configure-windows/configure-sql-server-encryption.md).
 
 ## TDE and availability groups
 
@@ -319,7 +318,7 @@ When you encrypt a database using TDE, files related to buffer pool extension (B
 
 ## TDE and In-Memory OLTP
 
-You can enable TDE on a database that has In-Memory OLTP objects. In [!INCLUDE[sssql16-md](../../../includes/sssql16-md.md)] and [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)], In-Memory OLTP log records and data are encrypted if you enable TDE. In [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)], In-Memory OLTP log records are encrypted if you enable TDE, but files in the MEMORY_OPTIMIZED_DATA filegroup are unencrypted.
+You can enable TDE on a database that has In-Memory OLTP objects. In [!INCLUDE[sssql16-md](../../../includes/sssql16-md.md)] and [!INCLUDE [ssazure-sqldb](../../../includes/ssazure-sqldb.md)], In-Memory OLTP log records and data are encrypted if you enable TDE. In [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)], In-Memory OLTP log records are encrypted if you enable TDE, but files in the MEMORY_OPTIMIZED_DATA filegroup are unencrypted.
 
 ## Guidelines on managing certificates used in TDE
 

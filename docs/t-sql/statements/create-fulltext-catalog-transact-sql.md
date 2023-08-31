@@ -27,7 +27,7 @@ You cannot create full-text catalogs in the **master**, **model**, or **tempdb**
 > [!IMPORTANT]  
 >  Beginning with [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)], a full-text catalog is a virtual object and does not belong to any filegroup. A full-text catalog is a logical concept that refers to a group of full-text indexes.  
   
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -99,7 +99,7 @@ User must have CREATE FULLTEXT CATALOG permission on the database, or be a membe
 The following example creates a full-text catalog and also a full-text index.
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 CREATE FULLTEXT CATALOG ftCatalog AS DEFAULT;  
 GO  

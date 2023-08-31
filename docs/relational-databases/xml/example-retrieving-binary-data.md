@@ -1,17 +1,15 @@
 ---
 title: "Example: Retrieving Binary Data"
 description: View an example of an SQL query that retrieves binary data using the RAW and BINARY BASE64 options with the FOR XML clause.
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "RAW mode, retrieving binary data example"
-author: MikeRayMSFT
-ms.author: mikeray
-# monikerRange: "=azuresqldb-current||=azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017"
 ---
 # Example: Retrieve binary data
 
@@ -22,7 +20,7 @@ The following query returns the product photo stored in a **varbinary(max)** typ
 ## Example
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT ProductPhotoID, ThumbNailPhoto
 FROM Production.ProductPhoto

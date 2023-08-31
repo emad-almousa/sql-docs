@@ -19,7 +19,6 @@ helpviewer_keywords:
   - "sys.dm_fts_index_keywords_by_property dynamic management view"
 dev_langs:
   - "TSQL"
-ms.assetid: fa41e052-a79a-4194-9b1a-2885f7828500
 ---
 # sys.dm_fts_index_keywords_by_property (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -107,7 +106,7 @@ GO
 ```  
 -- Once the full-text index is configured to support property searching  
 -- on the Author property, return any keywords indexed for this property.  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO   
 SELECT KWBPOP.* FROM   
    sys.dm_fts_index_keywords_by_property( DB_ID(),   

@@ -1,14 +1,14 @@
 ---
 title: Create Azure AD users using service principals
 description: This tutorial walks you through creating an Azure AD user with an Azure AD applications (service principals) in Azure SQL Database
-author: GithubMirek
-ms.author: mireks
+author: nofield
+ms.author: nofield
 ms.reviewer: wiassaf, vanto, mathoma
 ms.date: 08/24/2022
 ms.service: sql-database
 ms.subservice: security
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications

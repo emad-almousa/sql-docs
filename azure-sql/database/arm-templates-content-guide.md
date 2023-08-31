@@ -1,14 +1,14 @@
 ---
-title: Azure Resource Manager templates - Azure SQL Database & SQL Managed Instance
+title: Azure Resource Manager templates
 description: Use Azure Resource Manager templates to create and configure Azure SQL Database and Azure SQL Managed Instance.
-author: srdan-bozovic-msft
-ms.author: srbozovi
+author: urosmil
+ms.author: urmilano
 ms.reviewer: wiassaf, mathoma
 ms.date: 06/30/2021
 ms.service: sql-db-mi
 ms.subservice: deployment-configuration
 ms.topic: conceptual
-ms.custom: overview-samples sqldbrb=2
+ms.custom: overview-samples sqldbrb=2, devx-track-arm-template
 ---
 
 # Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance

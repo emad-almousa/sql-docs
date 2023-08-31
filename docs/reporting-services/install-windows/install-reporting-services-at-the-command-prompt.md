@@ -1,17 +1,17 @@
 ---
+title: "Install Reporting Services 2016 at the Command Prompt - SSRS"
 description: "Install Reporting Services 2016 at the Command Prompt - SSRS"
-title: "Install Reporting Services 2016 at the Command Prompt - SSRS | Microsoft Docs"
+author: maggiesMSFT
+ms.author: maggies
 ms.date: 01/09/2018
 ms.service: reporting-services
 ms.topic: conceptual
-helpviewer_keywords:
-  - "command line"
-ms.assetid: 048169b3-512c-41e4-895a-0416eff41268
-author: maggiesMSFT
-ms.author: maggies
-monikerRange: "= sql-server-2016"
 ms.custom:
   - intro-installation
+  - updatefrequency5
+helpviewer_keywords:
+  - "command line"
+monikerRange: "= sql-server-2016"
 ---
 # Install Reporting Services 2016 at the Command Prompt
 

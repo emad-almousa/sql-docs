@@ -1,18 +1,15 @@
 ---
-description: "Validate, Query, and Change JSON Data with Built-in Functions (SQL Server)"
 title: "Validate, Query, and Change JSON Data with Built-in Functions"
-ms.date: 06/03/2020
-ms.service: sql
-ms.subservice: 
-ms.topic: conceptual
-helpviewer_keywords: 
-  - "JSON, built-in functions"
-  - "functions (JSON)"
-ms.assetid: 6b6c7673-d818-4fa9-8708-b4ed79cb1b41
+description: "Validate, Query, and Change JSON Data with Built-in Functions (SQL Server)"
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jroth
-ms.custom: seo-dt-2019
+ms.date: 06/03/2020
+ms.service: sql
+ms.topic: conceptual
+helpviewer_keywords:
+  - "JSON, built-in functions"
+  - "functions (JSON)"
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Validate, Query, and Change JSON Data with Built-in Functions (SQL Server)
@@ -254,10 +251,6 @@ SET @info = JSON_MODIFY(@jsonInfo, "$.info.address[0].town", 'London')
 
 > [!NOTE]
 > Some of the video links in this section may not work at this time. Microsoft is migrating content formerly on Channel 9 to a new platform. We will update the links as the videos are migrated to the new platform.
-
-For a visual introduction to the built-in JSON support in SQL Server and Azure SQL Database, see the following videos:
-
--   [JSON as a bridge between NoSQL and relational worlds](https://channel9.msdn.com/events/DataDriven-SQLServer2016/JSON-as-bridge-betwen-NoSQL-relational-worlds)
   
 ## See Also  
  [ISJSON &#40;Transact-SQL&#41;](../../t-sql/functions/isjson-transact-sql.md)   

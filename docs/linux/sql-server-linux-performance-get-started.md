@@ -1,8 +1,8 @@
 ---
 title: Get started with performance features of SQL Server on Linux
 description: This article provides an introduction of SQL Server performance features for Linux users who are new to SQL Server. Many of these examples work on all platforms, but the context of this article is Linux.
-author: VanMSFT
-ms.author: vanto
+author: rwestMSFT
+ms.author: randolphwest
 ms.reviewer: randolphwest
 ms.date: 11/24/2022
 ms.service: sql
@@ -63,7 +63,7 @@ SQL Server provides In-Memory OLTP features that can greatly improve the perform
 1. It's recommended to set the database to a compatibility level of at least 130 to use In-Memory OLTP. Use the following query to check the current compatibility level of AdventureWorks:
 
    ```sql
-   USE AdventureWorks
+   USE AdventureWorks2022;
    GO
    SELECT d.compatibility_level
    FROM sys.databases as d

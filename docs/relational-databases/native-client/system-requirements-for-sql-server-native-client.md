@@ -1,23 +1,21 @@
 ---
-description: "System Requirements for SQL Server Native Client"
 title: "System Requirements"
-ms.custom: ""
+description: "System Requirements for SQL Server Native Client"
+author: markingmyname
+ms.author: maghan
 ms.date: "03/14/2017"
 ms.service: sql
 ms.subservice: native-client
 ms.topic: "reference"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "system requirements [SQL Server Native Client]"
   - "data access [SQL Server Native Client], system requirements"
   - "SQL Server Native Client, system requirements"
   - "SQLNCLI, system requirements"
-ms.assetid: 1c8e2f8a-a440-44da-8e3a-af632d34c52c
-author: markingmyname
-ms.author: maghan
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # System Requirements for SQL Server Native Client
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 > [!IMPORTANT] 
 > [!INCLUDE[snac-removed-oledb-and-odbc](../../includes/snac-removed-oledb-and-odbc.md)]

@@ -1,17 +1,16 @@
 ---
 title: "Load XML data"
 description: Learn several methods for transferring XML data into SQL Server databases.
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "XML data [SQL Server], loading"
   - "loading XML data"
-author: MikeRayMSFT
-ms.author: mikeray
 ---
 # Load XML data
 
@@ -37,7 +36,7 @@ This example shows how to insert a row in table T. The value of the XML column i
 INSERT INTO T
 SELECT 10, xCol
 FROM    (SELECT *
-    FROM OPENROWSET (BULK 'C:\MyFile\xmlfile.xml', SINGLE_CLOB)
+    FROM OPENROWSET (BULK 'C:\MyFile\xmlfile.xml', SINGLE_BLOB)
 AS xCol) AS R(xCol);
 ```
 

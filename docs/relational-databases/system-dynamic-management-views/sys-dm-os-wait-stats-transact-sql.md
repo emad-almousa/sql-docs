@@ -4,11 +4,10 @@ description: Returns information about all the waits encountered by threads that
 author: rwestMSFT
 ms.author: randolphwest
 ms.reviewer: randolphwest
-ms.date: 10/31/2022
+ms.date: "02/27/2023"
 ms.service: sql
 ms.subservice: system-objects
 ms.topic: "reference"
-ms.custom: contperf-fy21q3
 f1_keywords:
   - "dm_os_wait_stats_TSQL"
   - "dm_os_wait_stats"
@@ -27,7 +26,7 @@ monikerRange: ">=aps-pdw-2016 || =azuresqldb-current || =azure-sqldw-latest || >
 Returns information about all the waits encountered by threads that executed. You can use this aggregated view to diagnose performance issues with [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] and also with specific queries and batches. [sys.dm_exec_session_wait_stats (Transact-SQL)](../../relational-databases/system-dynamic-management-views/sys-dm-exec-session-wait-stats-transact-sql.md) provides similar information by session.
 
 > [!NOTE]  
-> To call this from **[!INCLUDE [ssSDWfull](../../includes/sssdwfull-md.md)] or [!INCLUDE [ssPDW](../../includes/sspdw-md.md)]**, use the name `sys.dm_pdw_nodes_os_wait_stats`. [!INCLUDE [synapse-analytics-od-unsupported-syntax](../../includes/synapse-analytics-od-unsupported-syntax.md)]
+> To call this from **[!INCLUDE [ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] or [!INCLUDE [ssPDW](../../includes/sspdw-md.md)]**, use the name `sys.dm_pdw_nodes_os_wait_stats`. [!INCLUDE [synapse-analytics-od-unsupported-syntax](../../includes/synapse-analytics-od-unsupported-syntax.md)]
 
 | Column name | Data type | Description |
 | --- | --- | --- |
@@ -36,13 +35,17 @@ Returns information about all the waits encountered by threads that executed. Yo
 | wait_time_ms | **bigint** | Total wait time for this wait type in milliseconds. This time is inclusive of signal_wait_time_ms. |
 | max_wait_time_ms | **bigint** | Maximum wait time on this wait type. |
 | signal_wait_time_ms | **bigint** | Difference between the time that the waiting thread was signaled and when it started running. |
-| pdw_node_id | **int** | The identifier for the node that this distribution is on.<br /><br />**Applies to**: [!INCLUDE [ssSDWfull](../../includes/sssdwfull-md.md)], [!INCLUDE [ssPDW](../../includes/sspdw-md.md)] |
+| pdw_node_id | **int** | The identifier for the node that this distribution is on.<br /><br />**Applies to**: [!INCLUDE [ssazuresynapse-md](../../includes/ssazuresynapse-md.md)], [!INCLUDE [ssPDW](../../includes/sspdw-md.md)] |
 
 ## Permissions
 
 On [!INCLUDE [ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
 
 On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.
+
+### Permissions for SQL Server 2022 and later
+
+Requires VIEW SERVER PERFORMANCE STATE permission on the server.
 
 ## <a id="WaitTypes"></a> Types of waits
 
@@ -160,10 +163,10 @@ GO
 | <a id="connection_endpoint_lock"></a>CONNECTION_ENDPOINT_LOCK | Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL16-md](../../includes/sssql16-md.md)] and later versions. |
 | <a id="countrecoverymgr"></a>COUNTRECOVERYMGR | Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL11-md](../../includes/sssql11-md.md)] and later versions. |
 | <a id="create_datiniservice"></a>CREATE_DATINISERVICE | Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL11-md](../../includes/sssql11-md.md)] and later versions. |
-| <a id="cxconsumer"></a>CXCONSUMER | Occurs with parallel query plans when a consumer thread (parent) waits for a producer thread to send rows. CXCONSUMER waits are caused by an Exchange Iterator that runs out of rows from its producer thread. This is a normal part of parallel query execution.<br /><br />**Applies to**: [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] (Starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2, [!INCLUDE [ssSQL17](../../includes/sssql17-md.md)] CU3), [!INCLUDE [ssSDSfull](../../includes/sssdsfull-md.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
-| <a id="cxpacket"></a>CXPACKET | Occurs with parallel query plans when waiting to synchronize the Query Processor [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md), and when producing and consuming rows. If waiting is excessive and can't be reduced by tuning the query (such as adding indexes), consider adjusting the Cost Threshold for Parallelism or lowering the Max Degree of Parallelism (MaxDOP).<br /><br />**Note:** Starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2 and [!INCLUDE [ssSQL17](../../includes/sssql17-md.md)] CU3, CXPACKET only refers to waiting to synchronize the Exchange Iterator and producing rows. Threads consuming rows are tracked separately in the CXCONSUMER wait type. If the consumer threads are too slow, the Exchange Iterator buffer may become full and cause CXPACKET waits.<br /><br />**Note:** In [!INCLUDE [ssSDSfull](../../includes/sssdsfull-md.md)] and [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)], CXPACKET only refers to waiting on threads producing rows. Exchange Iterator synchronization is tracked separately in the CXSYNC_PORT and CXSYNC_CONSUMER wait types. Threads consuming rows are tracked separately in the CXCONSUMER wait type.<br />|
-| <a id="cxsync_port"></a>CXSYNC_PORT | Occurs with parallel query plans when waiting to open, close, and synchronize [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md) ports between producer and consumer threads. For example, if a query plan has a long sort operation, CXSYNC_PORT waits may be higher because the sort must complete before the Exchange Iterator port can be synchronized.<br /><br />**Applies to**: [!INCLUDE [ssSDSfull](../../includes/sssdsfull-md.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
-| <a id="cxsync_consumer"></a>CXSYNC_CONSUMER | Occurs with parallel query plans when waiting to reach an [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md) synchronization point among all consumer threads.<br /><br />**Applies to**: [!INCLUDE [ssSDSfull](../../includes/sssdsfull-md.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
+| <a id="cxconsumer"></a>CXCONSUMER | Occurs with parallel query plans when a consumer thread (parent) waits for a producer thread to send rows. CXCONSUMER waits are caused by an Exchange Iterator that runs out of rows from its producer thread. This is a normal part of parallel query execution.<br /><br />**Applies to**: [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] (Starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2, [!INCLUDE [ssSQL17](../../includes/sssql17-md.md)] CU3), [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
+| <a id="cxpacket"></a>CXPACKET | Occurs with parallel query plans when waiting to synchronize the Query Processor [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md), and when producing and consuming rows. If waiting is excessive and can't be reduced by tuning the query (such as adding indexes), consider adjusting the Cost Threshold for Parallelism or lowering the Max Degree of Parallelism (MaxDOP).<br /><br />**Note:** Starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2 and [!INCLUDE [ssSQL17](../../includes/sssql17-md.md)] CU3, CXPACKET only refers to waiting to synchronize the Exchange Iterator and producing rows. Threads consuming rows are tracked separately in the CXCONSUMER wait type. If the consumer threads are too slow, the Exchange Iterator buffer may become full and cause CXPACKET waits.<br /><br />**Note:** In [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)] and [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)], CXPACKET only refers to waiting on threads producing rows. Exchange Iterator synchronization is tracked separately in the CXSYNC_PORT and CXSYNC_CONSUMER wait types. Threads consuming rows are tracked separately in the CXCONSUMER wait type.<br />|
+| <a id="cxsync_port"></a>CXSYNC_PORT | Occurs with parallel query plans when waiting to open, close, and synchronize [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md) ports between producer and consumer threads. For example, if a query plan has a long sort operation, CXSYNC_PORT waits may be higher because the sort must complete before the Exchange Iterator port can be synchronized.<br /><br />**Applies to**: [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
+| <a id="cxsync_consumer"></a>CXSYNC_CONSUMER | Occurs with parallel query plans when waiting to reach an [Exchange Iterator](../../relational-databases/showplan-logical-and-physical-operators-reference.md) synchronization point among all consumer threads.<br /><br />**Applies to**: [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)], [!INCLUDE [ssSDSMIfull](../../includes/sssdsmifull-md.md)] |
 | <a id="cxrowset_sync"></a>CXROWSET_SYNC | Occurs during a parallel range scan. |
 | <a id="dac_init"></a>DAC_INIT | Occurs while the dedicated administrator connection is initializing. |
 | <a id="dbcc_scale_out_expr_cache"></a>DBCC_SCALE_OUT_EXPR_CACHE | Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL11-md](../../includes/sssql11-md.md)] and later versions. |
@@ -267,6 +270,38 @@ GO
 | <a id="ft_comprowset_rwlock"></a>FT_COMPROWSET_RWLOCK | Full-text is waiting on fragment metadata operation. Documented for informational purposes only. Not supported. Future compatibility isn't guaranteed. |
 | <a id="ft_ifts_rwlock"></a>FT_IFTS_RWLOCK | Full-text is waiting on internal synchronization. Documented for informational purposes only. Not supported. Future compatibility isn't guaranteed. |
 | <a id="ft_ifts_scheduler_idle_wait"></a>FT_IFTS_SCHEDULER_IDLE_WAIT | Full-text scheduler sleep wait type. The scheduler is idle. |
+| <a id="ft_ifts_async_write_pipe"></a>FT_IFTS_ASYNC_WRITE_PIPE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_blob_hash"></a>FT_IFTS_BLOB_HASH|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_catealog_source"></a>FT_IFTS_CATEALOG_SOURCE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_chunk_buffer_client_manager"></a>FT_IFTS_CHUNK_BUFFER_CLIENT_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_chunk_buffer_proto_word_list"></a>FT_IFTS_CHUNK_BUFFER_PROTO_WORD_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_comp_desc_manager"></a>FT_IFTS_COMP_DESC_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_consumer_plugin"></a>FT_IFTS_CONSUMER_PLUGIN|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_crawl_batch_list"></a>FT_IFTS_CRAWL_BATCH_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_crawl_children"></a>FT_IFTS_CRAWL_CHILDREN|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_docid_interface_list"></a>FT_IFTS_DOCID_INTERFACE_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_docid_list"></a>FT_IFTS_DOCID_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_fp_info_list"></a>FT_IFTS_FP_INFO_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_host_controller"></a>FT_IFTS_HOST_CONTROLLER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_master_merge_task_list"></a>FT_IFTS_MASTER_MERGE_TASK_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_memregpool"></a>FT_IFTS_MEMREGPOOL|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_merge_fragment_sync"></a>FT_IFTS_MERGE_FRAGMENT_SYNC|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_noise_words_collection_cache"></a>FT_IFTS_NOISE_WORDS_COLLECTION_CACHE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_noise_words_resource"></a>FT_IFTS_NOISE_WORDS_RESOURCE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_occurrence_buffer_pool"></a>FT_IFTS_OCCURRENCE_BUFFER_POOL|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_pipeline"></a>FT_IFTS_PIPELINE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_pipeline_list"></a>FT_IFTS_PIPELINE_LIST|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_pipeline_manager"></a>FT_IFTS_PIPELINE_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_project_fd_info_map"></a>FT_IFTS_PROJECT_FD_INFO_MAP|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_scheduler"></a>FT_IFTS_SCHEDULER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_shared_memory"></a>FT_IFTS_SHARED_MEMORY|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_shutdown_pipe"></a>FT_IFTS_SHUTDOWN_PIPE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_srch_fd_manager"></a>FT_IFTS_SRCH_FD_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_srch_fd_service"></a>FT_IFTS_SRCH_FD_SERVICE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_stoplist_cache_manager"></a>FT_IFTS_STOPLIST_CACHE_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_thesaurus"></a>FT_IFTS_THESAURUS|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_version_manager"></a>FT_IFTS_VERSION_MANAGER|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
+| <a id="ft_ifts_work_queue"></a>FT_IFTS_WORK_QUEUE|Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL22-md](../../includes/sssql22-md.md)] CU 1 and later versions. |
 | <a id="ft_iftshc_mutex"></a>FT_IFTSHC_MUTEX | Full-text is waiting on an fdhost control operation. Documented for informational purposes only. Not supported. Future compatibility isn't guaranteed. |
 | <a id="ft_iftsism_mutex"></a>FT_IFTSISM_MUTEX | Full-text is waiting on communication operation. Documented for informational purposes only. Not supported. Future compatibility isn't guaranteed. |
 | <a id="ft_master_merge"></a>FT_MASTER_MERGE | Full-text is waiting on master merge operation. Documented for informational purposes only. Not supported. Future compatibility isn't guaranteed. |
@@ -797,7 +832,7 @@ GO
 | <a id="resmgr_throttled"></a>RESMGR_THROTTLED | Occurs when a new request comes in and is throttled based on the GROUP_MAX_REQUESTS setting. |
 | <a id="resource_governor_idle"></a>RESOURCE_GOVERNOR_IDLE | Internal use only.<br /><br />**Applies to**: [!INCLUDE [ssSQL11-md](../../includes/sssql11-md.md)] and later versions. |
 | <a id="resource_queue"></a>RESOURCE_QUEUE | Occurs during synchronization of various internal resource queues. |
-| <a id="resource_semaphore"></a>RESOURCE_SEMAPHORE | Occurs when a query memory request during query execution can't be granted immediately due to other concurrent queries. High waits and wait times may indicate excessive number of concurrent queries, or excessive memory request amounts. Excessive waits of this type may raise SQL [error 8645](../errors-events/mssqlserver-8645-database-engine-error.md), "A time out occurred while waiting for memory resources to execute the query. Rerun the query."<br /><br />For detailed information and troubleshooting ideas on memory grant waits, see [Memory Grants: The mysterious SQL Server memory consumer with Many Names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-the-mysterious-sql-server-memory-consumer-with/ba-p/333994). |
+| <a id="resource_semaphore"></a>RESOURCE_SEMAPHORE | Occurs when a query memory request during query execution can't be granted immediately due to other concurrent queries. High waits and wait times may indicate excessive number of concurrent queries, or excessive memory request amounts. Excessive waits of this type may raise SQL [error 8645](../errors-events/mssqlserver-8645-database-engine-error.md), "A time out occurred while waiting for memory resources to execute the query. Rerun the query."<br /><br />For detailed information and troubleshooting ideas on memory grant waits, see [Troubleshoot slow performance or low memory issues caused by memory grants in SQL Server](/troubleshoot/sql/database-engine/performance/troubleshoot-memory-grant-issues). |
 | <a id="resource_semaphore_mutex"></a>RESOURCE_SEMAPHORE_MUTEX | Occurs while a query waits for its request for a thread reservation to be fulfilled. It also occurs when synchronizing query compile and memory grant requests. |
 | <a id="resource_semaphore_query_compile"></a>RESOURCE_SEMAPHORE_QUERY_COMPILE | Occurs when the number of concurrent query compilations reaches a throttling limit. High waits and wait times may indicate excessive compilations, recompiles, or uncacheable plans. |
 | <a id="resource_semaphore_small_query"></a>RESOURCE_SEMAPHORE_SMALL_QUERY | Occurs when memory request by a small query can't be granted immediately due to other concurrent queries. Wait time shouldn't exceed more than a few seconds, because the server transfers the request to the main query memory pool if it fails to grant the requested memory within a few seconds. High waits may indicate an excessive number of concurrent small queries while the main memory pool is blocked by waiting queries.<br /><br />**Applies to**: [!INCLUDE [sql2008r2_md](../../includes/sql2008r2-md.md)] only. |

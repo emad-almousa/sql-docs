@@ -7,14 +7,12 @@ ms.date: 11/12/2021
 ms.service: sql
 ms.subservice: table-view-index
 ms.topic: conceptual
-ms.custom: FY22Q2Fresh
 helpviewer_keywords:
   - "index creation [SQL Server], nonclustered indexes"
   - "nonclustered indexes [SQL Server], creating"
   - "nonclustered indexes [SQL Server], UNIQUE constraint"
   - "indexes [SQL Server], nonclustered"
   - "nonclustered indexes [SQL Server], PRIMARY KEY constraint"
-ms.assetid: 9402029a-1227-46c4-93aa-c2122eb1b943
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Create Nonclustered Indexes
@@ -65,7 +63,7 @@ You can create nonclustered indexes in [!INCLUDE[ssnoversion](../../includes/ssn
   
 8.  Click **Close**.  
   
-9. On the **File** menu, click **Save**_table_name_.  
+9. On the **File** menu, click **Save** _table_name_.  
 
 #### To create a nonclustered index by using Object Explorer  
   
@@ -81,7 +79,7 @@ You can create nonclustered indexes in [!INCLUDE[ssnoversion](../../includes/ssn
   
 6.  Under **Index key columns**, click **Add...**.  
   
-7.  In the **Select Columns from**_table_name_ dialog box, select the check box or check boxes of the table column or columns to be added to the nonclustered index.  
+7.  In the **Select Columns from** _table_name_ dialog box, select the check box or check boxes of the table column or columns to be added to the nonclustered index.  
   
 8.  Click **OK**.  
   
@@ -91,13 +89,13 @@ You can create nonclustered indexes in [!INCLUDE[ssnoversion](../../includes/ssn
   
 #### To create a nonclustered index on a table  
   
-1.  In **Object Explorer**, connect to an instance of [!INCLUDE[ssDE](../../includes/ssde-md.md)] with AdventureWorks2019 installed. See [AdventureWorks sample databases](../../samples/adventureworks-install-configure.md?view=sql-server-ver15&tabs=ssms&preserve-view=true) to download AdventureWorks2019.
+1.  In **Object Explorer**, connect to an instance of [!INCLUDE[ssDE](../../includes/ssde-md.md)] with [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] installed. You can download [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] from [sample databases](../../samples/adventureworks-install-configure.md?view=sql-server-ver15&tabs=ssms&preserve-view=true).
 2.  On the Standard bar, click **New Query**.  
   
 3.  Copy and paste the following example into the query window and click **Execute**.  
   
     ```sql  
-    USE AdventureWorks2019;  
+    USE AdventureWorks2022;  
     GO  
     -- Find an existing index named IX_ProductVendor_VendorID and delete it if found.   
     IF EXISTS (SELECT name FROM sys.indexes  

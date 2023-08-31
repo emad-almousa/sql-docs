@@ -1,19 +1,16 @@
 ---
 title: What's New
 description: Learn about the changes, improvements, and updates in the SQL Server 2019 release of Master Data Services.
-ms.custom: ""
-ms.date: "07/08/2016"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: master-data-services
-ms.topic: conceptual
-ms.assetid: ad530f60-d480-4457-ba7a-93a10c8a1695
 author: CordeliaGrey
 ms.author: jiwang6
+ms.date: "07/08/2016"
+ms.service: sql
+ms.subservice: master-data-services
+ms.topic: conceptual
 ---
 # What's New in Master Data Services (MDS)
 
-[!INCLUDE [SQL Server - Windows only ASDBMI  ](../includes/applies-to-version/sql-windows-only-asdbmi.md)]
+[!INCLUDE [SQL Server - Windows only ASDBMI](../includes/applies-to-version/sql-windows-only-asdbmi.md)]
 
   This topic summarizes the changes and updates in the latest release of [!INCLUDE[ssnoversion](../includes/ssnoversion-md.md)] [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]. 
   
@@ -223,8 +220,6 @@ ms.author: jiwang6
 
 [!INCLUDE[get-help-options](../includes/paragraph-content/get-help-options.md)]
 
-[!INCLUDE[contribute-to-content](../includes/paragraph-content/contribute-to-content.md)]
-  
 ## See Also  
  [Master Data Services and Data Quality Services Features Supported by the Editions of SQL Server 2016](../master-data-services/master-data-services-and-data-quality-services-features-support.md)  
  [Deprecated Master Data Services Features](../master-data-services/deprecated-master-data-services-features.md)  

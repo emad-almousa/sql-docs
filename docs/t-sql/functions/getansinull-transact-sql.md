@@ -23,7 +23,7 @@ dev_langs:
 
   Returns the default nullability for the database for this session.  
   
- ![Article link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -52,12 +52,12 @@ GETANSINULL returns 1 if the database's nullability allows for null values. This
 -   SET ANSI_NULL_DFLT_OFF OFF  
   
 ## Examples  
- The following example returns the default nullability for the `AdventureWorks2012` database.  
+ The following example returns the default nullability for the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
-SELECT GETANSINULL('AdventureWorks2012')  
+SELECT GETANSINULL('AdventureWorks2022')  
 GO  
 ```  
   

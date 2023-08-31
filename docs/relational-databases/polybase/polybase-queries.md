@@ -14,12 +14,12 @@ helpviewer_keywords:
   - "Hadoop, export with PolyBase"
   - "Azure Blob Storage, import with PolyBase"
   - "Azure Blob Storage, export with PolyBase"
-keywords: "PolyBase"
+keywords: PolyBase
 monikerRange: ">= sql-server-2016"
 ---
 # PolyBase query scenarios
 
-[!INCLUDE [SQL Server Windows Only - ASDBMI ](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
+[!INCLUDE [SQL Server Windows Only - ASDBMI](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
 
 This article provides examples of queries using the [PolyBase](../../relational-databases/polybase/polybase-guide.md) feature of SQL Server (starting with 2016). Before using these examples, you must first install and configure PolyBase. For more information, see the [PolyBase overview](polybase-guide.md).
 

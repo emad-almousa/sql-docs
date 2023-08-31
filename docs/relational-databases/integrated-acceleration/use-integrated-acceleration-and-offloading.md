@@ -1,13 +1,13 @@
 ---
 title: Configure integrated acceleration and offloading
 description: Describes how to use integrated acceleration and offloading solution for an instance of SQL Server.
-ms.date: 08/16/2022
-ms.service: sql
-ms.reviewer: david.pless, wiassaf 
-ms.subservice: configuration
-ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
+ms.reviewer: david.pless, wiassaf
+ms.date: 08/16/2022
+ms.service: sql
+ms.subservice: configuration
+ms.topic: conceptual
 ---
 
 # Configure integrated acceleration and offloading
@@ -24,7 +24,7 @@ This article demonstrates how to configure an integrated acceleration and offloa
 
 2. Follow the instructions from the vendor to install the drivers on your server.
 
-3. Reboot the server after you install the drivers.
+3. Restart the server after you install the drivers.
 
 ## Verify installed components
 

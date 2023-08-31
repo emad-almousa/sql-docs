@@ -5,11 +5,10 @@ description: This article describes features supported by the various editions o
 author: "MikeRayMSFT"
 ms.author: "mikeray"
 ms.reviewer: randolphwest
-ms.date: 12/01/2022
+ms.date: 07/06/2023
 ms.service: sql
 ms.subservice: release-landing
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 helpviewer_keywords:
   - "Enterprise Edition [SQL Server]"
   - "Developer Edition [SQL Server]"
@@ -49,8 +48,6 @@ For information about other versions, see:
 
 Installation requirements vary based on your application needs. The different editions of [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] accommodate the unique performance, runtime, and price requirements of organizations and individuals. The [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] components that you install also depend on your specific requirements. The following sections help you understand how to make the best choice among the editions and components available in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)].
 
-The SQL Server Evaluation edition is available for a 180-day trial period.
-
 For the latest release notes and what's new information, see the following:
 
 - [SQL Server 2017 release notes](../sql-server/sql-server-2017-release-notes.md)
@@ -62,17 +59,7 @@ For the latest release notes and what's new information, see the following:
 
 ## SQL Server editions
 
-The following table describes the editions of [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)].
-
-| [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] edition | Definition |
-| --- | --- |
-| Enterprise | The premium offering, [!INCLUDE[ssNoVersion](../includes/ssNoVersion-md.md)] Enterprise edition delivers comprehensive high-end datacenter capabilities with blazing-fast performance, unlimited virtualization <sup>1</sup> , and end-to-end business intelligence - enabling high service levels for mission-critical workloads and end user access to data insights. |
-| Standard | [!INCLUDE[ssNoVersion](../includes/ssNoVersion-md.md)] Standard edition delivers basic data management and business intelligence database for departments and small organizations to run their applications and supports common development tools for on-premises and cloud - enabling effective database management with minimal IT resources. |
-| Web | [!INCLUDE[ssNoVersion](../includes/ssNoVersion-md.md)] Web edition is a low total-cost-of-ownership option for Web hosters and Web VAPs to provide scalability, affordability, and manageability capabilities for small to large scale Web properties. |
-| Developer | [!INCLUDE[ssNoVersion](../includes/ssNoVersion-md.md)] Developer edition lets developers build any kind of application on top of [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]. It includes all the functionality of Enterprise edition, but is licensed for use as a development and test system, not as a production server. [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Developer is an ideal choice for people who build and test applications. |
-| Express editions | [!INCLUDE [ssexpress-md](../includes/ssexpress-md.md)] edition is the entry-level, free database and is ideal for learning and building desktop and small server data-driven applications. It is the best choice for independent software vendors, developers, and hobbyists building client applications. If you need more advanced database features, [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Express can be seamlessly upgraded to other higher end versions of [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]. [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Express LocalDB is a lightweight version of Express that has all of its programmability features, runs in user mode and has a fast, zero-configuration installation and a short list of prerequisites. |
-
-<sup>1</sup> Unlimited virtualization is available on Enterprise Edition for customers with [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). Deployments must comply with the [licensing guide](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf). For more information, see our [Pricing and Licensing page](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
+[!INCLUDE [sql-server-editions](../includes/paragraph-content/sql-server-editions.md)]
 
 ## Use SQL Server with an Internet Server
 
@@ -188,7 +175,7 @@ The Developer edition continues to support only 1 client for [SQL Server Distrib
 | Table and index partitioning | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: |
 | Data compression | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: |
 | Resource Governor | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: |
-| Partitioned Table Parallelism | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: |
+| Partitioned Table Parallelism | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: |
 | Multiple Filestream containers | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: |
 | NUMA Aware Large Page Memory and Buffer Array Allocation | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: |
 | Buffer pool extension | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/yes-icon.svg" border="false" alt-text="Yes"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: | :::image type="content" source="../includes/media/no-icon.svg" border="false" alt-text="No"::: |
@@ -412,5 +399,3 @@ For information about the Business Intelligence Client features supported by the
 - [Installation for SQL Server](../database-engine/install-windows/install-sql-server.md)
 
 [!INCLUDE[get-help-options](../includes/paragraph-content/get-help-options.md)]
-
-[!INCLUDE[contribute-to-content](../includes/paragraph-content/contribute-to-content.md)]

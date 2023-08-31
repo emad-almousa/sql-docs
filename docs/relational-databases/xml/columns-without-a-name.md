@@ -1,16 +1,15 @@
 ---
 title: "Columns without a Name"
 description: Learn how SQL Server treats columns without a name when generating XML.
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "names [SQL Server], columns without"
-author: MikeRayMSFT
-ms.author: mikeray
 ---
 # Columns without a Name
 
@@ -30,7 +29,7 @@ Produce this XML. By default, for each row in the rowset, a `<row>` element is g
 The following query returns a three-column rowset. The third column without a name has XML data. The PATH mode inserts an instance of the xml type.
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT ProductModelID,
        Name,

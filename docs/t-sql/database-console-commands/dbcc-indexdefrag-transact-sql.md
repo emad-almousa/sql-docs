@@ -33,7 +33,7 @@ Defragments indexes of the specified table or view.
 
 **Applies to**: [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] and later versions
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -122,7 +122,7 @@ Caller must own the table, or be a member of the **sysadmin** fixed server role,
 
 ### A. Use DBCC INDEXDEFRAG to defragment an index
 
-The following example defragments all partitions of the `PK_Product_ProductID` index in the `Production.Product` table in the `AdventureWorks2022` database.
+The following example defragments all partitions of the `PK_Product_ProductID` index in the `Production.Product` table in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
 DBCC INDEXDEFRAG (AdventureWorks2022, 'Production.Product', PK_Product_ProductID);

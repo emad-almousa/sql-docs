@@ -1,12 +1,13 @@
 ---
 title: SQL Server Integration Services
 description: Learn about SQL Server Integration Services, Microsoft's platform for building enterprise-level data integration and data transformations solutions.
+author: chugugrace
+ms.author: chugu
+ms.date: 08/17/2023
 ms.service: sql
 ms.subservice: integration-services
 ms.topic: overview
-keywords: 
-  - "SSIS"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "SSIS"
   - "DTS [Integration Services]"
   - "SQL Server Integration Services"
@@ -14,18 +15,19 @@ helpviewer_keywords:
   - "DTS [Integration Services], about Integration Services"
   - "data integration [Integration Services]"
   - "Data Transformation Services"
-author: chugugrace
-ms.author: chugu
-ms.reviewer: ""
-ms.custom: FY22Q2Fresh
-ms.date: 12/10/2021
+keywords: SSIS
 ---
 
 # SQL Server Integration Services
 
 [!INCLUDE[sqlserver-ssis](../includes/applies-to-version/sqlserver-ssis.md)]
 
-SQL Server [!INCLUDE[ssISnoversion](../includes/ssisnoversion-md.md)] is a platform for building enterprise-level data integration and data transformations solutions. Use [!INCLUDE[ssISnoversion](../includes/ssisnoversion-md.md)] to solve complex business problems by copying or downloading files, loading data warehouses, cleansing and mining data, and managing [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] objects and data.
+SQL Server [!INCLUDE[ssISnoversion](../includes/ssisnoversion-md.md)] is a platform for building enterprise-level data integration and data transformations solutions. Use [!INCLUDE[ssISnoversion](../includes/ssisnoversion-md.md)] to solve complex business problems. For example:
+
+- Copy or download files
+- Load data warehouses
+- Cleanse and mine data
+- Manage [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] objects and data
 
 ## Capabilities
 

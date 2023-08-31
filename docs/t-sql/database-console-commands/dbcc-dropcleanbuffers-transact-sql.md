@@ -3,7 +3,7 @@ title: DBCC DROPCLEANBUFFERS (Transact-SQL)
 description: DBCC DROPCLEANBUFFERS removes all clean buffers from the buffer pool, and columnstore objects from the columnstore object pool.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 12/05/2022
+ms.date: 03/23/2023
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: "language-reference"
@@ -30,17 +30,17 @@ monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-ser
 
 Removes all clean buffers from the buffer pool, and columnstore objects from the columnstore object pool.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
-Syntax for [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)],  [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], and [!INCLUDE[ssSOD](../../includes/sssodfull-md.md)]:
+Syntax for [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)],  [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)], and [!INCLUDE[ssSOD](../../includes/sssodfull-md.md)]:
 
 ```syntaxsql
 DBCC DROPCLEANBUFFERS [ WITH NO_INFOMSGS ]
 ```
 
-Syntax for [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]:
+Syntax for [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]:
 
 ```syntaxsql
 DBCC DROPCLEANBUFFERS ( COMPUTE | ALL ) [ WITH NO_INFOMSGS ]
@@ -52,7 +52,7 @@ DBCC DROPCLEANBUFFERS ( COMPUTE | ALL ) [ WITH NO_INFOMSGS ]
 
 #### WITH NO_INFOMSGS
 
-Suppresses all informational messages. Informational messages are always suppressed on [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)].
+Suppresses all informational messages. Informational messages are always suppressed on [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)].
 
 #### COMPUTE
 
@@ -79,15 +79,19 @@ DBCC execution completed. If DBCC printed error messages, contact your system ad
 
 ## Permissions
 
-Applies to: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+Applies to: SQL Server, [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+
+- Requires **sysadmin** permission on the server
+
+Applies to: SQL Server 2022 and later
 
 - Requires **ALTER SERVER STATE** permission on the server
 
-Applies to: [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
+Applies to: [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)]
 
 - Requires membership in server role **##MS_ServerStateManager##**
 
-Applies to: [!INCLUDE[ssSDW](../../includes/sssdw-md.md)]
+Applies to: [!INCLUDE[ssazuresynapse-md](../../includes/ssazuresynapse-md.md)]
 
 - Requires membership in the **db_owner** fixed server role
 

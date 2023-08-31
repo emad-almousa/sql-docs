@@ -1,23 +1,21 @@
 ---
 title: "View the Definition of a Stored Procedure"
 description: Learn how to view the definition of procedure in Object Explorer and by using a system stored procedure, system function, and object catalog view in the Query Editor.
-ms.custom: ""
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "08/19/2021"
 ms.service: sql
 ms.subservice: stored-procedures
-ms.reviewer: ""
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "stored procedures [SQL Server], viewing"
   - "definition of stored procedure"
   - "viewing stored procedures"
   - "displaying stored procedures"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # View the Definition of a Stored Procedure
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
     
 ##  <a name="Top"></a> View the definition of a stored procedure 
 
@@ -74,9 +72,9 @@ This article describes how to view the definition of procedure in Object Explore
 3.  In the query window, enter the following statement that uses the `sp_helptext` system stored procedure. Change the database name and stored procedure name to reference the database and stored procedure that you want.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
-    EXEC sp_helptext N'AdventureWorks2012.dbo.uspLogError';  
+    EXEC sp_helptext N'AdventureWorks2022.dbo.uspLogError';  
     ```  
   
 #### System Function: **OBJECT_DEFINITION**  
@@ -88,9 +86,9 @@ This article describes how to view the definition of procedure in Object Explore
 3.  In the query window, enter the following statements that use the `OBJECT_DEFINITION` system function. Change the database name and stored procedure name to reference the database and stored procedure that you want.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
-    SELECT OBJECT_DEFINITION (OBJECT_ID(N'AdventureWorks2012.dbo.uspLogError'));  
+    SELECT OBJECT_DEFINITION (OBJECT_ID(N'AdventureWorks2022.dbo.uspLogError'));  
     ```  
   
 #### <a id=sql_modules></a> Object Catalog View: **sys.sql_modules**  
@@ -102,7 +100,7 @@ This article describes how to view the definition of procedure in Object Explore
 3.  In the query window, enter the following statements that use the `sys.sql_modules` catalog view. Change the database name and stored procedure name to reference the database and stored procedure that you want.  
   
     ```sql  
-    USE AdventureWorks2012;  
+    USE AdventureWorks2022;  
     GO  
     SELECT [definition]
     FROM sys.sql_modules  

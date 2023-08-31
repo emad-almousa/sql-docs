@@ -4,14 +4,13 @@ titleSuffix: SQL Server Machine Learning Services
 description: "Learn how to install SQL Server 2022 Machine Learning Services on Linux: Red Hat, Ubuntu, and SUSE."
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.date: 09/26/2022
-ms.topic: how-to
+ms.reviewer: arunguru-msft
+ms.date: 04/03/2023
 ms.service: sql
 ms.subservice: machine-learning-services
+ms.topic: how-to
+ms.custom: intro-installation
 monikerRange: ">=sql-server-ver16||>=sql-server-linux-ver16"
-ms.custom:
-- intro-installation
-- event-tier1-build-2022
 ---
 # Install SQL Server 2022 Machine Learning Services (Python and R) on Linux
 
@@ -57,7 +56,7 @@ Available installation packages for [!INCLUDE [sssql22-md](../includes/sssql22-m
 
     **Ubuntu**
     ```bash
-    apt-get install mssql-server-extensibility
+    sudo apt-get install mssql-server-extensibility
     ```
 
     **RHEL**
@@ -77,13 +76,21 @@ Available installation packages for [!INCLUDE [sssql22-md](../includes/sssql22-m
     sudo systemctl restart mssql-server
     ```
 
+## Install runtimes and packages
+
 ## Setup R support
 
 ### Install R runtime
 
 1. Download and install the version of R that is desired. Choose a version of R 4.2 or higher, [available for download directly from cran.r-project.org](https://cran.r-project.org/). Follow the instructions for the desired runtime.
 
-1. Install dependencies for `CompatibilityAPI` and `RevoScaleR`. From an admin R terminal of the version you have installed, run the following:
+1. Open an admin R terminal:
+
+    ```bash
+    sudo R
+    ```
+
+1. Install dependencies for `CompatibilityAPI` and `RevoScaleR` by running the following:
 
     ```r
     # R Terminal
@@ -111,8 +118,8 @@ Available installation packages for [!INCLUDE [sssql22-md](../includes/sssql22-m
 1. Configure the installed R runtime with SQL Server for Linux, where `path/to/` is the file path to the R binary, and `RFolderVersion` is the version-specific folder name for your installation of R runtime, for example, `R4.2`.
 
     ```bash  
-    /opt/mssql/bin/mssql-conf set extensibility rbinpath /usr/lib/R/bin/R
-    /opt/mssql/bin/mssql-conf set extensibility datadirectories /usr/lib/R
+    sudo /opt/mssql/bin/mssql-conf set extensibility rbinpath /usr/lib/R/bin/R
+    sudo /opt/mssql/bin/mssql-conf set extensibility datadirectories /usr/lib/R
     ```
 
 1. Restart the `Launchpadd` service.
@@ -146,6 +153,7 @@ Available installation packages for [!INCLUDE [sssql22-md](../includes/sssql22-m
 1. Download and install `revoscalepy` for the root user.
 
     ```bash  
+    sudo pip install dill numpy==1.22.0 pandas patsy python-dateutil
     sudo pip install https://aka.ms/sqlml/python3.10/linux/revoscalepy-10.0.1-py3-none-any.whl --target=/usr/lib/python3.10/dist-packages
     ```
 
@@ -160,8 +168,8 @@ Available installation packages for [!INCLUDE [sssql22-md](../includes/sssql22-m
 1. Configure the installed Python runtime with SQL Server, where `pythonbinbath` is set to the path of the installed python binary, and `datadirectories` includes the path where the packages are installed for the desired version of python, for example, `/usr/lib/python3.10/dist-packages`. Use the following script with your actual installation path:
 
     ```bash
-    /opt/mssql/bin/mssql-conf set extensibility pythonbinpath /usr/bin/python3.10
-    /opt/mssql/bin/mssql-conf set extensibility datadirectories /usr/lib:/usr/lib/python3.10/dist-packages
+    sudo /opt/mssql/bin/mssql-conf set extensibility pythonbinpath /usr/bin/python3.10
+    sudo /opt/mssql/bin/mssql-conf set extensibility datadirectories /usr/lib:/usr/lib/python3.10/dist-packages
     ```
 
 1. Restart the `Launchpadd` service.

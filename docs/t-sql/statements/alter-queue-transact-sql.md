@@ -26,7 +26,7 @@ dev_langs:
 
   Changes the properties of a queue.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -196,7 +196,7 @@ ALTER QUEUE ExpenseQueue WITH ACTIVATION (MAX_QUEUE_READERS = 7) ;
 ```sql  
 ALTER QUEUE ExpenseQueue  
     WITH ACTIVATION (  
-        PROCEDURE_NAME = AdventureWorks2012.dbo.new_stored_proc ,  
+        PROCEDURE_NAME = AdventureWorks2022.dbo.new_stored_proc ,  
         EXECUTE AS 'SecurityAccount') ;  
 ```  
   

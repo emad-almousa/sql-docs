@@ -22,7 +22,7 @@ dev_langs:
 
 This function encrypts data with an asymmetric key.  
   
- ![Article link icon](../../database-engine/configure-windows/media/topic-link.gif "Article link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -84,7 +84,7 @@ In [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], both certificates 
 This example encrypts the text stored in `@cleartext` with the asymmetric key `JanainaAsymKey02`. The statement inserts the encrypted data into the `ProtectedData04` table.  
   
 ```sql  
-INSERT INTO AdventureWorks2012.Sales.ProtectedData04   
+INSERT INTO AdventureWorks2022.Sales.ProtectedData04   
     VALUES( N'Data encrypted by asymmetric key ''JanainaAsymKey02''',  
     EncryptByAsymKey(AsymKey_ID('JanainaAsymKey02'), @cleartext) );  
 GO  

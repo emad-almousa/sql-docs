@@ -1,26 +1,24 @@
 ---
-description: "Install Extensions in SQL Server Management Studio (SSMS)"
 title: Install Extensions in SQL Server Management Studio (SSMS)
+description: "Install Extensions in SQL Server Management Studio (SSMS)"
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: maghan
+ms.date: 07/29/2020
 ms.service: sql
 ms.subservice: ssms
 ms.topic: conceptual
+ms.custom: intro-installation
 keywords:
   - "extensions"
   - "vsix"
   - "install extension"
   - "install vsix"
-author: dzsquared
-ms.author: drskwier
-ms.reviewer: maghan
-ms.custom:
-  - seo-lt-2019
-  - intro-installation
-ms.date: 07/29/2020
 ---
 
 # Install Extensions in SQL Server Management Studio (SSMS)
 
-[!INCLUDE [SQL Server ASDB, ASDBMI, ASDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
+[!INCLUDE [SQL Server ASDB, ASDBMI, ASDW](../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
 
 SQL Server Management Studio (SSMS) extensions are created with C# through the "Visual Studio extension development" workload in Visual Studio. SSMS 18.x is built on the Visual Studio 2017 shell and is subject to the limitations of that environment.
 

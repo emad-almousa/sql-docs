@@ -15,7 +15,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||>=sql-server-2016||>=sql-ser
 ---
 # Use Non-XML format files (SQL Server)
 
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 In [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], two types of format files are supported for bulk exporting and importing: *non-XML format files* and *XML format files*.
 
@@ -33,7 +33,7 @@ In [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], two types of forma
 >  XML format files offer several advantages over non-XML format files. For more information, see [XML Format Files &#40;SQL Server&#41;](../../relational-databases/import-export/xml-format-files-sql-server.md).
 
 > [!NOTE]  
-> This syntax, including bulk insert, is not supported in Azure Synapse Analytics. [!INCLUDE[Use ADF or PolyBase instead of Synapse Bulk Insert](../../includes/paragraph-content/bulk-insert-synapse.md)]
+> This syntax, including bulk insert, is not supported in Azure Synapse Analytics. [!INCLUDE [Use ADF or PolyBase instead of Synapse Bulk Insert](includes/bulk-insert-synapse.md)]
 
 ## <a id="Structure"></a> Structure of Non-XML Format Files
 
@@ -68,7 +68,7 @@ The other format-file fields describe the data fields that are to be bulk import
 
 ## <a id="Examples"></a> Example of a non-XML format file
 
-The following example shows a previously created non-XML format file (`myDepartmentIdentical-f-c.fmt`). This file describes a character-data field for every column in the `HumanResources.Department` table in the `AdventureWorks2012` sample database.
+The following example shows a previously created non-XML format file (`myDepartmentIdentical-f-c.fmt`). This file describes a character-data field for every column in the `HumanResources.Department` table in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] sample database.
 
 The generated format file, `myDepartmentIdentical-f-c.fmt`, contains the following information:
 

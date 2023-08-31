@@ -19,7 +19,7 @@ dev_langs:
 
   Revokes permissions granted and denied on a symmetric key.  
    
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -114,7 +114,7 @@ REVOKE [ GRANT OPTION FOR ] permission [ ,...n ]
  The following example revokes `ALTER` permission on the symmetric key `SamInventory42` from the user `HamidS` and from other principals to which `HamidS` has granted `ALTER` permission.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 REVOKE ALTER ON SYMMETRIC KEY::SamInventory42 TO HamidS CASCADE;  
 GO  
 ```  

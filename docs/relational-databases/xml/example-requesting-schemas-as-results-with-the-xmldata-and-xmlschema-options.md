@@ -1,17 +1,16 @@
 ---
 title: "Request schemas as results with XMLDATA & XMLSCHEMA"
 description: Learn how to use the XMLDATA and XMLSCHEMA options in RAW mode with the FOR XML clause to request an XML-DATA schema or an XSD schema in the query result.
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: randolphwest
 ms.date: 05/05/2022
 ms.service: sql
-ms.reviewer: randolphwest
 ms.subservice: xml
 ms.topic: conceptual
 helpviewer_keywords:
   - "RAW mode, requesting schema example"
   - "RAW mode, with XMLDATA and XMLSCHEMA"
-author: MikeRayMSFT
-ms.author: mikeray
-ms.custom: "seo-lt-2019"
 ---
 # Request schemas as results with XMLDATA and XMLSCHEMA
 
@@ -22,7 +21,7 @@ The following query returns the XML-DATA schema that describes the document stru
 ## Example
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT ProductModelID, Name
 FROM Production.ProductModel
@@ -53,7 +52,7 @@ This is the result:
 By specifying the `XMLSCHEMA` option, you can request the XSD schema for the result.
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT ProductModelID, Name
 FROM Production.ProductModel
@@ -88,7 +87,7 @@ This is the result:
 You can specify the target namespace URI as an optional argument to XMLSCHEMA in FOR XML. This returns the specified target namespace in the schema. This target namespace remains the same every time you execute the query. For example, the following modified version of the previous query includes the namespace URI, `'urn:example.com'`, as an argument.
 
 ```sql
-USE AdventureWorks2012;
+USE AdventureWorks2022;
 GO
 SELECT ProductModelID, Name
 FROM Production.ProductModel

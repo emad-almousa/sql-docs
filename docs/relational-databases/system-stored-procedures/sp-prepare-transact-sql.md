@@ -1,21 +1,19 @@
 ---
 title: sp_prepare (Transact SQL)
 description: "sp_prepare (Transact SQL)"
+author: markingmyname
+ms.author: maghan
+ms.date: "02/28/2018"
 ms.service: sql
 ms.subservice: system-objects
 ms.topic: "reference"
 f1_keywords:
   - "sp_prepare_TSQL"
   - "sp_prepare"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sp_prepare"
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
-ms.custom: ""
-ms.date: "02/28/2018"
+dev_langs:
+  - "TSQL"
 monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 
@@ -25,11 +23,11 @@ monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-ser
 
 Prepares a parameterized [!INCLUDE[tsql](../../includes/tsql-md.md)] statement and returns a statement *handle* for execution.  `sp_prepare` is invoked by specifying ID = 11 in a tabular data stream (TDS) packet.  
   
-![Article link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
-```tsql
+```sql
 sp_prepare handle OUTPUT, params, stmt, options  
 ```  
   
@@ -62,7 +60,7 @@ EXEC sp_execute @P1, N'tempdb', N'ONLINE';
 EXEC sp_unprepare @P1;  
 ```
 
-B. The following example prepares a statement in the AdventureWorks2016 database, and later executes it using the handle.
+B. The following example prepares a statement in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database, and later executes it using the handle.
 
 ```sql
 -- Prepare query

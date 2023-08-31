@@ -34,7 +34,7 @@ Displays fragmentation information for the data and indexes of the specified tab
 
 **Applies to**: [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)] and later versions
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -226,7 +226,7 @@ GO
 The following example uses `OBJECT_ID` and the `sys.indexes` catalog view to obtain the table ID and index ID for the `AK_Product_Name` index of the `Production.Product` table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 DECLARE @id INT, @indid INT
 SET @id = OBJECT_ID('Production.Product');
@@ -245,7 +245,7 @@ GO
 The following example returns an abbreviated result set for the `Product` table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 DBCC SHOWCONTIG ('Production.Product', 1) WITH FAST;
 GO
@@ -256,7 +256,7 @@ GO
 The following example returns a full table result set for every index on every table in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] database.
 
 ```sql
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 DBCC SHOWCONTIG WITH TABLERESULTS, ALL_INDEXES;
 GO

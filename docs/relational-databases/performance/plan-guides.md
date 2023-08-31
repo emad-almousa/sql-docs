@@ -1,14 +1,13 @@
 ---
 title: "Plan Guides"
 description: Learn about plan guides, which let you optimize the performance of queries without directly changing the text of the query in SQL Server.
-ms.custom:
-- event-tier1-build-2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 08/01/2022
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: performance
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "TEMPLATE plan guide"
   - "SQL plan guides"
   - "OPTIMIZE FOR query hint"
@@ -18,15 +17,13 @@ helpviewer_keywords:
   - "OPTION clause"
   - "plan guides [SQL Server]"
   - "USE PLAN query hint"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # Plan Guides
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
   Plan guides let you optimize the performance of queries when you cannot or do not want to directly change the text of the actual query in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)]. Plan guides influence the optimization of queries by attaching query hints or a fixed query plan to them. Plan guides can be useful when a small subset of queries in a database application provided by a third-party vendor are not performing as expected. In the plan guide, you specify the Transact-SQL statement that you want optimized and either an OPTION clause that contains the query hints you want to use or a specific query plan you want to use to optimize the query. When the query executes, [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] matches the Transact-SQL statement to the plan guide and attaches the OPTION clause to the query at run time or uses the specified query plan. Because the SQL Server Query Optimizer typically selects the best execution plan for a query, we recommend only using plan guides as a last resort for experienced developers and database administrators. 
 
  > [!NOTE]
->  [Query Store hints](query-store-hints.md) provide an easier-to-use method for shaping query plans without changing application code. Query Store hints are simpler than plan guides. Query Store hints are available in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] and [!INCLUDE[ssazuremi_md](../../includes/ssazuremi_md.md)], and in [!INCLUDE[sssql22-md](../../includes/sssql22-md.md)] and later.
+>  [Query Store hints](query-store-hints.md) provide an easier-to-use method for shaping query plans without changing application code. Query Store hints are simpler than plan guides. Query Store hints are available in [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)] and [!INCLUDE[ssazuremi_md](../../includes/ssazuremi_md.md)], and in [!INCLUDE[sssql22-md](../../includes/sssql22-md.md)] and later.
   
  The total number of plan guides you can create is limited only by available system resources. Nevertheless, plan guides should be limited to mission-critical queries that are targeted for improved or stabilized performance. Plan guides should not be used to influence most of the query load of a deployed application.  
   

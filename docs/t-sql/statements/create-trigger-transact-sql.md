@@ -44,7 +44,7 @@ Logon triggers fire in response to the LOGON event that's raised when a user's s
 > [!NOTE]  
 >  The integration of .NET Framework CLR into SQL Server is discussed in this article. CLR integration does not apply to Azure SQL Database.  
   
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## SQL Server Syntax  
   
@@ -436,7 +436,7 @@ ON Sales.Customer
 AFTER INSERT, UPDATE, DELETE   
 AS  
    EXEC msdb.dbo.sp_send_dbmail  
-        @profile_name = 'AdventureWorks2012 Administrator',  
+        @profile_name = 'AdventureWorks2022 Administrator',  
         @recipients = 'danw@Adventure-Works.com',  
         @body = 'Don''t forget to print a report for the sales force.',  
         @subject = 'Reminder';  
@@ -446,7 +446,7 @@ GO
 ### C. Using a DML AFTER trigger to enforce a business rule between the PurchaseOrderHeader and Vendor tables  
 Because CHECK constraints reference only the columns on which the column-level or table-level constraint is defined, you must define any cross-table constraints (in this case, business rules) as triggers.  
   
-The following example creates a DML trigger in the AdventureWorks2012 database. This trigger checks to make sure the credit rating for the vendor is good (not 5) when there's an attempt to insert a new purchase order into the `PurchaseOrderHeader` table. To get the credit rating of the vendor, the `Vendor` table must be referenced. If the credit rating is too low, a message appears and the insertion doesn't happen.  
+The following example creates a DML trigger in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database. This trigger checks to make sure the credit rating for the vendor is good (not 5) when there's an attempt to insert a new purchase order into the `PurchaseOrderHeader` table. To get the credit rating of the vendor, the `Vendor` table must be referenced. If the credit rating is too low, a message appears and the insertion doesn't happen.  
   
 :::code language="sql" source="../../relational-databases/triggers/codesnippet/tsql/use-the-inserted-and-del_1.sql":::
 

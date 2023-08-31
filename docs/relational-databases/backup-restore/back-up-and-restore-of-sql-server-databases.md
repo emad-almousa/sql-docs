@@ -1,13 +1,13 @@
 ---
-title: "Back Up and Restore of SQL Server Databases | Microsoft Docs"
+title: "Back Up and Restore of SQL Server Databases"
 description: This article describes the benefits of backing up SQL Server databases and introduces backup and restore strategies and security considerations.
-ms.custom: ""
+author: MashaMSFT
+ms.author: mathoma
 ms.date: "03/30/2018"
 ms.service: sql
-ms.reviewer: ""
 ms.subservice: backup-restore
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "disaster recovery [SQL Server], see restoring [SQL Server]"
   - "backups [SQL Server]"
   - "restoring databases [SQL Server]"
@@ -19,9 +19,6 @@ helpviewer_keywords:
   - "backing up [SQL Server]"
   - "Database Engine [SQL Server], backups"
   - "databases [SQL Server], backups"
-ms.assetid: 570a21b3-ad29-44a9-aa70-deb2fbd34f27
-author: MashaMSFT
-ms.author: mathoma
 ---
 # Back Up and Restore of SQL Server Databases
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -53,7 +50,7 @@ ms.author: mathoma
  A copy of data that can be used to restore and recover the data after a failure. Backups of a database can also be used to restore a copy the database to a new location.  
   
 **backup** device  
- A disk or tape device to which SQL Server backups are written and from which they can be restored. SQL Server backups can also be written to an Azure Blob Storage, and **URL** format is used to specify the destination and the name of the backup file.. For more information, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md).  
+ A disk or tape device to which SQL Server backups are written and from which they can be restored. SQL Server backups can also be written to an Azure Blob Storage, and **URL** format is used to specify the destination and the name of the backup file. For more information, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md).  
   
 **backup media**  
  One or more tapes or disk files to which one or more backups have been written.  

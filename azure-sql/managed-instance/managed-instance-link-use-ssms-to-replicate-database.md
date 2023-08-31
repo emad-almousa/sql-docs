@@ -5,7 +5,7 @@ description: Learn how to use a link feature in SQL Server Management Studio (SS
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma, danil
-ms.date: 08/30/2022
+ms.date: 04/26/2023
 ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.topic: conceptual
@@ -17,7 +17,7 @@ ms.topic: conceptual
 This article teaches you how to replicate your database from SQL Server to Azure SQL Managed Instance by using [the link feature](managed-instance-link-feature-overview.md) in SQL Server Management Studio (SSMS).  
 
 > [!NOTE]
-> - Some functionality of the link is generally available, while some is currently in preview. Review the [requirements](managed-instance-link-feature-overview.md#requirements) to learn more. 
+> - Some functionality of the link is generally available, while some is currently in preview. Review the [prerequisites](managed-instance-link-feature-overview.md#prerequisites) to learn more. 
 > - You can also use [T-SQL and PowerShell](managed-instance-link-use-scripts-to-replicate-database.md) to set up the link to replicate your database. 
 
 ## Prerequisites 
@@ -25,7 +25,7 @@ This article teaches you how to replicate your database from SQL Server to Azure
 To replicate your databases to SQL Managed Instance through the link, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [Supported version of SQL Server](managed-instance-link-feature-overview.md#requirements) with required service update installed.
+- [Supported version of SQL Server](managed-instance-link-feature-overview.md#prerequisites) with required service update installed.
 - Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have it. 
 - [SQL Server Management Studio v19.0 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - A properly [prepared environment](managed-instance-link-preparation.md).
@@ -80,9 +80,13 @@ In the following steps, you use the **Managed Instance link** wizard in SSMS to 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-distributed-ag-options.png" alt-text="Screenshot that shows the Specify Distributed A G Options page.":::
 
-1. Review the actions on the **Summary** page. Optionally, select **Script** to create a script that you can run at a later time. When you're ready, select **Finish**.  
+1. Review the actions on the **Summary** page. When you're ready to create the link, select **Finish**.  
+
+    > [!TIP]
+    > Optionally, select **Script** to create a script with the correct parameters that you can run again in the future to create your link. 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-summary.png" alt-text="Screenshot that shows the Summary page.":::
+
 
 1. The **Executing actions** page displays the progress of each action.  
 

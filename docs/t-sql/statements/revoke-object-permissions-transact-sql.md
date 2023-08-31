@@ -20,7 +20,7 @@ dev_langs:
 
   Revokes permissions on a table, view, table-valued function, stored procedure, extended stored procedure, scalar function, aggregate function, service queue, or synonym. 
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -143,10 +143,10 @@ REVOKE [ GRANT OPTION FOR ] <permission> [ ,...n ] ON
 ## Examples  
   
 ### A. Revoking SELECT permission on a table  
- The following example revokes `SELECT` permission from the user `RosaQdM` on the table `Person.Address` in the `AdventureWorks2012` database.  
+ The following example revokes `SELECT` permission from the user `RosaQdM` on the table `Person.Address` in the [!INCLUDE [sssampledbobject-md](../../includes/sssampledbobject-md.md)] database.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 REVOKE SELECT ON OBJECT::Person.Address FROM RosaQdM;  
 GO  
 ```  
@@ -155,7 +155,7 @@ GO
  The following example revokes `EXECUTE` permission on the stored procedure `HumanResources.uspUpdateEmployeeHireInfo` from an application role called `Recruiting11`.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 REVOKE EXECUTE ON OBJECT::HumanResources.uspUpdateEmployeeHireInfo  
     FROM Recruiting11;  
 GO   
@@ -165,7 +165,7 @@ GO
  The following example revokes `REFERENCES` permission on the column `BusinessEntityID` in the view `HumanResources.vEmployee` from the user `Wanida` with `CASCADE`.  
   
 ```sql  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 REVOKE REFERENCES (BusinessEntityID) ON OBJECT::HumanResources.vEmployee   
     FROM Wanida CASCADE;  
 GO  

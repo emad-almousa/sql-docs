@@ -10,6 +10,8 @@
   items:
   - name: Azure Data Studio
     href: what-is-azure-data-studio.md
+  - name: Azure connectivity
+    href: azure-connectivity.md
 - name: Quickstarts
   items:
   - name: Connect & query SQL Server
@@ -22,8 +24,6 @@
     href: quickstart-azure-cosmos-db-mongodb.md
   - name: Connect & query MySQL
     href: quickstart-mysql.md
-  - name: Connect & query PostgreSQL
-    href: quickstart-postgres.md
   - name: Connect & query PostgreSQL
     href: quickstart-postgres.md
   - name: Connect and query Managed Service for TimescaleDB
@@ -52,7 +52,6 @@
       href: create-temporal-tables-in-azure-data-studio.md
     - name: Using SQL Database Projects to build and deploy changes to tables
       href: build-and-publish-changes-to-table-using-sql-projects.md
-      
 - name: Concepts
   items:
   - name: Extensions
@@ -61,6 +60,12 @@
       href: extensions/add-extensions.md
     - name: Azure Arc extension
       href: extensions/azure-arc-extension.md
+    - name: Azure PostgreSQL migration extension
+      items:
+      - name: Azure PostgreSQL migration extension
+        href: extensions/azure-postgresql-migration-extension.md
+      - name: Troubleshoot
+        href: extensions/azure-postgresql-migration-extension-troubleshoot.md
     - name: Azure SQL migration extension
       href: extensions/azure-sql-migration-extension.md
     - name: Azure Monitor Logs extension
@@ -68,13 +73,25 @@
     - name: Azure Cosmos DB API for MongoDB extension
       href: extensions/azure-cosmos-db-mongodb-extension.md
     - name: Database Migration Assessment for Oracle extension
-      href: extensions/database-migration-assessment-for-oracle-extension.md
+      items:
+      - name: Overview
+        href: extensions/database-migration-assessment-for-oracle-extension.md
+      - name: Troubleshoot
+        href: extensions/database-migration-assessment-for-oracle-extension-troubleshoot.md
+    - name: Azure Cosmos DB migration for MongoDB extension
+      items:
+      - name: Overview
+        href: extensions/database-migration-for-mongo-extension.md
+      - name: FAQ
+        href: extensions/database-migration-for-mongodb-extension-faq.md
     - name: Database Schema Conversion Toolkit
       href: extensions/dsct/toc.yml
     - name: Data Virtualization extension
       href: extensions/data-virtualization-extension.md
     - name: Extension for Oracle
       href: extensions/extension-for-oracle.md
+    - name: GitHub Copilot extension
+      href: extensions/github-copilot-extension.md
     - name: Kusto extension
       href: extensions/kusto-extension.md
     - name: Machine Learning extension
@@ -139,6 +156,8 @@
       href: extensions/jupyter-book-extension.md
     - name: Wizard extension
       href: extensions/wizard-extension.md
+  - name: Command line interface
+    href: command-line.md
   - name: Integrated terminal (PowerShell, Bash)
     href: integrated-terminal.md
   - name: Preview features
@@ -194,7 +213,7 @@
   - name: Code snippets
     href: code-snippets.md
   - name: Explore Azure SQL resources
-    href: azure-resource-explorer.md
+    href: azure-view.md
   - name: Keyboard shortcuts
     href: keyboard-shortcuts.md
   - name: Usage data collection

@@ -1,17 +1,16 @@
 ---
 title: Add Database Reference Dialog Box
 description: Learn about database references and how to use them. View the procedures you can perform in the Add Database Reference dialog box.
+author: markingmyname
+ms.author: maghan
+ms.date: 02/09/2017
 ms.service: sql
 ms.subservice: ssdt
 ms.topic: conceptual
 f1_keywords:
-  - sql.data.tools.adddatabasereference.dialog
-  - sql.data.tools.newdatabase.dialog
-  - sql.data.tools.criticalerror.dialog
-author: markingmyname
-ms.author: maghan
-ms.custom: seo-lt-2019
-ms.date: 02/09/2017
+  - "sql.data.tools.adddatabasereference.dialog"
+  - "sql.data.tools.newdatabase.dialog"
+  - "sql.data.tools.criticalerror.dialog"
 ---
 
 # Add Database Reference Dialog Box
@@ -67,7 +66,7 @@ The following are common procedures:
   
 ### To create a reference to a database on the same server  
   
-1.  In Solution Explorer, right click **References** and select **Add Database Reference**.  
+1.  In Solution Explorer, right-click **References** and select **Add Database Reference**.  
   
 2.  In the **Add Database Reference** dialog box, specify the **Database Location** as **Different database, same server**.  
   
@@ -81,7 +80,7 @@ The following are common procedures:
   
 ### To create a reference to a database on another server  
   
-1.  In Solution Explorer, right click **References** and select **Add Database Reference**.  
+1.  In Solution Explorer, right-click **References** and select **Add Database Reference**.  
   
 2.  In the **Add Database Reference** dialog box, specify the **Database Location** as **Different database, different server**.  
   
@@ -97,7 +96,7 @@ The following are common procedures:
   
 ### To create a composite project  
   
-1.  In Solution Explorer, right click **References** and select **Add Database Reference**.  
+1.  In Solution Explorer, right-click **References** and select **Add Database Reference**.  
   
 2.  Select the source of the database you are referencing (a project in the solution or a DACPAC).  
   
@@ -109,7 +108,7 @@ The following are common procedures:
   
 When you publish this project, you can deploy composite projects in the same solution into a single target:  
   
-1.  Right click the project name in **Solution Explorer** and select **Publish** to display the **Publish Database** dialog box.  
+1.  Right-click the project name in **Solution Explorer** and select **Publish** to display the **Publish Database** dialog box.  
   
 2.  In the **Publish Database** dialog box, click **Advanced**.  
   

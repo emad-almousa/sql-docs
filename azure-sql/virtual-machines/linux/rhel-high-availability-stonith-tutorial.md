@@ -5,6 +5,8 @@ author: VanMSFT
 ms.author: vanto
 ms.date: 06/25/2020
 ms.service: virtual-machines-sql
+ms.subservice: hadr
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
@@ -29,7 +31,7 @@ This tutorial will use the Azure CLI to deploy resources in Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/../azure-sql/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -335,7 +337,7 @@ In this section, we will enable and start the pcsd service, and then configure t
 
 ### Enable and start pcsd service and Pacemaker
 
-1. Run the commands on all nodes. These commands allow the nodes to rejoin the cluster after reboot.
+1. Run the commands on all nodes. These commands allow the nodes to rejoin the cluster after each node restarts.
 
     ```bash
     sudo systemctl enable pcsd

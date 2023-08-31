@@ -29,7 +29,7 @@ dev_langs:
 
 Creates a new queue in a database. Queues store messages. When a message arrives for a service, [!INCLUDE[ssSB](../../includes/sssb-md.md)] puts the message on the queue associated with the service.
 
-![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -207,14 +207,14 @@ CREATE QUEUE ExpenseQueue
 
 ### E. Create a queue with multiple parameters
 
-The following example creates a queue on the `DEFAULT` filegroup. The queue is unavailable. Messages are retained in the queue until the conversation that they belong to ends. When the queue is made available through `ALTER QUEUE`, the queue starts the stored procedure `AdventureWorks2012.dbo.expense_procedure` to process messages. The stored procedure executes as the user who ran the `CREATE QUEUE` statement. The queue starts a maximum of `10` instances of the stored procedure.
+The following example creates a queue on the `DEFAULT` filegroup. The queue is unavailable. Messages are retained in the queue until the conversation that they belong to ends. When the queue is made available through `ALTER QUEUE`, the queue starts the stored procedure `AdventureWorks2022.dbo.expense_procedure` to process messages. The stored procedure executes as the user who ran the `CREATE QUEUE` statement. The queue starts a maximum of `10` instances of the stored procedure.
 
 ```sql
 CREATE QUEUE ExpenseQueue
     WITH STATUS = OFF
       , RETENTION = ON
       , ACTIVATION (
-          PROCEDURE_NAME = AdventureWorks2012.dbo.expense_procedure
+          PROCEDURE_NAME = AdventureWorks2022.dbo.expense_procedure
           , MAX_QUEUE_READERS = 10
           , EXECUTE AS SELF )
     ON [DEFAULT];

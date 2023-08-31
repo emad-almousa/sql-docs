@@ -1,24 +1,24 @@
 ---
-description: "Troubleshoot accelerated database recovery"
 title: "Troubleshoot accelerated database recovery"
+description: "Troubleshoot accelerated database recovery"
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: kfarlee
 ms.date: 07/14/2022
 ms.service: sql
 ms.subservice: backup-restore
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "accelerated database recovery [SQL Server], recovery-only"
   - "database recovery [SQL Server]"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: kfarlee
 monikerRange: ">=sql-server-ver15||>=sql-server-linux-ver15||=azuresqldb-mi-current||=azuresqldb-current"
 ---
 
 # Troubleshoot accelerated database recovery
 
-[!INCLUDE [SQL Server 2019, ASDB, ASDBMI ](../includes/applies-to-version/sqlserver2019-asdb-asdbmi.md)]
+[!INCLUDE [SQL Server 2019, ASDB, ASDBMI](../includes/applies-to-version/sqlserver2019-asdb-asdbmi.md)]
 
-This article helps administrators diagnose issues with accelerated database recovery (ADR) in [!INCLUDE[sssql19-md](../includes/sssql19-md.md)] and later, [!INCLUDE[ssazuremi_md](../includes/ssazuremi_md.md)], and [!INCLUDE[ssSDSfull](../includes/sssdsfull-md.md)].
+This article helps administrators diagnose issues with accelerated database recovery (ADR) in [!INCLUDE[sssql19-md](../includes/sssql19-md.md)] and later, [!INCLUDE[ssazuremi_md](../includes/ssazuremi_md.md)], and [!INCLUDE [ssazure-sqldb](../includes/ssazure-sqldb.md)].
 
 ## Examine the persistent version store (PVS)
 

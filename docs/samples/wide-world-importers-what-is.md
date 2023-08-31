@@ -1,17 +1,16 @@
 ---
-title: "Wide World Importers - Sample database for SQL | Microsoft Docs"
+title: "Wide World Importers - Sample database for SQL"
 description: Learn how the WideWorldImporters sample databases support the workflows of the fictitious WideWorldImporters company.
-ms.service: sql
-ms.subservice: samples
-ms.custom: ""
-ms.date: "04/04/2018"
-ms.reviewer: ""
-ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
+ms.date: "04/04/2018"
+ms.service: sql
+ms.subservice: samples
+ms.topic: conceptual
 ---
 # Wide World Importers sample databases for Microsoft SQL
-[!INCLUDE [SQL Server Azure SQL Database](../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL MI FabricDW](../includes/applies-to-version/sql-asdb-asdbmi-fabricdw.md)]
+
 This is an overview of the fictitious company Wide World Importers and the workflows that are addressed in the WideWorldImporters sample databases for SQL Server and Azure SQL Database.  
 
 Wide World Importers (WWI) is a wholesale novelty goods importer and distributor operating from the San Francisco bay area.

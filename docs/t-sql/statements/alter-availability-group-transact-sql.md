@@ -26,7 +26,7 @@ dev_langs:
 
   Alters an existing Always On availability group in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Most ALTER AVAILABILITY GROUP arguments are supported only the current primary replica. However the JOIN, FAILOVER, and FORCE_FAILOVER_ALLOW_DATA_LOSS arguments are supported only on secondary replicas.  
   
- ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ## Syntax  
   
@@ -224,6 +224,13 @@ Specifies whether distributed transactions are enabled for this Availability Gro
  
 > [!NOTE]
 > Support for changing the DTC_SUPPORT setting of an Availability Group was introduced in [!INCLUDE[sssql16-md](../../includes/sssql16-md.md)] Service Pack 2. This option cannot be used with earlier versions. To change this setting in earlier versions of [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], you must DROP and CREATE the availability group again.
+
+>[!IMPORTANT]
+>DTC has a limit of 32 enlistments per distributed transaction. Because each database within an availability group enlists with the DTC separately, if your transaction involves more than 32 databases, you may get the following error when [!INCLUDE[SQLServer](../../includes/ssnoversion-md.md)] attempts to enlist the 33rd database:
+>
+>`Enlist operation failed: 0x8004d101(XACT_E_TOOMANY_ENLISTMENTS). SQL Server could not register with Microsoft Distributed Transaction Coordinator (MS DTC) as a resource manager for this transaction. The transaction may have been stopped by the client or the resource manager.`
+
+For more detail on distributed transactions in [!INCLUDE[SQLServer](../../includes/ssnoversion-md.md)], see [Distributed transactions](../../database-engine/availability-groups/windows/configure-availability-group-for-distributed-transactions.md#distTran)
  
 REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT
 
@@ -259,7 +266,7 @@ Beginning with [!INCLUDE [sssql22-md](../../includes/sssql22-md.md)], you can se
  For information about the recommended follow up after removing an availability database from an availability group, see [Remove a Primary Database from an Availability Group &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/remove-a-primary-database-from-an-availability-group-sql-server.md).  
   
  ADD REPLICA ON  
- Specifies from one to eight SQL server instances to host secondary replicas in an availability group.  Each replica is specified by its server instance address followed by a WITH (...) clause.  
+ Specifies from one to eight SQL Server instances to host secondary replicas in an availability group.  Each replica is specified by its server instance address followed by a WITH (...) clause.  
   
  Supported only on the primary replica.  
   

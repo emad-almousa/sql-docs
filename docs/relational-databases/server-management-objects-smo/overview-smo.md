@@ -1,20 +1,15 @@
 ---
+title: "Overview (SMO)"
 description: "Overview (SMO)"
-title: "Overview (SMO) | Microsoft Docs"
-ms.custom: ""
-ms.date: "08/06/2017"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: 
-
-ms.topic: "reference"
-ms.assetid: e988f9e8-6801-41d1-8069-726f487244d5
 author: "markingmyname"
 ms.author: "maghan"
+ms.date: "08/06/2017"
+ms.service: sql
+ms.topic: "reference"
 monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Overview (SMO)
-[!INCLUDE [SQL Server ASDB, ASDBMI, ASDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
+[!INCLUDE [SQL Server ASDB, ASDBMI, ASDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
 
   [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Management Objects (SMO) are objects designed for programmatic management of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. You can use SMO to build customized [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] management applications. Although [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] is a powerful and extensive application for managing [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], there might be times when you would be better served by an SMO application.  
   
@@ -125,7 +120,7 @@ monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sq
  An example of an URN for a database is  
   
 ```  
-/Server/Database[@Name='Adventureworks2012']  
+/Server/Database[@Name='AdventureWorks2022']  
 ```  
   
  The URN of an object can be retrieved by referencing its URN property. The Scripter object also uses URNs as parameters that pass object references to the method of the **Scripter** object. Additionally, an URN can be specified for the **GetSmoObject** method of the **Server** object. This is used to create an instance of the SMO object.  

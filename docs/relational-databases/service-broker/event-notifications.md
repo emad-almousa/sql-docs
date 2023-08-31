@@ -1,18 +1,14 @@
 ---
+title: "Event Notifications"
 description: "Event Notifications"
-title: "Event Notifications | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/14/2017"
-ms.service: sql
-ms.reviewer: ""
-ms.subservice: 
-ms.topic: conceptual
-helpviewer_keywords: 
-  - "event notifications, about"
-  - "events [SQL Server], notifications"
-ms.assetid: 4da73ca1-6c06-4e96-8ab8-2ecba30b6c86
 author: "MashaMSFT"
 ms.author: "mathoma"
+ms.date: "03/14/2017"
+ms.service: sql
+ms.topic: conceptual
+helpviewer_keywords:
+  - "event notifications, about"
+  - "events [SQL Server], notifications"
 ---
 # Event Notifications
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -34,7 +30,7 @@ ms.author: "mathoma"
  Event data can be used by applications that are running together with [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] to track progress and make decisions. For example, the following event notification sends a notice to a certain service every time an `ALTER TABLE` statement is issued in the [!INCLUDE[ssSampleDBobject](../../includes/sssampledbobject-md.md)] sample database.  
   
 ```  
-USE AdventureWorks2012;  
+USE AdventureWorks2022;  
 GO  
 CREATE EVENT NOTIFICATION NotifyALTER_T1  
 ON DATABASE  

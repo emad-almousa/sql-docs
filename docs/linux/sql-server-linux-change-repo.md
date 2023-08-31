@@ -1,9 +1,8 @@
 ---
 title: Configure repositories for installing and upgrading SQL Server on Linux
 description: Check and configure source repositories for SQL Server on Linux. The source repository affects the version of SQL Server that is applied during installation and upgrade.
-author: VanMSFT
-ms.author: vanto
-ms.reviewer:
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: 08/22/2022
 ms.service: sql
 ms.subservice: linux
@@ -199,7 +198,7 @@ Configure the new repository to use for SQL Server installations and upgrades.
 1. Import the public repository GPG keys.
 
    ```bash
-   sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+   curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
    ```
 
 1. Use one of the following commands to configure the repository of your choice.

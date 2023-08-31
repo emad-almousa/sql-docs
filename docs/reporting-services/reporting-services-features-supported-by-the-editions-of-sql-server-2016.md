@@ -1,12 +1,13 @@
 ---
-title: Features supported by different editions - SQL Server Reporting Services | Microsoft Docs
-description: Learn about SQL Server Reporting Services (SSRS) features supported by the different editions of SQL Server. 
-ms.service: reporting-services
-ms.subservice: reporting-services
-ms.topic: conceptual
+title: Features supported by different editions - SQL Server Reporting Services
+description: Learn about SQL Server Reporting Services (SSRS) features supported by the different editions of SQL Server.
 author: maggiesMSFT
 ms.author: maggies
 ms.date: 10/12/2022
+ms.service: reporting-services
+ms.subservice: reporting-services
+ms.topic: conceptual
+ms.custom: updatefrequency5
 ---
 
 # SQL Server Reporting Services features supported by editions

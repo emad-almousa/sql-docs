@@ -5,7 +5,7 @@ description: Learn how to use the link feature in SQL Server Management Studio (
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma, danil
-ms.date: 11/16/2022
+ms.date: 04/26/2023
 ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.topic: how-to
@@ -20,15 +20,15 @@ This article teaches you how to fail over a database from SQL Server to Azure SQ
 Failing over your database from SQL Server 2019 or earlier to SQL Managed Instance breaks the link between the two databases. It stops replication and leaves both databases in an independent state, ready for individual read/write workloads. Failing over from SQL Server 2022 does not break the link, and fail back to SQL Server 2022 is supported - this is currently in preview. 
 
 > [!NOTE]
-> - Some functionality of the link is generally available, while some is currently in preview. Review the [requirements](managed-instance-link-feature-overview.md#requirements) to learn more. 
-> -  You can also use a [T-SQL and PowerShell](managed-instance-link-use-scripts-to-failover-database.md) to failover a database with the link. 
+> - Some functionality of the link is generally available, while some is currently in preview. Review the [prerequisites](managed-instance-link-feature-overview.md#prerequisites) to learn more. 
+> -  You can also use [T-SQL and PowerShell/Azure CLI](managed-instance-link-use-scripts-to-failover-database.md) to failover a database with the link. 
 
 ## Prerequisites 
 
 To fail over your databases to SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [Supported version of SQL Server](managed-instance-link-feature-overview.md#requirements) with required service update installed.
+- [Supported version of SQL Server](managed-instance-link-feature-overview.md#prerequisites) with required service update installed.
 - Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have it. 
 - [SQL Server Management Studio v19.0 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - [An environment that's prepared for replication](managed-instance-link-preparation.md).
@@ -50,7 +50,6 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-introduction.png" alt-text="Screenshot that shows the Introduction page.":::
 
-
 3. On the **Log in to Azure** page, select **Sign-in** to provide your credentials and sign in to your Azure account. Select the subscription that's hosting SQL Managed Instance from the dropdown list, and then select **Next**. 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot that shows the page for signing in to Azure.":::
@@ -61,10 +60,12 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
 1. On the **Clean-up (optional)** page, choose to drop the availability group if you created it solely for the purpose of migrating your database to Azure and you no longer need it. If you want to keep the availability group, leave the boxes cleared. Select **Next**. 
 
-
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-cleanup-optional.png" alt-text="Screenshot that shows the page for the option of deleting an availability group.":::
 
-1. On the **Summary** page, review the actions that will be performed for your failover. Optionally, select **Script** to create a script that you can run at a later time. When you're ready to proceed with the failover, select **Finish**. 
+1. On the **Summary** page, review the actions that will be performed for your failover. When you're ready to fail over your database to SQL Managed Instance, select **Finish**.
+
+    > [!TIP]
+    > Optionally, select **Script** to create a script with the correct parameters that you can run again in the future to fail over your database. 
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-summary.png" alt-text="Screenshot that shows the Summary page.":::
 
